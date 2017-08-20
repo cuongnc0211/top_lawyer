@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817044316) do
+ActiveRecord::Schema.define(version: 20170820162657) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -32,16 +32,47 @@ ActiveRecord::Schema.define(version: 20170817044316) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
-  create_table "lawyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "account_id"
-    t.integer "point"
-    t.boolean "approve"
-    t.index ["account_id"], name: "index_lawyers_on_account_id"
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "accounts_id"
+    t.string "title"
+    t.text "content"
+    t.bigint "categories_id"
+    t.integer "status"
+    t.integer "total_vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accounts_id"], name: "index_articles_on_accounts_id"
+    t.index ["categories_id"], name: "index_articles_on_categories_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "account_id"
-    t.index ["account_id"], name: "index_users_on_account_id"
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "accounts_id"
+    t.integer "point"
+    t.string "lawyer_id"
+    t.string "address"
+    t.string "phone_number"
+    t.boolean "is_active"
+    t.boolean "is_manager"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accounts_id"], name: "index_lawyer_profiles_on_accounts_id"
+  end
+
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "accounts_id"
+    t.string "title"
+    t.text "content"
+    t.bigint "categories_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["accounts_id"], name: "index_questions_on_accounts_id"
+    t.index ["categories_id"], name: "index_questions_on_categories_id"
   end
 
 end
