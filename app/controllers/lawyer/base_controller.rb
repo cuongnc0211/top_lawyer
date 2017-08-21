@@ -1,4 +1,4 @@
-class BaseController < ApplicationController
+class Lawyer::BaseController < ApplicationController
   before_action :authenticate_user!, :authenticate_lawyer
 
   private
