@@ -1,4 +1,11 @@
 en:
+  dictionary:
+    submit: &submit Submit
   top_pages:
     index:
       top_page: "This is top page"
+  user:
+    accounts:
+      edit:
+        edit_profile: Edit Profile
+        submit: *submit
