@@ -1,5 +1,5 @@
 class Lawyer::BaseController < ApplicationController
-  before_action :authenticate_user!, :authenticate_lawyer
+  before_action :authenticate_account!, :authenticate_lawyer
 
   private
   def authenticate_lawyer

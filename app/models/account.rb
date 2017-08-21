@@ -1,4 +1,5 @@
 class Account < ApplicationRecord
+  mount_uploader :avatar, ImageUploader
 
   has_one :lawyer_profile
   has_many :questions
@@ -9,4 +10,6 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:Admin, :User, :Lawyer]
+
+  ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
 end

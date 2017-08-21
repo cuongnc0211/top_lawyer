@@ -1,0 +1,5 @@
+en:
+  user:
+    accounts:
+      edit:
+        access_denies: Access Denies
