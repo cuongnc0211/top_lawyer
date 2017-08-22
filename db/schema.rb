@@ -33,16 +33,16 @@ ActiveRecord::Schema.define(version: 20170820162657) do
   end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "accounts_id"
+    t.bigint "account_id"
     t.string "title"
     t.text "content"
-    t.bigint "categories_id"
+    t.bigint "category_id"
     t.integer "status"
     t.integer "total_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["accounts_id"], name: "index_articles_on_accounts_id"
-    t.index ["categories_id"], name: "index_articles_on_categories_id"
+    t.index ["account_id"], name: "index_articles_on_account_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170820162657) do
   end
 
   create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "accounts_id"
+    t.bigint "account_id"
     t.integer "point"
     t.string "lawyer_id"
     t.string "address"
@@ -61,18 +61,18 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.boolean "is_manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["accounts_id"], name: "index_lawyer_profiles_on_accounts_id"
+    t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "accounts_id"
+    t.bigint "account_id"
     t.string "title"
     t.text "content"
-    t.bigint "categories_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["accounts_id"], name: "index_questions_on_accounts_id"
-    t.index ["categories_id"], name: "index_questions_on_categories_id"
+    t.index ["account_id"], name: "index_questions_on_account_id"
+    t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
 end
