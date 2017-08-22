@@ -9,7 +9,7 @@ class User::AccountsController < User::BaseController
       flash[:success] = t ".updated"
       redirect_to root_path
     else
-      flash[:error] = t ".fail"
+      flash[:error] = t ".update_fail"
       render :edit
     end
   end
