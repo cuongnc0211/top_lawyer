@@ -1,1 +1,4 @@
-<h1><%= t ".top_page" %></h1>
+<div>
+  <h1><%= t ".top_page" %></h1>
+  <%= render("articles", articles: @articles)if @articles.present? %>
+</div>

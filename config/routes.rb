@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
 
   namespace :lawyer do
+    resources :lawyer_profiles, except: [:new, :create, :delete]
   end
 end

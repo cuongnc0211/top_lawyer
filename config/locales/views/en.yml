@@ -9,3 +9,8 @@ en:
       edit:
         edit_profile: Edit Profile
         submit: *submit
+  lawyer:
+    lawyer_profiles:
+      edit:
+        edit_lawyer_profile: Edit Lawyer Profile
+        submit: *submit

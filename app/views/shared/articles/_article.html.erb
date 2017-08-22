@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= article.account.name %>
+  </div>
+  <div class="col-md-9">
+    <h4><%= article.title %></h4>
+    <div>
+      <%= simple_format(article.content.truncate Settings.article.top_page.truncate) %>
+    </div>
+  </div>
+</div>
