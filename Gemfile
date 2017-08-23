@@ -79,4 +79,4 @@ gem "mysql2"
 gem "carrierwave"
 gem "mini_magick"
 gem "rmagick"
-
+gem "faker"

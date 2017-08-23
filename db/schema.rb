@@ -32,7 +32,11 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+=======
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+>>>>>>> 0f51fdf593c4a59d7ffeb3138afb5c34021940c6
     t.bigint "account_id"
     t.string "title"
     t.text "content"
@@ -51,7 +55,11 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+=======
+  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+>>>>>>> 0f51fdf593c4a59d7ffeb3138afb5c34021940c6
     t.bigint "account_id"
     t.integer "point"
     t.string "lawyer_id"
@@ -64,7 +72,11 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
+<<<<<<< HEAD
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+=======
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+>>>>>>> 0f51fdf593c4a59d7ffeb3138afb5c34021940c6
     t.bigint "account_id"
     t.string "title"
     t.text "content"
