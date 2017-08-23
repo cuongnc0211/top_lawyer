@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :accounts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top_pages#index"
@@ -8,8 +9,10 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :accounts, except: [:new, :create, :delete]
+    resources :articles
   end
 
   namespace :lawyer do
+
   end
 end
