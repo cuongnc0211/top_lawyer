@@ -9,3 +9,11 @@ en:
       edit:
         edit_profile: Edit Profile
         submit: *submit
+  user:
+    questions:
+      new:
+        submit: *submit
+      edit:
+        edit_question: Edit Question
+        submit: *submit
+

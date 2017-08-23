@@ -1,7 +1,7 @@
 class CreateLawyerProfile < ActiveRecord::Migration[5.1]
   def change
     create_table :lawyer_profiles do |t|
-      t.references :accounts
+      t.references :account
       t.integer :point
       t.string :lawyer_id
       t.string :address
