@@ -1,0 +1,8 @@
+article:
+  top_page:
+    per: 20
+    truncate: 200
+question:
+  top_page:
+    per: 20
+    truncate: 200

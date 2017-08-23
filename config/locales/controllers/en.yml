@@ -1,5 +1,16 @@
 en:
+  dictionary:
+    updated: &updated Update Successfully
+    update_fail: &update_fail Update fail
   user:
     accounts:
       edit:
         access_denies: Access Denies
+        updated: *updated
+        update_fail: *update_fail
+  lawyer:
+    lawyer_profiles:
+      edit:
+        access_denies: Access Denies
+        updated: *updated
+        update_fail: *update_fail

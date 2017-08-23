@@ -9,3 +9,15 @@ en:
       edit:
         edit_profile: Edit Profile
         submit: *submit
+    questions:
+      new:
+        submit: *submit
+      edit:
+        edit_question: Edit Question
+        submit: *submit
+  lawyer:
+    lawyer_profiles:
+      edit:
+        edit_lawyer_profile: Edit Lawyer Profile
+        submit: *submit
+
