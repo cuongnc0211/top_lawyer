@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 <h1>Question</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
+      <th><%= t ".title" %></th>
+      <th><%= t ".content" %></th>    
+      <th><%= t ".action" %></th>
     </tr>
   </thead>
   <tbody>
-    <% @questions.each do |q| %>
-      <tr>
-        <td><%= q.title %></td>
-        <td><%= q.content %></td>      
-      </tr>
-    <% end %>
+    <%= render partial: "question", collection: @questions, as: :question %>
   </tbody>
 </table>
+<%= link_to t(".new"), new_user_question_path, class: "btn btn-success" %>
 <br>
