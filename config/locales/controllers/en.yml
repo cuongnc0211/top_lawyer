@@ -8,6 +8,13 @@ en:
         access_denies: Access Denies
         updated: *updated
         update_fail: *update_fail
+    questions:
+      create: 
+        updated: Your question was created successfully
+        fail: Please correct the form
+      destroy:
+        updated: Your question was created successfully
+        fail: Please correct the form
   lawyer:
     lawyer_profiles:
       edit:

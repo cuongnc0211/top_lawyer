@@ -15,6 +15,13 @@ en:
       edit:
         edit_question: Edit Question
         submit: *submit
+      index:
+        content: Content
+        title: Title
+        action: Action
+        new: Create New Question
+      question:
+        confirm: Are you sure?
   lawyer:
     lawyer_profiles:
       edit:
