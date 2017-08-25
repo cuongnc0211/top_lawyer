@@ -1,10 +1,19 @@
 <p id="notice"><%= notice %></p>
-<h1>Question</h1>
-<table>
+<h1><%= t ".questions" %></h1>
+
+
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
+      <td><%= link_to t(".new"), new_user_article_path %></td>
+    </tr>
+    <tr>
+      <th><%=t ".title" %></th>
+      <th><%=t ".content" %></th>
+      <th><%=t ".category_name" %></th>
+      <th><%=t ".status" %></th>
+      <th><%=t ".total_vote" %></th>
+      <th><%=t ".action" %></th>
     </tr>
   </thead>
   <tbody>
@@ -12,13 +21,16 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
-        <td><%= article.category_id %></td>
+        <td><%= article.category_name %></td>
         <td><%= article.status %></td>
         <td><%= article.total_vote %></td>
-        <td><%= link_to 'Edit', edit_user_article_path(article) %></td>
-
+        <td>
+          <%= link_to t(".edit"), edit_user_article_path(article) %>
+          <%= link_to t(".destroy"), user_article_path(article) , method: :delete %>
+        </td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 <br>
