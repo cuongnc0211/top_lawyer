@@ -1,5 +1,5 @@
 class User::ArticlesController < User::BaseController
-  before_action :article, only: [:edit, :update]
+  before_action :article, only: [:edit, :update, :destroy]
 
   def index
     @articles = current_account.articles
@@ -18,10 +18,11 @@ class User::ArticlesController < User::BaseController
     @categories = Category.all
     @article = current_account.articles.new(article_params)
     if @article.save
-      redirect_to  new_user_article_path, notice: "Your article was created successfully"
+      redirect_to user_articles_path
+      flash[:success] = t ".new"
     else
       puts @article.errors.full_messages
-      flash.now[:alert] = "Please correct the form"
+      flash.now[:alert] = t "Please correct the form"
       render :new
     end
   end
@@ -37,13 +38,18 @@ class User::ArticlesController < User::BaseController
     end
   end
 
+  def destroy
+    @article.destroy
+    redirect_to user_articles_path
+  end
+
   private
     def article_params
       params.require(:article).permit Article::ARTICLE_ATTRIBUTES
     end
 
   def article
-      @article = Article.find params[:id]
+      @article = current_account.articles.find params[:id]
       unless current_account == @article.account
         flash[:error] = t ".access_denies"
         redirect_to root_path
