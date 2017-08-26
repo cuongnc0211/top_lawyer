@@ -2,15 +2,16 @@
 <html>
   <%= render "layouts/shared/header" %>
   <body>
-    <%= render "layouts/shared/navigation_bar" %>
     <div class="row">
-      <%= render "layouts/shared/flash" %>
+      <div class="col-md-10 col-md-offset-1">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <%= yield %>
       </div>
     </div>
-    <%= render "layouts/shared/footer" %>
   </body>
 </html>
