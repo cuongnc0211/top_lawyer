@@ -1,3 +1,9 @@
+flash:
+  notice: "alert-info"
+  error: "alert-error"
+  alert: "alert-warning"
+  success: "alert-success"
+  failed: "alert-danger"
 article:
   top_page:
     per: 20

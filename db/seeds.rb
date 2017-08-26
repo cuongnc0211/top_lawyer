@@ -31,7 +31,7 @@ end
 
 puts "create_category"
 13.times do |n|
-  Category.create name: Faker::Lorem.words
+  Category.create name: Faker::Lorem.word
 end
 
 puts "create_question"

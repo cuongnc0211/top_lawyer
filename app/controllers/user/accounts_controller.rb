@@ -1,6 +1,9 @@
 class User::AccountsController < User::BaseController
   before_action :account, only: [:edit, :update]
 
+  def index
+  end
+
   def edit
   end
 
