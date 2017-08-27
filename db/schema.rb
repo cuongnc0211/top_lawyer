@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820162657) do
+ActiveRecord::Schema.define(version: 20170827092823) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
@@ -51,6 +51,32 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "lawyer_profile_id"
+    t.string "degree"
+    t.string "school"
+    t.date "start_time"
+    t.date "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
+  end
+
+  create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "phone_number"
+    t.string "fax"
+    t.string "email"
+    t.string "address"
+    t.text "introduction"
+    t.time "working_start_time"
+    t.time "working_end_time"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["province_id"], name: "index_law_firms_on_province_id"
+  end
+
   create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.integer "point"
@@ -61,7 +87,19 @@ ActiveRecord::Schema.define(version: 20170820162657) do
     t.boolean "is_manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fax_number"
+    t.text "introduction"
+    t.integer "reputation"
+    t.datetime "advertise_start_time"
+    t.datetime "advertise_end_time"
+    t.integer "law_firm_id"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
+  end
+
+  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
