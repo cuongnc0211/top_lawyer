@@ -4,14 +4,20 @@ Rails.application.routes.draw do
   root "top_pages#index"
 
   namespace :admin do
+    root "home_page#index"
+    resources :lawyer_profiles, only: [:index, :update]
+    resources :law_firms, only: [:index, :update]
   end
 
   namespace :user do
+    root "questions#index"
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
   end
 
   namespace :lawyer do
+    root "user/accounts#index"
     resources :lawyer_profiles, except: [:new, :create, :delete]
+    resources :accounts, except: [:new, :create, :delete]
   end
 end

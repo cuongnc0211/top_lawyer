@@ -1,5 +1,5 @@
 class User::QuestionsController < User::BaseController
-  before_action :question, only: [:edit, :update]
+  before_action :question, only: [:edit, :update, :destroy]
 
   def new
     @question = Question.new
@@ -17,9 +17,10 @@ class User::QuestionsController < User::BaseController
   def create
     @question = current_account.questions.new(question_params)
     if @question.save
-      redirect_to  new_user_question_path, notice: "Your question was created successfully"
+      redirect_to  user_questions_path
+      flash[:success] = t ".updated"
     else
-      flash.now[:alert] = "Please correct the form"
+      flash.now[:alert] = t ".fail"
       render :new
     end
   end
@@ -32,6 +33,16 @@ class User::QuestionsController < User::BaseController
     else
       flash[:error] = t ".fail"
       render :edit
+    end
+  end
+
+  def destroy
+    if @question.destroy
+      redirect_to user_questions_path
+      flash[:success] = t ".updated"
+    else
+      redirect_to user_questions_path 
+      flash[:error] = t ".fail"
     end
   end
 

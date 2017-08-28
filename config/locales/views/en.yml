@@ -1,6 +1,13 @@
 en:
   dictionary:
     submit: &submit Submit
+    active: &active Active
+    block: &block Block
+    name: &name Name
+    email: &email Email
+    is_active: &is_active Is Active
+    action: &action Action
+    address: &address Address
   top_pages:
     index:
       top_page: "This is top page"
@@ -15,8 +22,34 @@ en:
       edit:
         edit_question: Edit Question
         submit: *submit
+      index:
+        content: Content
+        title: Title
+        action: Action
+        new: Create New Question
+      question:
+        confirm: Are you sure?
   lawyer:
     lawyer_profiles:
       edit:
         edit_lawyer_profile: Edit Lawyer Profile
         submit: *submit
+  admin:
+    lawyer_profiles:
+      index:
+        name: *name
+        email: *email
+        is_active: *is_active
+        action: *action
+      lawyer_profile:
+        active: *active
+        block: *block
+    law_firms:
+      law_firm:
+        active: *active
+        block: *block
+      index:
+        name: *name
+        address: *address
+        is_active: *is_active
+        action: *action

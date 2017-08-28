@@ -1,3 +1,9 @@
+flash:
+  notice: "alert-info"
+  error: "alert-error"
+  alert: "alert-warning"
+  success: "alert-success"
+  failed: "alert-danger"
 article:
   top_page:
     per: 20
@@ -6,3 +12,5 @@ question:
   top_page:
     per: 20
     truncate: 200
+paginate:
+  default: 10

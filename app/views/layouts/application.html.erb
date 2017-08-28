@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TopLawyer</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+  <%= render "layouts/shared/header" %>
   <body>
+    <%= render "layouts/shared/navigation_bar" %>
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+      <%= render "layouts/shared/flash" %>
     </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <%= yield %>
       </div>
     </div>
+    <%= render "layouts/shared/footer" %>
   </body>
 </html>

@@ -1,7 +1,10 @@
-<h1>New Question</h1>
-<%= form_for [:user, @question] do |f| %>
-  <%= render "form", f: f %>
-  <div class="form-group">
-    <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
-  </div>
-<% end %>
+<div class="col-md-9">
+  <h3>New Question</h3>
+  <%= form_for [:user, @question] do |f| %>
+    <%= render "form", f: f %>
+    <div class="form-group">
+      <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-3"></div>

@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    shared:
+      navigation_bar:
+        top_lawyer: TopLawyer

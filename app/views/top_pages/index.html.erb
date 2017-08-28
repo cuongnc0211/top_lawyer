@@ -1,4 +1,7 @@
-<div>
-  <h1><%= t ".top_page" %></h1>
-  <%= render("articles", articles: @articles)if @articles.present? %>
+<div class="row">
+  <div class="col-md-9 pd-10">
+    <%= render("articles", articles: @articles)if @articles.present? %>
+  </div>
+  <div class="col-md-3 pd-10">
+  </div>
 </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/shared/header" %>
+  <body>
+    <%= render "layouts/shared/navigation_bar" %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= render "layouts/shared/flash" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-9 pd-10">
+            <%= render "layouts/users/user_navigator" %>
+          </div>
+        </div>
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render "layouts/shared/footer" %>
+  </body>
+</html>
