@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
+    resources :articles
   end
 
   namespace :lawyer do

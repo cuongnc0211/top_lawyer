@@ -22,6 +22,26 @@ en:
         new: Create New Question
       question:
         confirm: Are you sure?
+    articles:
+      edit:
+        edit: Edit
+        edit_article: Edit Article
+      index:
+        article: Article
+        new: New
+        title: Title
+        content: Content
+        category_name: Category Name
+        status: Status
+        total_vote: Total vote
+        action: Action
+        edit: Edit
+        destroy: destroy
+      new:
+        create_article: Create Article
+        draft: Draft
+        publish: Publish
+        create: Create
   lawyer:
     lawyer_profiles:
       edit:
