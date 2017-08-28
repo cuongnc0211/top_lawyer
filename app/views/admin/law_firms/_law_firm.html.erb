@@ -1,0 +1,18 @@
+<tr id="<%= "lawyer-#{law_firm.id}" %>">
+  <td><%= law_firm.email %></td>
+  <td><%= law_firm.address %></td>
+  <td><%= law_firm.is_active %></td>
+  <td>
+    <% if law_firm.is_active %>
+      <%= form_for [:admin, law_firm] do |f| %>
+        <%= f.hidden_field :is_active, value: false %>
+        <%= f.submit t(".block"), class: "btn btn-danger" %>
+      <% end %>
+    <% else %>
+      <%= form_for [:admin, law_firm] do |f| %>
+        <%= f.hidden_field :is_active, value: true %>
+        <%= f.submit t(".active"), class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

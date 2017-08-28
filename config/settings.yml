@@ -12,3 +12,5 @@ question:
   top_page:
     per: 20
     truncate: 200
+paginate:
+  default: 10

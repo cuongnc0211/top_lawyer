@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root "top_pages#index"
 
   namespace :admin do
+    root "home_page#index"
+    resources :lawyer_profiles, only: [:index, :update]
+    resources :law_firms, only: [:index, :update]
   end
 
   namespace :user do

@@ -1,5 +1,6 @@
 class Admin::BaseController < ApplicationController
   before_action :authenticate_account!, :authenticate_admin
+  layout "admin"
 
   private
   def authenticate_admin

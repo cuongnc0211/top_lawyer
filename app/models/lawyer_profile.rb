@@ -4,4 +4,6 @@ class LawyerProfile < ApplicationRecord
   has_many :educations
 
   LAWYER_PROFILE_ATTRIBUTES = [:address, :phone_number, :lawyer_id]
+
+  delegate :name, :email, to: :account, prefix: true, allow_nil: true
 end

@@ -1,0 +1,17 @@
+<div>  
+  <h3><%= t ".lawyer_profile" %></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".name" %></th>
+        <th><%= t ".email" %></th>    
+        <th><%= t ".is_active" %></th>    
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @lawyer_profiles %>
+    </tbody>
+  </table>
+  <%= paginate @lawyer_profiles %>
+</div>
