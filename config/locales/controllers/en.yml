@@ -21,3 +21,11 @@ en:
         access_denies: Access Denies
         updated: *updated
         update_fail: *update_fail
+  admin:
+    lawyer_profiles:
+      updated: *updated
+      update_fail: *update_fail
+    law_firms:
+      updated: *updated
+      update_fail: *update_fail
+
