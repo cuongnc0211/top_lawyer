@@ -4,12 +4,12 @@
     <thead>
       <tr>
         <th><%= t ".name" %></th>
-        <th><%= t ".content" %></th>    
+        <th><%= t ".content" %></th>
         <th><%= t ".action" %></th>
       </tr>
     </thead>
     <tbody>
-      <%= render partial: "answer", collection: @questions, as: :question %>
+      <%= render partial: "question", collection: @questions, as: :question %>
     </tbody>
   </table>
 </div>

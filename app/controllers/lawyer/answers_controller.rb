@@ -5,7 +5,7 @@ class Lawyer::AnswersController < Lawyer::BaseController
   end
 
   def create
-    @answer = Answer.new(lawyer_answer_params)
+    @answer = Answer.new lawyer_answer_params
     @answer.account_id = current_account.id
     if @answer.save
       flash[:success] = t ".updated"
