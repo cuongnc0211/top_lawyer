@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root "questions#index"
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
+    resources :votes, except: [:show, :new, :edit]
   end
 
   resources :articles do
