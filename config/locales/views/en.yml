@@ -12,6 +12,10 @@ en:
     index:
       top_page: "This is top page"
   user:
+    register_lawyer:
+      lawyer_profiles:
+        new:
+          submit: *submit
     accounts:
       edit:
         edit_profile: Edit Profile

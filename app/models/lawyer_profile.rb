@@ -1,9 +1,9 @@
 class LawyerProfile < ApplicationRecord
   belongs_to :account
-  belongs_to :law_firm
+  belongs_to :law_firm, optional: true
   has_many :educations
 
-  LAWYER_PROFILE_ATTRIBUTES = [:address, :phone_number, :lawyer_id]
+  LAWYER_PROFILE_ATTRIBUTES = [:full_name, :address, :phone_number, :fax_number, :lawyer_id, :introduction]
 
   delegate :name, :email, to: :account, prefix: true, allow_nil: true
 end
