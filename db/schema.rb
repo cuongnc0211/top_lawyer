@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827092823) do
+ActiveRecord::Schema.define(version: 20170903091155) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.boolean "is_active", default: false
     t.index ["province_id"], name: "index_law_firms_on_province_id"
   end
 
@@ -93,6 +94,8 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "advertise_start_time"
     t.datetime "advertise_end_time"
     t.integer "law_firm_id"
+    t.string "full_name"
+    t.boolean "approved"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
@@ -111,6 +114,17 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_questions_on_account_id"
     t.index ["category_id"], name: "index_questions_on_category_id"
+  end
+
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "vote_type"
+    t.bigint "account_id"
+    t.string "voteable_type"
+    t.bigint "voteable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_votes_on_account_id"
+    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id"
   end
 
 end
