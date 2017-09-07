@@ -14,3 +14,6 @@ question:
     truncate: 200
 paginate:
   default: 10
+time_format:
+  full_time: "YYYY-MM-DD HH:mm"
+  hour_time: "HH:mm"

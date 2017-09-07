@@ -6,4 +6,8 @@ class LawyerProfile < ApplicationRecord
   LAWYER_PROFILE_ATTRIBUTES = [:full_name, :address, :phone_number, :fax_number, :lawyer_id, :introduction]
 
   delegate :name, :email, to: :account, prefix: true, allow_nil: true
+
+  def manager_of id
+    law_firm_id == id && is_manager == true
+  end
 end

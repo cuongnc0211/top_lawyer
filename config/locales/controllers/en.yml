@@ -35,6 +35,10 @@ en:
       article:
         access_denies: Access Denies
   lawyer:
+    law_firms:
+      create:
+        created: *created
+        create_fail: *create_fail
     lawyer_profiles:
       edit:
         access_denies: Access Denies
@@ -47,4 +51,3 @@ en:
     law_firms:
       updated: *updated
       update_fail: *update_fail
-

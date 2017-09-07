@@ -16,3 +16,6 @@
 //= require turbolinks
 //= require_tree .
 //= require js/bootstrap
+//= require jquery_nested_form
+//= require moment
+//= require bootstrap-datetimepicker

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903091155) do
+ActiveRecord::Schema.define(version: 20170904101846) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20170903091155) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "picture"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

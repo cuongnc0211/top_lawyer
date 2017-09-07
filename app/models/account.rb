@@ -13,6 +13,8 @@ class Account < ApplicationRecord
 
   ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
 
+  delegate :manager_of, to: :lawyer_profile, prefix: false, allow_nil: true
+
   def can_register_lawyer
     return true if lawyer_profile.nil? || !lawyer_profile.approved
   end
