@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :category
   belongs_to :account
+  has_many :comments, as: :commentable
 
   enum status: [:draft, :publish]
 

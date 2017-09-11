@@ -1,0 +1,23 @@
+<div class="well" style="border:1px solid black;" >
+  <p class="text-muted"><%= comment.root? ? t(".Started_by") : t(".Replied_by") %> <strong><%= comment.account.email %></strong> on
+    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+
+  <blockquote>
+    <p><%= simple_format comment.content %></p>
+  </blockquote>
+
+  <% from_reply_form ||= nil %>
+  <% unless from_reply_form %>
+  <% if comment.leaf? %>
+      <small class="text-muted">There are no replies yet - be the first one to reply!</small>
+    <% end %>
+    <% if current_account != nil %>
+      <p><%= link_to t(".reply"), article_new_comment_path(@commentable, comment.id) %></p>
+    <% end %>
+    <%=
+      if Comment.find_by_id(params[:parent_id]) == comment
+        render("comments/form", comment: @reply)
+      end
+    %>
+  <% end %>
+</div>

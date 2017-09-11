@@ -1,6 +1,28 @@
 en:
   dictionary:
     submit: &submit Submit
+  articles:
+      _article.html:
+        show: Show
+        edit: Edit
+        destroy: Destroy
+      _form.html:
+        draft: Draft
+        publish: Publish
+      edit:
+        edit: Edit
+        edit_article: Edit Article
+      index:
+        article: Article
+        new: New
+        title: Title
+        content: Content
+        category_name: Category Name
+        status: Status
+        total_vote: Total vote
+        action: Action
+        edit: Edit
+        destroy: destroy
   top_pages:
     index:
       top_page: "This is top page"
@@ -22,26 +44,18 @@ en:
         new: Create New Question
       question:
         confirm: Are you sure?
-    articles:
-      edit:
-        edit: Edit
-        edit_article: Edit Article
-      index:
-        article: Article
-        new: New
-        title: Title
-        content: Content
-        category_name: Category Name
-        status: Status
-        total_vote: Total vote
-        action: Action
-        edit: Edit
-        destroy: destroy
       new:
         create_article: Create Article
         draft: Draft
         publish: Publish
         create: Create
+  comments:
+    _comment.html:
+      started_by: Started by
+      replied_by: Replied by
+      reply: Reply
+    _form.html:
+    new.html:
   lawyer:
     lawyer_profiles:
       edit:

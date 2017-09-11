@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   namespace :user do
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
-    resources :articles
+  end
+
+  resources :articles do
+    resources :comments, only: [:index, :create]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
 
   namespace :lawyer do
