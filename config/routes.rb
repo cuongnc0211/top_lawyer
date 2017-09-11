@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     root "questions#index"
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
+  end
+
+  resources :articles do
+    resources :comments, only: [:index, :create]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
     resources :articles
     namespace :register_lawyer do
       resources :lawyer_profiles, only: [:new, :create, :update]

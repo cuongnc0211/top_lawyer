@@ -25,15 +25,18 @@ en:
       destroy:
         updated: Your question was created successfully
         fail: Please correct the form
-    articles:
-      create:
-        new: New
-        Please_correct_the_form: Please correct the form
-      update:
-        updated: Update
-        fail: Fail
-      article:
-        access_denies: Access Denies
+  articles:
+    create:
+      new: New
+      Please_correct_the_form: Please correct the form
+    update:
+      updated: Update
+      fail: Fail
+    article:
+      access_denies: Access Denies
+  comments:
+    new: New
+    comment_error: Comment Error
   lawyer:
     law_firms:
       create:
