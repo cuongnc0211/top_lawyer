@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827092823) do
+ActiveRecord::Schema.define(version: 20170903091155) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "account_id"
+    t.bigint "question_id"
+    t.text "content"
+    t.integer "total_vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_answers_on_account_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "title"
@@ -51,7 +62,7 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "lawyer_profile_id"
     t.string "degree"
     t.string "school"
@@ -62,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
   end
 
-  create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "phone_number"
     t.string "fax"
     t.string "email"
@@ -74,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.boolean "is_active", default: false
     t.index ["province_id"], name: "index_law_firms_on_province_id"
   end
 
@@ -93,10 +105,12 @@ ActiveRecord::Schema.define(version: 20170827092823) do
     t.datetime "advertise_start_time"
     t.datetime "advertise_end_time"
     t.integer "law_firm_id"
+    t.string "full_name"
+    t.boolean "approved"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
-  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

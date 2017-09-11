@@ -12,4 +12,8 @@ class Account < ApplicationRecord
   enum role: [:Admin, :User, :Lawyer]
 
   ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
+
+  def can_register_lawyer
+    return true if lawyer_profile.nil? || !lawyer_profile.approved
+  end
 end

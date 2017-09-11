@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     root "questions#index"
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
+    resources :articles
+    namespace :register_lawyer do
+      resources :lawyer_profiles, only: [:new, :create, :update]
+    end
   end
 
   namespace :lawyer do
