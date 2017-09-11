@@ -23,6 +23,13 @@ en:
       question:
         confirm: Are you sure?
     articles:
+      _article.html:
+        show: Show
+        edit: Edit
+        destroy: Destroy
+      _form.html:
+        draft: Draft
+        publish: Publish
       edit:
         edit: Edit
         edit_article: Edit Article
@@ -42,6 +49,13 @@ en:
         draft: Draft
         publish: Publish
         create: Create
+    comments:
+      _comment.html:
+        started_by: Started by
+        replied_by: Replied by
+        reply: Reply
+      _form.html:
+      new.html:
   lawyer:
     lawyer_profiles:
       edit:

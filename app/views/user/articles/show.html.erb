@@ -1,0 +1,26 @@
+<div class="form-group">
+  <h1><%= t(".Title") %></h1> <%= @article.title %>
+</div>
+
+<div class="form-group">
+  <h1><%= t(".Content") %></h1> <%= @article.content %>
+</div>
+
+<div class="form-group">
+  <h1><%= t(".Status") %></h1> <%= @article.status %>
+</div>
+
+<div class="form-group">
+  <h1><%= t(".Category") %></h1> <%= @article.category_name %>
+</div>
+
+<div class="form-group">
+  <h1><%= t(".Category") %></h1> <%= @article.total_vote %>
+</div>
+
+<div class="form-group">
+  <h1>Comment</h1>
+  <%= render "user/comments/form", comment: @comment%>
+  <%= comments_tree_for @comments %>
+</div>
+

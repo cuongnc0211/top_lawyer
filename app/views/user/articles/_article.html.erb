@@ -5,6 +5,7 @@
   <td><%= article.status %></td>
   <td><%= article.total_vote %></td>
   <td>
+    <%= link_to t(".show"), user_article_path(article) %>
     <%= link_to t(".edit"), edit_user_article_path(article) %>
     <%= link_to t(".destroy"), user_article_path(article) , method: :delete, data: { confirm: t(".confirm") }%>
   </td>

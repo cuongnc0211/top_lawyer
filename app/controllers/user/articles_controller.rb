@@ -1,8 +1,18 @@
 class User::ArticlesController < User::BaseController
-  before_action :article, only: [:edit, :update, :destroy]
+  before_action :article, only: [:edit, :update, :destroy, :show]
 
   def index
     @articles = current_account.articles
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    @commentable = @article
+    @comments = @commentable.comments.hash_tree(limit_depth: 5)
+    @comment = Comment.new
+    if params[:parent_id] != nil
+      @reply = @commentable.comments.new(parent_id: params[:parent_id])
+    end
   end
 
   def new

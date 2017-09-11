@@ -24,6 +24,9 @@ en:
         fail: Fail
       article:
         access_denies: Access Denies
+    comments:
+      new: New
+      comment_error: Comment Error
   lawyer:
     lawyer_profiles:
       edit:
