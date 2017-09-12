@@ -1,0 +1,12 @@
+<div class="col-md-9">
+  <h3><%= t ".create_law_firm" %></h3>
+  <%= nested_form_for [:lawyer, @law_firm] do |f| %>
+    <%= render "form", f: f, provinces: @provinces, image: @image %>
+    <div class="form-group">
+      <%= f.submit t(".submit"), class: "btn btn-primary form-control" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  <%= render "shared/time_picker.js" %>
+</script>

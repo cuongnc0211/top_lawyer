@@ -1,0 +1,39 @@
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :address %>
+  <%= f.text_field :address, class: "form-control" %>
+</div>
+
+<div class="form-group">
+   <%= f.label :provinces %>
+   <%= f.select :province_id, options_for_select(provinces.pluck(:name, :id)), class: "form_control" %>
+ </div>
+
+<div class="form-group">
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :fax %>
+  <%= f.text_field :fax, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :introduction %>
+  <%= f.text_area :introduction, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :working_start_time %>
+  <%= f.text_field :working_start_time, class: "form-control timepicker" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :working_start_time %>
+  <%= f.text_field :working_start_time, class: "form-control timepicker" %>
+</div>

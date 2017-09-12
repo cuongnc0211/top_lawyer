@@ -54,6 +54,9 @@ en:
         publish: Publish
         create: Create
   lawyer:
+    law_firms:
+      new:
+        submit: *submit
     lawyer_profiles:
       edit:
         edit_lawyer_profile: Edit Lawyer Profile
