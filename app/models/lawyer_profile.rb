@@ -8,6 +8,6 @@ class LawyerProfile < ApplicationRecord
   delegate :name, :email, to: :account, prefix: true, allow_nil: true
 
   def manager_of id
-    law_firm_id == id && is_manager == true
+    law_firm_id == id.to_i && is_manager
   end
 end

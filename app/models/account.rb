@@ -2,6 +2,7 @@ class Account < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   has_one :lawyer_profile
+  has_one :law_firm, through: :lawyer_profile
   has_many :questions
   has_many :articles
 
@@ -17,5 +18,9 @@ class Account < ApplicationRecord
 
   def can_register_lawyer
     return true if lawyer_profile.nil? || !lawyer_profile.approved
+  end
+
+  def account_avatar_url
+    avatar_url(:avatar) || Rails.root.join("/images/default-avatar.jpg")
   end
 end

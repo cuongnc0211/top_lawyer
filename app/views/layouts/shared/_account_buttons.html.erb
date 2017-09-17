@@ -6,7 +6,7 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <%= link_to t("my_page"), user_root_path if current_account.User? %>
+        <%= my_page_link current_account %>
       <li>
         <%= link_to t("sign_out"), destroy_account_session_path, method: :delete %>
       </li>
