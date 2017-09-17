@@ -1,0 +1,7 @@
+<tr>
+  <td><%= request_lf.account_name %></td>
+  <td>
+    <%= link_to t(".reject"), lawyer_request_law_firm_path(request_lf, approve: 0) , method: :delete, data: { confirm: t(".confirm") } %>
+    <%= link_to t(".approve"), lawyer_request_law_firm_path(request_lf, approve: 1) , method: :delete, data: { confirm: t(".confirm") } %>
+  </td>
+</tr>

@@ -37,6 +37,8 @@ en:
   comments:
     new: New
     comment_error: Comment Error
+  request_law_firms:
+    new: New
   lawyer:
     accounts:
       update:

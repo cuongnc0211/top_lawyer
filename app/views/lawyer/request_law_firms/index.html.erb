@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<h1><%= t ".article" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%=t ".name" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "request_law_firm", collection: @request_lfs, as: :request_lf %>
+  </tbody>
+</table>
+<br>
+
