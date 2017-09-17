@@ -2,15 +2,15 @@ class Lawyer::LawFirmsController < Lawyer::BaseController
   before_action :law_firm, only: [:edit, :update]
 
   def new
-    @law_firm = LawFirm.new
+    @law_firm = current_account.law_firm || LawFirm.new
     @image = @law_firm.images.build
     @provinces = Province.all
   end
 
   def create
     @provinces = Province.all
-    @law_firm = LawFirm.new law_firm_params
-    if @law_firm.save
+    @law_firm = current_account.lawyer_profile.build_law_firm law_firm_params
+    if @law_firm.save && update_lawyer
       flash[:success] = t ".created"
       redirect_to law_firm_path(@law_firm)
     else
@@ -20,12 +20,13 @@ class Lawyer::LawFirmsController < Lawyer::BaseController
   end
 
   def edit
+    @law_firm = current_account.law_firm
     @provinces = Province.all
   end
 
   def update
     @provinces = Province.all
-    if @law_firm.update_attributes law_firm_params
+    if @law_firm.update_attributes(law_firm_params)
       flash[:success] = t ".updated"
       redirect_to law_firm_path(@law_firm)
     else
@@ -46,5 +47,9 @@ class Lawyer::LawFirmsController < Lawyer::BaseController
       flash[:errors] = t ".access_denies"
       redirect_to lawyer_root_path
     end
+  end
+
+  def update_lawyer
+    current_account.lawyer_profile.update_attributes is_manager: true, law_firm_id: @law_firm.id
   end
 end

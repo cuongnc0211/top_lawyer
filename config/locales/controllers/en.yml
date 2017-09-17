@@ -14,7 +14,7 @@ en:
           created: *created
           create_fail: *create_fail
     accounts:
-      edit:
+      update:
         access_denies: Access Denies
         updated: *updated
         update_fail: *update_fail
@@ -35,10 +35,17 @@ en:
       article:
         access_denies: Access Denies
   lawyer:
+    accounts:
+      update:
+        updated: *updated
+        update_fail: *update_fail
     law_firms:
       create:
         created: *created
         create_fail: *create_fail
+      update:
+        updated: *updated
+        update_fail: *update_fail
     lawyer_profiles:
       edit:
         access_denies: Access Denies

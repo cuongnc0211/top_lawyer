@@ -1,4 +1,6 @@
 en:
+  account: Account
+  law_firm: Law Firm
   dictionary:
     submit: &submit Submit
     active: &active Active
@@ -54,8 +56,12 @@ en:
         publish: Publish
         create: Create
   lawyer:
+    accounts:
+      edit:
+        submit: *submit
     law_firms:
       new:
+        create_law_firm: My LawFirm
         submit: *submit
     lawyer_profiles:
       edit:

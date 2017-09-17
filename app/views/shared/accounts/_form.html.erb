@@ -1,0 +1,18 @@
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.email_field :email, class: "form-control" %>
+</div>
+
+<div class="form-group upload-preview">
+  <%= image_tag current_account.account_avatar_url, size: "300x300" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, class: "form-control account_avatar" %>
+</div>

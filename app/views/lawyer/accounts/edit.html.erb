@@ -1,11 +1,13 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-9">
   <h3><%= t ".edit_profile" %></h3>
 
-  <%= form_for [:user, @account] do |f| %>
+  <%= form_for [:lawyer, @account] do |f| %>
     <%= render "shared/accounts/form", f: f, account: @account %>
 
     <div class="form-group">
       <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
     </div>
   <% end %>
+</div>
+<div class="col-md-3">
 </div>
