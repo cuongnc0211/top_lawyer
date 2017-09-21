@@ -6,9 +6,10 @@
     <li><a href="#">Clipped</a></li>
     <li><a href="#">Following</a></li>
     <li><a href="#">Tag</a></li>
+    <li><%= link_to t(".account"), edit_user_account_path(current_account) %></li>
     <% if current_account.can_register_lawyer %>
       <li>
-        <%= link_to t(".register_lawyer"), new_user_register_lawyer_lawyer_profile_path %>    
+        <%= link_to t(".register_lawyer"), new_user_register_lawyer_lawyer_profile_path %>
       </li>
     <% end %>
   </ul>

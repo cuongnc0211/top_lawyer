@@ -14,7 +14,7 @@ en:
           created: *created
           create_fail: *create_fail
     accounts:
-      edit:
+      update:
         access_denies: Access Denies
         updated: *updated
         update_fail: *update_fail
@@ -25,16 +25,32 @@ en:
       destroy:
         updated: Your question was created successfully
         fail: Please correct the form
-    articles:
-      create:
-        new: New
-        Please_correct_the_form: Please correct the form
-      update:
-        updated: Update
-        fail: Fail
-      article:
-        access_denies: Access Denies
+  articles:
+    create:
+      new: New
+      Please_correct_the_form: Please correct the form
+    update:
+      updated: Update
+      fail: Fail
+    article:
+      access_denies: Access Denies
+  comments:
+    new: New
+    comment_error: Comment Error
+  request_law_firms:
+    new: New
   lawyer:
+    accounts:
+      update:
+        updated: *updated
+        update_fail: *update_fail
+    law_firms:
+      create:
+        created: *created
+        create_fail: *create_fail
+      update:
+        updated: *updated
+        update_fail: *update_fail
     lawyer_profiles:
       edit:
         access_denies: Access Denies
@@ -47,4 +63,3 @@ en:
     law_firms:
       updated: *updated
       update_fail: *update_fail
-

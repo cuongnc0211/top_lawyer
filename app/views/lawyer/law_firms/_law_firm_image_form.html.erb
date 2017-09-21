@@ -1,0 +1,5 @@
+<%= f.fields_for :law_firm_images do |ff| %>
+  <%= ff.file_field :picture, class: "form-control" %><br>
+  <%= ff.link_to_remove t(".remove_image") %><hr>
+<% end %>
+<%= f.link_to_add t(".add_image"), :law_firm_images %><br>

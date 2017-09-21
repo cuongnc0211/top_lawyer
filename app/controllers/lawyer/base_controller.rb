@@ -1,4 +1,6 @@
 class Lawyer::BaseController < ApplicationController
+  layout "lawyer"
+  helper LawyerHelper
   before_action :authenticate_account!, :authenticate_lawyer
 
   private
