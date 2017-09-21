@@ -2,6 +2,7 @@ class LawFirm < ApplicationRecord
   has_many :lawyer_profiles
   has_many :images, as: :imageable
   belongs_to :province
+  has_many :request_law_firms
 
   validates :name, presence: true, uniqueness: true
 

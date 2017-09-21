@@ -1,2 +1,10 @@
 <h3>Law Firm Show</h3>
 <%= @law_firm.name %>
+<% if current_account.present? && current_account.can_join(@law_firm, @request_lf) %>
+  <%= form_tag request_law_firms_path(), method: :post do %>
+    <%= hidden_field_tag "law_firm_id", @law_firm.id %>
+    <div class="actions">
+      <%= submit_tag :Join %>
+    </div>
+  <% end %>
+<% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top_pages#index"
   resources :law_firms, only: [:show, :index]
+  resources :request_law_firms, only: [:new, :create]
 
   namespace :admin do
     root "home_page#index"
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
     resources :lawyer_profiles, except: [:new, :create, :delete]
     resources :accounts, except: [:new, :create, :delete]
     resources :law_firms, except: [:show, :delete]
+    resources :request_law_firms, only: [:index, :destroy]
   end
 end

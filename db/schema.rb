@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912021607) do
+ActiveRecord::Schema.define(version: 20170917072821) do
 
-  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170912021607) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
-  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.string "title"
     t.text "content"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170912021607) do
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20170912021607) do
     t.index ["province_id"], name: "index_law_firms_on_province_id"
   end
 
-  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.integer "point"
     t.string "lawyer_id"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20170912021607) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.string "title"
     t.text "content"
@@ -147,15 +147,14 @@ ActiveRecord::Schema.define(version: 20170912021607) do
     t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "vote_type"
+  create_table "request_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
-    t.string "voteable_type"
-    t.bigint "voteable_id"
+    t.integer "status"
+    t.bigint "law_firm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_votes_on_account_id"
-    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id"
+    t.index ["account_id"], name: "index_request_law_firms_on_account_id"
+    t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
 
 end
