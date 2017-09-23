@@ -173,4 +173,15 @@ ActiveRecord::Schema.define(version: 20170921143522) do
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
 
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "vote_type"
+    t.bigint "account_id"
+    t.string "voteable_type"
+    t.bigint "voteable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_votes_on_account_id"
+    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id"
+  end
+
 end
