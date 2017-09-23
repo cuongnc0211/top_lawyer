@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @vote = @article.init_vote(current_account.id)
     @commentable = @article
     @comments = @commentable.comments.hash_tree(limit_depth: 5)
     @comment = Comment.new

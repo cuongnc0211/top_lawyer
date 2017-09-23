@@ -100,3 +100,12 @@ en:
         address: *address
         is_active: *is_active
         action: *action
+  shared:
+    users:
+      votes:
+        new_vote_form:
+          vote_up: Vote up
+          vote_down: Vote down
+        delete_vote_form:
+          vote_up: Vote up
+          vote_down: Vote down
