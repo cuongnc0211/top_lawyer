@@ -17,3 +17,6 @@ paginate:
 time_format:
   full_time: "YYYY-MM-DD HH:mm"
   hour_time: "HH:mm"
+search:
+  per_page:
+    default: 8

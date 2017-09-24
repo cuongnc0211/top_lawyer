@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%=t ".name" %></th>
+      <th><%=t ".email" %></th>
+      <th><%=t ".address" %></th>
+      <th><%=t ".id" %></th>
+      <th><%=t ".phone_number" %></th>
+      <th><%=t ".fax_number" %></th>
+      <th><%=t ".introduction" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collections.each do |ar| %>
+      <tr>
+        <td><%= ar.account_name %></td>
+        <td><%= ar.account_email %></td>
+        <td><%= ar.address %></td>
+        <td><%= ar.lawyer_id %></td>
+        <td><%= ar.phone_number %></td>
+        <td><%= ar.fax_number %></td>
+        <td><%= ar.introduction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

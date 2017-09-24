@@ -34,4 +34,9 @@ Rails.application.routes.draw do
     resources :law_firms, except: [:show, :delete]
     resources :request_law_firms, only: [:index, :destroy]
   end
+
+  namespace :search do
+    root "top_pages#index"
+    resources :top_pages, only: [:index]
+  end
 end
