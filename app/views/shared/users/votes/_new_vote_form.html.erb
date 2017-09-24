@@ -1,0 +1,16 @@
+<div>
+  <%= form_for [:user, vote] do |f| %>
+    <%= f.hidden_field :vote_type, value: :vote_up %>
+    <%= f.hidden_field :voteable_type %>
+    <%= f.hidden_field :voteable_id %>
+
+    <%= f.submit t(".vote_up") %>
+  <% end %>
+  <%= form_for [:user, vote] do |f| %>
+    <%= f.hidden_field :vote_type, value: :vote_up %>
+    <%= f.hidden_field :voteable_type %>
+    <%= f.hidden_field :voteable_id %>
+
+    <%= f.submit t(".vote_down") %>
+  <% end %>
+</div>

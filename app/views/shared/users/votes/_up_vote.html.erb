@@ -1,0 +1,4 @@
+<%= link_to t(".finish"), lawyer_page_lawyer_profile_advertises_path(@lawyer_profile,
+  advertise: {prefecture_id: @advertise.prefecture_id, runtime: @advertise.runtime},
+  step: :finish, point_type: :buy_advertise), method: :post, remote: true,
+  class: "btn-submit lg-button lg-button-big" %>

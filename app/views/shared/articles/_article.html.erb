@@ -1,11 +1,23 @@
-<div class="row">
+<div class="row" id="article-<%= article.id %>">
   <div class="col-md-3">
     <%= article.account.name %>
   </div>
-  <div class="col-md-9">
-    <h4><%= article.title %></h4>
+  <div class="col-md-7">
+    <h4><%= link_to article.title, article_path(article) %></h4>
     <div>
       <%= simple_format(article.content.truncate Settings.article.top_page.truncate) %>
     </div>
   </div>
+  <div class="col-md-2">
+    <p>total_vote: <%= article.total_vote %></p>
+    <% if current_account.present? %>
+      <% vote = article.init_vote(current_account.id) %>
+      <% if vote.persisted? %>
+        <p><%= render "shared/users/votes/delete_vote_form", vote: vote %></p>
+      <% else %>
+        <p><%= render "shared/users/votes/new_vote_form", vote: vote %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <hr>
 </div>

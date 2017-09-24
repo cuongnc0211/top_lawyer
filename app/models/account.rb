@@ -7,6 +7,10 @@ class Account < ApplicationRecord
   has_many :articles
   has_many :comments
   has_many :request_law_firms
+  has_many :votes
+  has_many :history_points
+  has_many :points, through: :history_points
+  has_many :answers
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -27,5 +31,9 @@ class Account < ApplicationRecord
 
   def can_join law_firm, request_law_firms
     lawyer_profile.present? && law_firm_id.nil? && request_law_firms.law_firm_id != law_firm.id
+  end
+
+  def total_point
+    points.sum :point_per_time
   end
 end

@@ -80,8 +80,9 @@ category_ids = Category.all.pluck :id
 end
 
 puts "create_article"
+lawyer_account_ids = Account.Lawyer.pluck :id
 50.times do |n|
-  Article.create account_id: user_ids.sample,
+  Article.create account_id: lawyer_account_ids.sample,
     title: Faker::Lorem.sentence(3),
     content: Faker::Lorem.paragraph(2),
     category_id: category_ids.sample,
@@ -89,3 +90,14 @@ puts "create_article"
     total_vote: Array(1..50).sample
 end
 
+puts "create_point"
+options = [:answer, :article, :vote_up, :vote_down]
+4.times do |n|
+  Point.create option: options[n], point_per_time: n*10
+end
+
+puts "create_history_point"
+point_ids = Point.all.pluck :id
+50.times do |n|
+  HistoryPoint.create account_id: lawyer_account_ids.sample, point_id: point_ids.sample
+end

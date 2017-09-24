@@ -81,6 +81,10 @@ en:
       edit:
         edit_lawyer_profile: Edit Lawyer Profile
         submit: *submit
+    answers:
+      new:
+        new_answers: New Answer
+        submit: *submit
   admin:
     lawyer_profiles:
       index:
@@ -100,3 +104,12 @@ en:
         address: *address
         is_active: *is_active
         action: *action
+  shared:
+    users:
+      votes:
+        new_vote_form:
+          vote_up: Vote up
+          vote_down: Vote down
+        delete_vote_form:
+          vote_up: Vote up
+          vote_down: Vote down
