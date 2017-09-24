@@ -1,0 +1,10 @@
+<div class="col-md-9">
+  <h3>New Answer</h3>
+  <%= form_for [:lawyer , @answer] do |f| %>
+    <%= render "form", f: f, question_id: @answer.question_id %>
+    <div class="form-group">
+      <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-3"></div>

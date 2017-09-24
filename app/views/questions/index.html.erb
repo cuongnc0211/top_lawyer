@@ -1,0 +1,16 @@
+<div class="col-md-9">
+  <%= link_to t(".new"), new_user_question_path, class: "btn btn-success" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".name" %></th>
+        <th><%= t ".title" %></th>    
+        <th><%= t ".content" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "question", collection: @questions, as: :question %>
+    </tbody>
+  </table>  
+</div>
+<div class="col-md-3"></div>

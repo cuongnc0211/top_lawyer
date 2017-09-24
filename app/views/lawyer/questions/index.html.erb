@@ -1,0 +1,16 @@
+<div class="col-md-9">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".title" %></th>
+        <th><%= t ".content" %></th>    
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "question", collection: @questions, as: :question %>
+    </tbody>
+  </table>
+  <%= paginate @questions %>
+</div>
+<div class="col-md-3"></div>

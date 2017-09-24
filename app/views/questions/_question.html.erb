@@ -1,0 +1,14 @@
+<tr class="limeskin" href=<%= question_path(question) %>>
+  <td><%= question.account.name %></td>
+  <td><%=  question.title %></td>
+  <td><%= question.content %></td>
+</tr>
+
+<script>
+  $(document).ready(function () {
+    $('table tr').click(function () {
+      window.location = $(this).attr('href');
+      return false;
+    });
+  });
+</script>
