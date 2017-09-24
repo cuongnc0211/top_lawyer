@@ -29,7 +29,7 @@ class User::QuestionsController < User::BaseController
     question = current_account.questions.build
     if@question.update_attributes question_params
       flash[:success] = t ".updated"
-      redirect_to root_path
+      redirect_to user_questions_path
     else
       flash[:error] = t ".fail"
       render :edit

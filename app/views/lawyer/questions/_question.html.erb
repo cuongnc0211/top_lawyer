@@ -1,0 +1,7 @@
+<tr>
+  <td><%= question.title %></td>
+  <td><%= question.content %></td>
+  <td>   
+   <%= link_to t(".Answer"), new_lawyer_answer_path(question_id: question.id) %>
+ </td>
+</tr>

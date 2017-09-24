@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921143522) do
+ActiveRecord::Schema.define(version: 20170923094544) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20170921143522) do
     t.string "avatar"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+  end
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.bigint "question_id"
+    t.text "content"
+    t.integer "total_vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_answers_on_account_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -116,6 +127,15 @@ ActiveRecord::Schema.define(version: 20170921143522) do
     t.string "name"
     t.boolean "is_active", default: false
     t.index ["province_id"], name: "index_law_firms_on_province_id"
+  end
+
+  create_table "lawyer_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "lawyer_profile_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_lawyer_categories_on_category_id"
+    t.index ["lawyer_profile_id"], name: "index_lawyer_categories_on_lawyer_profile_id"
   end
 
   create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

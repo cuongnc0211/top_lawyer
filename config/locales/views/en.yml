@@ -81,6 +81,10 @@ en:
       edit:
         edit_lawyer_profile: Edit Lawyer Profile
         submit: *submit
+    answers:
+      new:
+        new_answers: New Answer
+        submit: *submit
   admin:
     lawyer_profiles:
       index:
