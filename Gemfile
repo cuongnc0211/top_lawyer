@@ -30,7 +30,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem "closure_tree"
 gem "bootstrap-sass"
 
@@ -65,7 +64,6 @@ group :staging, :production do
   gem "capistrano-maintenance", "~> 1.0", require: false
   gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
   gem "therubyracer"
-  gem "aws-sdk", "~> 1.61.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -88,3 +86,6 @@ gem "nested_form"
 gem "momentjs-rails", ">= 2.9.0"
 gem "bootstrap3-datetimepicker-rails", "~> 4.17.47"
 gem "draper"
+gem "fog-aws"
+gem "aws-sdk", "~> 3"
+gem 'fog'

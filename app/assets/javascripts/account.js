@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("turbolinks:load", function(){
   var preview = $(".upload-preview img");
 
   $(".account_avatar").change(function(event){

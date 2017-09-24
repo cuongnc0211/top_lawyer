@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%=t ".title" %></th>
+      <th><%=t ".content" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collections.each do |ar| %>
+      <tr>
+        <td><%= ar.title %></td>
+        <td><%= ar.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

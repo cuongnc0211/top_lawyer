@@ -16,15 +16,15 @@ Rails.application.routes.draw do
     resources :accounts, except: [:new, :create, :delete]
     resources :questions
     resources :votes, except: [:show, :new, :edit]
+    namespace :register_lawyer do
+      resources :lawyer_profiles, only: [:new, :create, :update]
+    end
   end
 
   resources :articles do
     resources :comments, only: [:index, :create]
     get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
     resources :articles
-    namespace :register_lawyer do
-      resources :lawyer_profiles, only: [:new, :create, :update]
-    end
   end
 
   namespace :lawyer do
@@ -33,5 +33,10 @@ Rails.application.routes.draw do
     resources :accounts, except: [:new, :create, :delete]
     resources :law_firms, except: [:show, :delete]
     resources :request_law_firms, only: [:index, :destroy]
+  end
+
+  namespace :search do
+    root "top_pages#index"
+    resources :top_pages, only: [:index]
   end
 end

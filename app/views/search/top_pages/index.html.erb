@@ -1,0 +1,23 @@
+<% if @articles.present?%>
+  <h1><%= t ".articles" %></h1>
+  <%= render "show_article_question", collections: @articles%>
+  <%= paginate @articles %>
+<% end %>
+
+<% if @questions.present?%>
+<h1><%= t ".questions" %></h1>
+<%= render "show_article_question", collections: @questions%>
+<%= paginate @questions %>
+<% end %>
+
+<% if @lawyer_profiles.present?%>
+<h1><%= t ".Lawyer_profile" %></h1>
+<%= render "show_lawyer_profile", collections: @lawyer_profiles%>
+<%= paginate @lawyer_profiles %>
+<% end %>
+
+<h1><%= t ".Law_firm" %></h1>
+<% if @law_firms.present?%>
+<%= render "show_law_firm", collections: @law_firms%>
+<%= paginate @law_firms %>
+<% end %>
