@@ -17,3 +17,10 @@ paginate:
 time_format:
   full_time: "YYYY-MM-DD HH:mm"
   hour_time: "HH:mm"
+search:
+  per_page:
+    default: 8
+carrierwave:
+ fog_cache_control: 1.hour
+ fog_expiration: 1.hour
+ fog_public: true

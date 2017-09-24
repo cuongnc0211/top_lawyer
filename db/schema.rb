@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917072821) do
+ActiveRecord::Schema.define(version: 20170921143522) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20170917072821) do
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
   end
 
+  create_table "history_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.bigint "point_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_history_points_on_account_id"
+    t.index ["point_id"], name: "index_history_points_on_point_id"
+  end
+
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "picture"
     t.string "imageable_type"
@@ -142,7 +151,14 @@ ActiveRecord::Schema.define(version: 20170917072821) do
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
-  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "option"
+    t.integer "point_per_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -168,4 +184,16 @@ ActiveRecord::Schema.define(version: 20170917072821) do
     t.index ["account_id"], name: "index_request_law_firms_on_account_id"
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
+
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "vote_type"
+    t.bigint "account_id"
+    t.string "voteable_type"
+    t.bigint "voteable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_votes_on_account_id"
+    t.index ["voteable_type", "voteable_id"], name: "index_votes_on_voteable_type_and_voteable_id"
+  end
+
 end

@@ -1,6 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.assets.digest = true
+  config.assets.enabled = true
+  config.assets.initialize_on_precompile = true
 
+  if ENV["CDN_ASSET"] == "true"
+    config.assets.prefix = "assets"
+    config.action_controller.asset_host = ENV["CDN_ASSET_HOST"]
+  end
   # Code is not reloaded between requests.
   config.cache_classes = true
 
