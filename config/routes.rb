@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     resources :accounts, except: [:new, :create, :delete]
     resources :law_firms, except: [:show, :delete]
     resources :request_law_firms, only: [:index, :destroy]
+    resources :law_firm_members, only: [:index, :destroy]
+    resources :add_law_firms, only: [:create, :index, :destroy]
+    resources :out_law_firms, only: [:destroy]
     resources :answers
     resources :questions, only: :index
     namespace :advertise do

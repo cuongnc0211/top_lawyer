@@ -8,7 +8,7 @@ class RequestLawFirmsController < ApplicationController
     @request_lf.law_firm_id = params[:law_firm_id]
     if @request_lf.save
       redirect_to law_firm_path(params[:law_firm_id])
-      flash[:success] = t ".new"
+      flash[:success] = t ".request"
     else
       flash.now[:alert] = t ".comment_error"
     end
