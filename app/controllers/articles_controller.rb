@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  #before_action :article, only: [:edit, :update, :destroy, :show]
+  before_action :article, except: :show
 
   def index
     @articles = Article.all
@@ -61,11 +61,11 @@ class ArticlesController < ApplicationController
     params.require(:article).permit Article::ARTICLE_ATTRIBUTES
   end
 
-  # def article
-  #   @article = current_account.articles.find params[:id]
-  #   unless current_account == @article.account
-  #     flash[:error] = t ".access_denies"
-  #     redirect_to root_path
-  #   end
-  # end
+  def article
+    article = current_account.articles.find params[:id]
+    unless current_account == article.account
+      flash[:error] = t ".access_denies"
+      redirect_to root_path
+    end
+  end
 end

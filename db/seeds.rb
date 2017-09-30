@@ -50,10 +50,7 @@ law_firm_ids = LawFirm.all.pluck :id
     law_firm_id: law_firm_ids.sample,
     fax_number: Faker::PhoneNumber.phone_number,
     introduction: Faker::Lorem.paragraph,
-    reputation: Array(1..100).sample,
-    point: Array(1..100).sample,
-    advertise_start_time: Array(1..10).sample.days.ago,
-    advertise_start_time: Array(0..10).sample.days.after)
+    reputation: Array(1..100).sample)
 end
 
 puts "create_education"
@@ -91,8 +88,8 @@ lawyer_account_ids = Account.Lawyer.pluck :id
 end
 
 puts "create_point"
-options = [:answer, :article, :vote_up, :vote_down]
-4.times do |n|
+options = [:answer, :article, :vote_up, :vote_down, :advertise]
+5.times do |n|
   Point.create option: options[n], point_per_time: n*10
 end
 

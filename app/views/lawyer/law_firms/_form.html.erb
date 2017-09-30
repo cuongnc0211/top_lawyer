@@ -10,7 +10,7 @@
 
 <div class="form-group">
    <%= f.label :provinces %>
-   <%= f.select :province_id, options_for_select(provinces.pluck(:name, :id)), class: "form_control" %>
+   <%= f.select :province_id, options_for_select(provinces.pluck(:name, :id)), {}, {class: "form-control"} %>
  </div>
 
 <div class="form-group">

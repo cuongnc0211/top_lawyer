@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     resources :request_law_firms, only: [:index, :destroy]
     resources :answers
     resources :questions, only: :index
+    namespace :advertise do
+      resources :history_advertises, only: [:new, :create]
+    end
   end
 
   namespace :search do

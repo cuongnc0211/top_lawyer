@@ -1,4 +1,4 @@
-class Votes::UpdatePointLawyerService
+class UpdatePointLawyerService
   attr_reader :lawyer_profile
 
   def initialize lawyer_profile
