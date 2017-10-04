@@ -104,6 +104,10 @@ en:
         address: *address
         is_active: *is_active
         action: *action
+    accounts:
+      index:
+        active: *active
+        block: *block
   shared:
     users:
       votes:

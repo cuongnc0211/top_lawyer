@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927004506) do
+ActiveRecord::Schema.define(version: 20171004064810) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170927004506) do
     t.integer "role"
     t.string "name"
     t.string "avatar"
+    t.boolean "is_active"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -162,6 +163,18 @@ ActiveRecord::Schema.define(version: 20170927004506) do
     t.string "full_name"
     t.boolean "approved"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
+  end
+
+  create_table "notifies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.integer "target_id"
+    t.string "notifyable_type"
+    t.bigint "notifyable_id"
+    t.integer "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_notifies_on_account_id"
+    t.index ["notifyable_type", "notifyable_id"], name: "index_notifies_on_notifyable_type_and_notifyable_id"
   end
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
