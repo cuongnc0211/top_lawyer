@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :lawyer_profiles, only: [:index, :update]
     resources :law_firms, only: [:index, :update]
     resources :accounts, only: [:index, :update]
+    resources :articles, only: [:index, :destroy]
   end
 
   namespace :user do
