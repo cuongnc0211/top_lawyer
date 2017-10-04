@@ -63,3 +63,6 @@ en:
     law_firms:
       updated: *updated
       update_fail: *update_fail
+    accounts:
+      updated: *updated
+      update_fail: *update_fail
