@@ -20,6 +20,12 @@ en:
         law_firm: LawFirm
         user: User
         article: Article
+    lawyers:
+      lawyer_navigator:
+        notification: Notification
+        history_advertise: Advertise
+        law_firm: LawFirm
+        account: Account
   articles:
       _article.html:
         show: Show
@@ -95,6 +101,10 @@ en:
       new:
         new_answers: New Answer
         submit: *submit
+    advertise:
+      history_advertises:
+        new:
+          submit: *submit
   admin:
     lawyer_profiles:
       index:

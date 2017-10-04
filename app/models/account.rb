@@ -3,6 +3,9 @@ class Account < ApplicationRecord
 
   has_one :lawyer_profile
   has_one :law_firm, through: :lawyer_profile
+  has_one :notifies, dependent: :destroy
+  has_many :notified, class_name: Notify.name, foreign_key: "target_id"
+
   has_many :questions
   has_many :articles
   has_many :comments

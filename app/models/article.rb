@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   has_one :lawyer_profile, through: :account
   has_many :votes, as: :voteable
   has_many :comments, as: :commentable
+  has_many :notifies, as: :notifyable
 
   enum status: [:draft, :publish]
 

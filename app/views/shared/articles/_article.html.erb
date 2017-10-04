@@ -10,14 +10,6 @@
   </div>
   <div class="col-md-2">
     <p>total_vote: <%= article.total_vote %></p>
-    <% if current_account.present? %>
-      <% vote = article.init_vote(current_account.id) %>
-      <% if vote.persisted? %>
-        <p><%= render "shared/users/votes/delete_vote_form", vote: vote %></p>
-      <% else %>
-        <p><%= render "shared/users/votes/new_vote_form", vote: vote %></p>
-      <% end %>
-    <% end %>
   </div>
   <hr>
 </div>

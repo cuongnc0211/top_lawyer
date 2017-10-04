@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_directory .
+ *= require "css/application"
+ *= require "scss/application"
  *= require_self
  *= require css/bootstrap
  *= require bootstrap-datetimepicker
