@@ -1,6 +1,6 @@
 class Admin::AccountsController < Admin::BaseController
   def index
-    @accounts = Account.User
+    @accounts = Account.User.page(params[:page]).per Settings.paginate.default
   end
 
   def update
