@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :article, except: :show
+  # before_action :article
 
   def index
     @articles = Article.all
@@ -40,6 +40,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
     if @article.update_attributes article_params
       flash[:success] = t ".updated"
       redirect_to articles_path
@@ -61,11 +62,12 @@ class ArticlesController < ApplicationController
     params.require(:article).permit Article::ARTICLE_ATTRIBUTES
   end
 
-  def article
-    article = current_account.articles.find params[:id]
-    unless current_account == article.account
-      flash[:error] = t ".access_denies"
-      redirect_to root_path
-    end
-  end
+  # def article
+  #   return if params[:id].nil?
+  #   article = current_account.articles.find params[:id]
+  #   unless current_account == article.account
+  #     flash[:error] = t ".access_denies"
+  #     redirect_to root_path
+  #   end
+  # end
 end
