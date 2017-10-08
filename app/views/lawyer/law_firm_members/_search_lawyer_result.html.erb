@@ -1,0 +1,21 @@
+<% collections.each do |f| %>
+  <li class="list-group-item">
+    <table class="table">
+      <tr>
+        <td>
+          <%= image_tag(f.account.account_avatar_url, size: "30") %>
+          <%= f.account.name %>
+        </td>
+        <td>
+          <%= form_tag lawyer_add_law_firms_path(), method: :post do %>
+            <%= hidden_field_tag "add_id", f.id %>
+            <div class="actions">
+              <%= submit_tag :Add %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </li>
+<% end %>
+

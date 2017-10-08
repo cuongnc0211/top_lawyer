@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20171004064810) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "add_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "lawyer_profile_id"
+    t.integer "status"
+    t.bigint "law_firm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["law_firm_id"], name: "index_add_law_firms_on_law_firm_id"
+    t.index ["lawyer_profile_id"], name: "index_add_law_firms_on_lawyer_profile_id"
+  end
+  
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.bigint "question_id"
