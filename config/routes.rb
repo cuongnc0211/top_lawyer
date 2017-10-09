@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:index, :create]
     get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
-    resources :articles
+  end
+
+  resources :answers do
+    resources :comments, only: [:index, :create]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
 
   namespace :lawyer do

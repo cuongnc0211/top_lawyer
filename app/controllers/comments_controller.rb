@@ -2,7 +2,14 @@ class CommentsController < ApplicationController
   before_action :load_commentable
 
   def new
-    redirect_to article_path(@commentable, parent_id: params[:parent_id])
+    if @commentable.instance_of?(Article)
+      redirect_to article_path(@commentable, parent_id: params[:parent_id])
+    end
+
+    if @commentable.instance_of?(Answer)
+      redirect_to question_path(@commentable.question, parent_id: params[:parent_id])
+    end
+
   end
 
   def create
@@ -18,8 +25,14 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
-      redirect_to article_path(@commentable)
-      flash[:success] = t ".new"
+      if @resource == "articles"
+        redirect_to article_path(@commentable)
+        flash[:success] = t ".new"
+      end
+      if @resource == "answers"
+        redirect_to question_path(@commentable.question)
+        flash[:success] = t ".new"
+      end
     else
       flash.now[:alert] = t ".comment_error"
       render :new
@@ -28,8 +41,8 @@ class CommentsController < ApplicationController
 
   private
   def load_commentable
-    resource, id = request.path.split('/')[1,2]
-    @commentable = resource.singularize.classify.constantize.find(id)
+    @resource, id = request.path.split('/')[1,2]
+    @commentable = @resource.singularize.classify.constantize.find(id)
   end
 
   def comment_params
