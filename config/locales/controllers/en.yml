@@ -4,6 +4,8 @@ en:
     update_fail: &update_fail Update fail
     created: &created Create Successfully
     create_fail: &create_fail Create Fail
+    deleted: &deleted Delete Successfully.
+    delete_fail: &delete_fail Delete failed!
   user:
     register_lawyer:
       lawyer_profiles:
@@ -63,3 +65,10 @@ en:
     law_firms:
       updated: *updated
       update_fail: *update_fail
+    accounts:
+      updated: *updated
+      update_fail: *update_fail
+    articles:
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail

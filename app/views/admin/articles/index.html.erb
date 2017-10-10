@@ -1,0 +1,25 @@
+<div>
+  <h1>index</h1>
+  <div>
+    <h3>Users</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t ".title" %></th>
+          <th><%= t ".content" %></th>
+          <th><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr>
+            <td> <%= article.title %> </td>
+            <td> <%= article.content.truncate 50 %> </td>
+            <td> <%= link_to t(".delete"), admin_article_path(article), method: :delete, data: {confirm: t(".confirm")} %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @articles %>
+  </div>
+</div>

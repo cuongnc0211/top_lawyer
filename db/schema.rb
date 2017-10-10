@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923094544) do
+ActiveRecord::Schema.define(version: 20171004064810) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -28,10 +28,21 @@ ActiveRecord::Schema.define(version: 20170923094544) do
     t.integer "role"
     t.string "name"
     t.string "avatar"
+    t.boolean "is_active"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "add_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "lawyer_profile_id"
+    t.integer "status"
+    t.bigint "law_firm_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["law_firm_id"], name: "index_add_law_firms_on_law_firm_id"
+    t.index ["lawyer_profile_id"], name: "index_add_law_firms_on_lawyer_profile_id"
+  end
+  
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.bigint "question_id"
@@ -95,11 +106,27 @@ ActiveRecord::Schema.define(version: 20170923094544) do
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
   end
 
+  create_table "history_advertises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.bigint "category_id"
+    t.integer "province_id"
+    t.bigint "history_point_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_history_advertises_on_account_id"
+    t.index ["category_id"], name: "index_history_advertises_on_category_id"
+    t.index ["history_point_id"], name: "index_history_advertises_on_history_point_id"
+  end
+
   create_table "history_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.bigint "point_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount"
+    t.integer "total"
     t.index ["account_id"], name: "index_history_points_on_account_id"
     t.index ["point_id"], name: "index_history_points_on_point_id"
   end
@@ -129,15 +156,6 @@ ActiveRecord::Schema.define(version: 20170923094544) do
     t.index ["province_id"], name: "index_law_firms_on_province_id"
   end
 
-  create_table "lawyer_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "lawyer_profile_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_lawyer_categories_on_category_id"
-    t.index ["lawyer_profile_id"], name: "index_lawyer_categories_on_lawyer_profile_id"
-  end
-
   create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.integer "point"
@@ -151,12 +169,22 @@ ActiveRecord::Schema.define(version: 20170923094544) do
     t.string "fax_number"
     t.text "introduction"
     t.integer "reputation"
-    t.datetime "advertise_start_time"
-    t.datetime "advertise_end_time"
     t.integer "law_firm_id"
     t.string "full_name"
     t.boolean "approved"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
+  end
+
+  create_table "notifies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.integer "target_id"
+    t.string "notifyable_type"
+    t.bigint "notifyable_id"
+    t.integer "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_notifies_on_account_id"
+    t.index ["notifyable_type", "notifyable_id"], name: "index_notifies_on_notifyable_type_and_notifyable_id"
   end
 
   create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

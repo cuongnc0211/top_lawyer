@@ -10,6 +10,16 @@ en:
     is_active: &is_active Is Active
     action: &action Action
     address: &address Address
+    title: &title Title
+    delete: &delete Delete
+    content: &content Content
+  layouts:
+    admins:
+      navigator:
+        lawyer_profile: Lawyer Profile
+        law_firm: LawFirm
+        user: User
+        article: Article
   articles:
       _article.html:
         show: Show
@@ -104,6 +114,17 @@ en:
         address: *address
         is_active: *is_active
         action: *action
+    accounts:
+      index:
+        active: *active
+        block: *block
+    articles:
+      index:
+        title: *title
+        content: *content
+        action: *action
+        delete: *delete
+        confirm: Are you sure to delete this article?
   shared:
     users:
       votes:

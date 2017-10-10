@@ -9,3 +9,13 @@
     </div>
   </div>
 </div>
+
+<div>
+    <h5>Comment</h5>
+    <% if current_account != nil %>
+      <% @commentable = answer%>
+      <%= render "form", comment: @comment%>
+    <% end %>
+    <% @comments = answer.comments.hash_tree(limit_depth: 5) %>
+    <%= comments_tree_for @comments %>
+</div>

@@ -1,0 +1,37 @@
+<h1>index</h1>
+<div>
+  <h3>Users</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".name" %></th>
+        <th><%= t ".email" %></th>
+        <th><%= t ".is_active" %></th>
+        <th><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+          <td> <%= account.name %> </td>
+          <td> <%= account.email %> </td>
+          <td> <%= account.is_active %> </td>
+          <td>
+            <% if account.is_active %>
+              <%= form_for [:admin, account] do |f| %>
+                <%= f.hidden_field :is_active, value: false %>
+                <%= f.submit t(".block"), class: "btn btn-danger" %>
+              <% end %>
+            <% else %>
+              <%= form_for [:admin, account] do |f| %>
+                <%= f.hidden_field :is_active, value: true %>
+                <%= f.submit t(".active"), class: "btn btn-success" %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @accounts %>
+</div>

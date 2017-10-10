@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     root "home_page#index"
     resources :lawyer_profiles, only: [:index, :update]
     resources :law_firms, only: [:index, :update]
+    resources :accounts, only: [:index, :update]
+    resources :articles, only: [:index, :destroy]
   end
 
   namespace :user do
@@ -25,7 +27,11 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:index, :create]
     get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
-    resources :articles
+  end
+
+  resources :answers do
+    resources :comments, only: [:index, :create]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
 
   namespace :lawyer do
@@ -34,8 +40,14 @@ Rails.application.routes.draw do
     resources :accounts, except: [:new, :create, :delete]
     resources :law_firms, except: [:show, :delete]
     resources :request_law_firms, only: [:index, :destroy]
+    resources :law_firm_members, only: [:index, :destroy]
+    resources :add_law_firms, only: [:create, :index, :destroy]
+    resources :out_law_firms, only: [:destroy]
     resources :answers
     resources :questions, only: :index
+    namespace :advertise do
+      resources :history_advertises, only: [:new, :create]
+    end
   end
 
   namespace :search do

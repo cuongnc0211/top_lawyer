@@ -33,7 +33,7 @@ class User::VotesController < User::BaseController
 
   def update_infomation article
     ::CreateHistoryPointService.new(point: Point.article, account: article.account)
-    ::Votes::UpdatePointLawyerService.new(article.lawyer_profile).perform
+    ::UpdatePointLawyerService.new(article.lawyer_profile).perform
     ::Votes::UpdateTotalVotesService.new(article).perform
   end
 end

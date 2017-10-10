@@ -9,6 +9,7 @@ class Account < ApplicationRecord
   has_many :request_law_firms
   has_many :votes
   has_many :history_points
+  has_many :history_advertises
   has_many :points, through: :history_points
   has_many :answers
 
@@ -20,7 +21,7 @@ class Account < ApplicationRecord
 
   ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
 
-  delegate :manager_of, :law_firm_id, to: :lawyer_profile, prefix: false, allow_nil: true
+  delegate :manager_of, :law_firm_id, :point, :point, to: :lawyer_profile, prefix: false, allow_nil: true
   def can_register_lawyer
     return true if lawyer_profile.nil? || !lawyer_profile.approved
   end
@@ -34,6 +35,6 @@ class Account < ApplicationRecord
   end
 
   def total_point
-    points.sum :point_per_time
+    history_points.sum :total
   end
 end

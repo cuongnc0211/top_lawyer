@@ -1,0 +1,14 @@
+<tr>
+  <td><%= add_lf.law_firm_name %></td>
+  <td><%= add_lf.law_firm_phone_number %></td>
+  <td><%= add_lf.law_firm_fax %></td>
+  <td><%= add_lf.law_firm_email %></td>
+  <td><%= add_lf.law_firm_address %></td>
+  <td><%= add_lf.law_firm_introduction %></td>
+
+  <td>
+    <%= link_to t(".approve"), lawyer_add_law_firm_path(add_lf, approve: 1) , method: :delete, data: { confirm: t(".confirm") } %>
+    <%= link_to t(".reject"), lawyer_add_law_firm_path(add_lf, approve: 0) , method: :delete, data: { confirm: t(".confirm") } %>
+
+  </td>
+</tr>
