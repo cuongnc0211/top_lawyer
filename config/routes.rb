@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :law_firm_members, only: [:index, :destroy]
     resources :add_law_firms, only: [:create, :index, :destroy]
     resources :out_law_firms, only: [:destroy]
+    resources :articles
     resources :answers
     resources :questions, only: :index
     namespace :advertise do

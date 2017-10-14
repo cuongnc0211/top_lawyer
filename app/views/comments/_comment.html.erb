@@ -15,9 +15,6 @@
       <% if comment.commentable_type == "Article" %>
         <p><%= link_to t(".reply"), article_new_comment_path(@commentable, comment.id), class: "reply_comment" %></p>
       <% end %>
-      <% if comment.commentable_type == "Answer"%>
-        <p><%= link_to t(".reply"), answer_new_comment_path(@commentable.question, comment.id), class: "reply_comment" %></p>
-      <% end %>
     <% end %>
     <%=
       if Comment.find_by_id(params[:parent_id]) == comment
