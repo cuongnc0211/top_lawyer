@@ -26,7 +26,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
       flash[:success] = t ".new"
     else
       puts @article.errors.full_messages
-      flash.now[:alert] = t "Please_correct_the_form"
+      flash.now[:alert] = t ".Please_correct_the_form"
       render :new
     end
   end
