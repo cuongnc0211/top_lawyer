@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171004064810) do
     t.index ["law_firm_id"], name: "index_add_law_firms_on_law_firm_id"
     t.index ["lawyer_profile_id"], name: "index_add_law_firms_on_lawyer_profile_id"
   end
-  
+
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "account_id"
     t.bigint "question_id"

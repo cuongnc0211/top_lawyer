@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
+
   devise_for :accounts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top_pages#index"
@@ -48,6 +50,7 @@ Rails.application.routes.draw do
     namespace :advertise do
       resources :history_advertises, only: [:new, :create]
     end
+    resources :notifies, only: :index
   end
 
   namespace :search do

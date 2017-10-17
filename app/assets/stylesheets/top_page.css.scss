@@ -11,3 +11,12 @@
 .pd-10 {
   padding: 10px 10px 10px 10px;
 }
+
+#top-navi {
+  margin-top: 0px;
+  background-color: #52bab3;
+  border-color: #52bab3;
+  .item {
+    color: dimgrey;
+  }
+}

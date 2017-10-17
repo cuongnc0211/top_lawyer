@@ -1,7 +1,8 @@
 <head>
   <title>TopLawyer</title>
+  <data value="<%= current_account.nil? ? nil : current_account.id %>" id="current-account-id"></data>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
