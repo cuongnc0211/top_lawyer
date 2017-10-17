@@ -6,5 +6,9 @@
   <td><%= article.total_vote %></td>
   <td>
     <%= link_to t(".show"), article_path(article) %>
+    <% if article.account == current_account %>
+      <%= link_to t(".edit"), edit_lawyer_article_path(article) %>
+      <%= link_to t(".destroy"), lawyer_article_path(article) , method: :delete, data: { confirm: t(".confirm") } %>
+    <% end %>
   </td>
 </tr>

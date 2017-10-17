@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-group">
-    <h1><%= t(".Content") %></h1> <%= @article.content %>
+    <h1><%= t(".Content") %></h1> <%= @article.content.html_safe %>
   </div>
 
   <div class="form-group">

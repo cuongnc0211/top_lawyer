@@ -5,11 +5,6 @@ class CommentsController < ApplicationController
     if @commentable.instance_of?(Article)
       redirect_to article_path(@commentable, parent_id: params[:parent_id])
     end
-
-    if @commentable.instance_of?(Answer)
-      redirect_to question_path(@commentable.question, parent_id: params[:parent_id])
-    end
-
   end
 
   def create
