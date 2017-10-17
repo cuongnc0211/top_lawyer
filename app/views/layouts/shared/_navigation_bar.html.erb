@@ -7,7 +7,7 @@
         </div>
         <ul class="nav navbar-nav">
           <li><%= link_to t(".articles"), root_path, class: "item" %></li>
-          <li><%= link_to t(".questions"), root_path, class: "item" %></li>
+          <li><%= link_to t(".questions"), questions_path, class: "item" %></li>
         </ul>
 
         <%= render "layouts/shared/top_search" %>
@@ -22,4 +22,7 @@
   </nav>
 </div>
 <div class="row cover_image">
+  <div class="col-md-10 col-md-offset-1">
+    <img src="images/cover.png" width="100%" height="200">
+  </div>
 </div>

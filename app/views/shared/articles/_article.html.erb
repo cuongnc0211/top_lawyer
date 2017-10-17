@@ -1,15 +1,23 @@
-<div class="row" id="article-<%= article.id %>">
-  <div class="col-md-3">
-    <%= article.account.name %>
-  </div>
-  <div class="col-md-7">
-    <h4><%= link_to article.title, article_path(article) %></h4>
-    <div>
-      <%= simple_format(article.content.truncate Settings.article.top_page.truncate) %>
+<div class="row article-index" id="article-<%= article.id %>">
+  <div>
+    <div class="col-md-9">
+      <div class="index-article-title">
+        <p><%= article.title %></p>
+        <p>
+          <span><%= article.category_name %></span>
+          <span><%= article.created_at.to_formatted_s(:short) %></span>
+        </p>
+        <p>total vote: <%= article.total_vote %></p>
+      </div>
+      <div class="index-article-body">
+        <%= raw article.content.truncate 300 %>
+      </div>
+    </div>
+    <div class="col-md-3 al-center pd10">
+      <div class="account-info">
+        <div><%= image_tag article.account_avatar_url, size: "50x50" %></div>
+        <p><%= article.account_name %></p>
+      </div>
     </div>
   </div>
-  <div class="col-md-2">
-    <p>total_vote: <%= article.total_vote %></p>
-  </div>
-  <hr>
 </div>

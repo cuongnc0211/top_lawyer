@@ -1,0 +1,20 @@
+.index-article-title {
+  font-size: 12px;
+}
+
+.index-article-body {
+  font-size: 14px;
+}
+
+.row .article-index {
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+  min-height: 180px;
+  .account-info {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid grey;
+    background-color: #ffe6cc;
+    min-height: 180px;
+  }
+}

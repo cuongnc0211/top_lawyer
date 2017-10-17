@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # before_action :article
 
   def index
-    @articles = Article.all
+    redirect_to root_path
   end
 
   def show
