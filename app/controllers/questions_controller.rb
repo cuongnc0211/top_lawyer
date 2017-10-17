@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.all.page(params[:page]).per Settings.article.top_page.per
   end
 
   def show

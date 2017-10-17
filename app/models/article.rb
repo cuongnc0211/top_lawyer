@@ -11,6 +11,8 @@ class Article < ApplicationRecord
   ARTICLE_ATTRIBUTES = [:title, :content, :category_id, :status, :total_vote]
 
   delegate :name, to: :category, prefix: true, allow_nil: true
+  delegate :name, to: :account, prefix: true, allow_nil: true
+  delegate :account_avatar_url, to: :account, prefix: false, allow_nil: true
 
   def init_vote account_id
     votes.find_by(account_id: account_id) || votes.build

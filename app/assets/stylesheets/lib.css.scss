@@ -1,0 +1,58 @@
+$main-green: #52bab3;
+
+body {
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+div {
+  display: block;
+}
+
+.cover_image {
+  height: 200px;
+}
+
+.footer {
+  margin-top: 20px;
+  height: 200px;
+  background-color: #80d4ff;
+}
+
+.pd-10 {
+  padding: 10px 10px 10px 10px;
+}
+
+#top-navi {
+  margin-top: 0px;
+  background-color: $main-green;
+  border-color: $main-green;
+  .item {
+    color: black;
+  }
+}
+
+
+.section-title {
+  height: 40px; width: 100%;
+  background-color: $main-green;
+  color: black;
+  margin: 0px;
+  border: 2px solid $main-green;
+}
+
+.section-body {
+  width: 100%;
+  background-color: white;
+  color: black;
+  margin: 0px;
+  border: 2px solid $main-green;
+}
+
+.al-center {
+  text-align: center;
+}
+
+.padding-arround {
+  padding: 15px;
+}
