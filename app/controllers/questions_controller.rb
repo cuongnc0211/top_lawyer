@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-
   def index
-    @questions = Question.all.page(params[:page]).per Settings.article.top_page.per
+    @questions = Question.all.order(created_at: :desc).page(params[:page])
+      .per Settings.article.top_page.per
   end
 
   def show

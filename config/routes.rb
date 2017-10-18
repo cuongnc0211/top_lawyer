@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top_pages#index"
   resources :law_firms, only: [:show, :index]
+  resources :lawyer_profiles, only: :show
   resources :request_law_firms, only: [:new, :create]
   resources :questions, only: [:show, :index]
 

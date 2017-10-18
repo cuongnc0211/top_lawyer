@@ -4,11 +4,11 @@
   <body>
     <%= render "layouts/shared/navigation_bar" %>
     <div class="row">
-      <%= render "layouts/shared/flash" %>
-    </div>
-    <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <%= yield %>
+        <%= render "layouts/shared/flash" %>
+        <div class="row">
+          <%= yield %>
+        </div>
       </div>
     </div>
     <%= render "layouts/shared/footer" %>
