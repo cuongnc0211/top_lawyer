@@ -1,4 +1,4 @@
-<div class="navbar navbar-default nav-justified">
+<!-- <div class="navbar navbar-default nav-justified">
   <ul class="nav navbar-nav">
     <li> <%= link_to t("article"), lawyer_articles_path %> </li>
     <li><a data-toggle="tab" href="#">Q&A</a></li>
@@ -24,4 +24,36 @@
     <li><%= link_to t(".history_advertise"), new_lawyer_advertise_history_advertise_path %></li>
     <li><%= link_to t(".notification"), lawyer_notifies_path %></li>
   </ul>
+</div> -->
+<div class="grid no-margin">
+  <div class="grid__col--12">
+    <ul class="nav" role="navigation">
+      <!-- <li class="nav__item"><a href="#type">Typography</a></li>
+      <li class="nav__item--current"><a href="#nav">Navigation</a></li> -->
+
+      <li class="nav__item"> <%= link_to t("article"), lawyer_articles_path %> </li>
+      <li class="nav__item"><a data-toggle="tab" href="#">Q&A</a></li>
+      <li class="nav__item"><a data-toggle="tab" href="#">Clipped</a></li>
+      <li class="nav__item"><a data-toggle="tab" href="#">Draft</a></li>
+      <li class="nav__item"><a data-toggle="tab" href="#">Following</a></li>
+      <li class="nav__item"><%= link_to t("account"), edit_lawyer_account_path(current_account) %></li>
+      <li class="nav__item dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Law Firm
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= law_firm_link current_account.lawyer_profile %></li>
+          <li><%= link_to t("add_law_firm"), lawyer_add_law_firms_path(current_account) %></li>
+
+          <% if current_account.lawyer_profile.is_manager %>
+            <li><%= link_to t("request_law_firm"), lawyer_request_law_firms_path(current_account) %></li>
+            <li><%= link_to t("law_firm_member"), lawyer_law_firm_members_path(current_account) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="nav__item"><%= link_to t(".history_advertise"), new_lawyer_advertise_history_advertise_path %></li>
+      <li class="nav__item"><%= link_to t(".notification"), lawyer_notifies_path %></li>
+    </ul>
+  </div>
 </div>

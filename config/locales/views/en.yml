@@ -26,6 +26,9 @@ en:
         history_advertise: Advertise
         law_firm: LawFirm
         account: Account
+    shared:
+      login_buttons:
+        sign_in: Sign in
   articles:
       _article.html:
         show: Show

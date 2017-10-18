@@ -9,31 +9,27 @@
   <% end %>
 </div>
 <div class="col-md-8">
-  <div class="form-group">
-    <h1><%= t(".Title") %></h1> <%= @article.title %>
-  </div>
+  <div class="section-body padding-arround">
+    <p class="bold"><%= @article.title %></h2>
+    <p><%= raw @article.content %></p>
 
-  <div class="form-group">
-    <h1><%= t(".Content") %></h1> <%= @article.content.html_safe %>
+    <div class="form-group">
+      <h4>Comment</h4>
+      <% if current_account != nil %>
+        <%= render "comments/form", comment: @comment%>
+      <% end %>
+      <%= comments_tree_for @comments %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <h1><%= t(".Status") %></h1> <%= @article.status %>
+</div>
+<div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".author" %></h4>
   </div>
-
-  <div class="form-group">
-    <h1><%= t(".Category") %></h1> <%= @article.category_name %>
-  </div>
-
-  <div class="form-group">
-    <h1><%= t(".Category") %></h1> <%= @article.total_vote %>
-  </div>
-
-  <div class="form-group">
-    <h1>Comment</h1>
-    <% if current_account != nil %>
-      <%= render "comments/form", comment: @comment%>
+  <div class="section-body padding-arround al-center">
+    <%= link_to lawyer_profile_path(@article.account.lawyer_profile) do %>
+      <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
     <% end %>
-    <%= comments_tree_for @comments %>
+    <p><%= link_to @article.account_name, lawyer_profile_path(@article.account.lawyer_profile) %></p>
   </div>
 </div>

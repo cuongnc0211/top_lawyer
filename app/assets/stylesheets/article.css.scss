@@ -18,3 +18,16 @@
     min-height: 180px;
   }
 }
+
+.grid {
+  margin: 0px !important;
+  .nav__item {
+    display: inline-block !important;
+    margin: 0px !important;
+    padding: 0px 5px 0px 5px !important;
+  }
+
+  li :hover {
+    background-color: white !important;
+  }
+}

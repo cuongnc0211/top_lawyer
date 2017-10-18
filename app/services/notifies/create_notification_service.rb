@@ -9,7 +9,7 @@ class Notifies::CreateNotificationService
   end
 
   def perform
-    model.notify.create account_id: current_account.id, target_id: target_account.id,
+    model.notifies.create account_id: current_account.id, target_id: target_account.id,
       action: action
   end
 end

@@ -19,8 +19,24 @@ div {
   background-color: #80d4ff;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .pd-10 {
   padding: 10px 10px 10px 10px;
+}
+
+.no_margin {
+  margin: 0px;
+}
+
+.al-center {
+  text-align: center;
+}
+
+.padding-arround {
+  padding: 15px;
 }
 
 #top-navi {
@@ -34,7 +50,7 @@ div {
 
 
 .section-title {
-  height: 40px; width: 100%;
+  min-height: 40px; width: 100%;
   background-color: $main-green;
   color: black;
   margin: 0px;
@@ -49,10 +65,7 @@ div {
   border: 2px solid $main-green;
 }
 
-.al-center {
-  text-align: center;
-}
-
-.padding-arround {
-  padding: 15px;
+.row .section-item {
+  margin: 10px 10px 10px 10px;
+  border-bottom: 1px solid grey;
 }

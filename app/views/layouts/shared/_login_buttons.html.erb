@@ -1,12 +1,12 @@
-<ul class="navbar-right">  
+<ul class="nav navbar-nav navbar-right">
   <li>
-    <%= link_to new_account_registration_path do %>
+    <%= link_to new_account_registration_path, {class: "item"} do %>
       <span class="glyphicon glyphicon-user"></span>
       <%= t ".sign_up" %>
     <% end %>
   </li>
   <li>
-    <%= link_to new_account_session_path do %>
+    <%= link_to new_account_session_path, {class: "item"} do %>
       <span class="glyphicon glyphicon-user"></span>
       <%= t ".sign_in" %>
     <% end %>
