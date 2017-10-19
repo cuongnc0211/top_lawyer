@@ -57,8 +57,9 @@ end
 
 group :staging, :production do
   gem "capistrano"
-  gem "capistrano-bundler"
-  gem "capistrano-rails"
+  gem "capistrano3-puma"
+  gem "capistrano-rails", require: false
+  gem "capistrano-bundler", require: false
   gem "capistrano-rvm"
   gem "capistrano-faster-assets", "~> 1.0"
   gem "capistrano-sidekiq"
