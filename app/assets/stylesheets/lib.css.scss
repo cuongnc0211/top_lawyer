@@ -31,6 +31,10 @@ div {
   margin: 0px;
 }
 
+.margin-tb-10 {
+  margin: 10px 0px 10px 0px;
+}
+
 .al-center {
   text-align: center;
 }
@@ -53,7 +57,7 @@ div {
   min-height: 40px; width: 100%;
   background-color: $main-green;
   color: black;
-  margin: 0px;
+  margin: 0px; margin-top: 20px;
   border: 2px solid $main-green;
 }
 

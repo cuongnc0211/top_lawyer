@@ -31,5 +31,8 @@
       <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
     <% end %>
     <p><%= link_to @article.account_name, lawyer_profile_path(@article.account.lawyer_profile) %></p>
+    <p>
+      <%= render "shared/clip", clip: @clip %>
+    </p>
   </div>
 </div>

@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   has_many :votes, as: :voteable
   has_many :comments, as: :commentable
   has_many :notifies, as: :notifyable
+  has_many :clips
 
   enum status: [:draft, :publish]
 
@@ -16,6 +17,10 @@ class Article < ApplicationRecord
 
   def init_vote account_id
     votes.find_by(account_id: account_id) || votes.build
+  end
+
+  def init_clip account_id
+    clips.find_by(account_id: account_id) || clips.build
   end
 
   def all_vote
