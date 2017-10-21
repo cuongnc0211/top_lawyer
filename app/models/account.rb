@@ -15,6 +15,7 @@ class Account < ApplicationRecord
   has_many :history_advertises
   has_many :points, through: :history_points
   has_many :answers
+  has_many :clips
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

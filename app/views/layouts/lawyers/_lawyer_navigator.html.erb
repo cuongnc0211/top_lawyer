@@ -33,7 +33,7 @@
 
       <li class="nav__item"> <%= link_to t("article"), lawyer_articles_path %> </li>
       <li class="nav__item"><a data-toggle="tab" href="#">Q&A</a></li>
-      <li class="nav__item"><a data-toggle="tab" href="#">Clipped</a></li>
+      <li class="nav__item"><%= link_to t(".clips"), lawyer_clips_path %></li>
       <li class="nav__item"><a data-toggle="tab" href="#">Draft</a></li>
       <li class="nav__item"><a data-toggle="tab" href="#">Following</a></li>
       <li class="nav__item"><%= link_to t("account"), edit_lawyer_account_path(current_account) %></li>

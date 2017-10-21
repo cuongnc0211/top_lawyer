@@ -51,6 +51,7 @@ en:
         action: Action
         edit: Edit
         destroy: destroy
+      show:
   top_pages:
     index:
       top_page: "This is top page"
@@ -139,6 +140,9 @@ en:
         delete: *delete
         confirm: Are you sure to delete this article?
   shared:
+    clip:
+      clip_this_article: Clip this Article
+      remove_this_clip: Remove this Clip
     users:
       votes:
         new_vote_form:

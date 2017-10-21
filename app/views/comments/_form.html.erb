@@ -13,9 +13,9 @@
   <%= f.hidden_field :parent_id %>
 
   <div class="field">
-    <%= f.text_area :content, cols: 100,rows: 3, class: "reply_comment_content" %>
+    <%= f.text_area :content, cols: 100,rows: 3, class: "reply_comment_content form__input" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn--default", width: "100%" %>
   </div>
 <% end %>
