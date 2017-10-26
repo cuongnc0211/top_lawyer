@@ -1,8 +1,9 @@
 # config valid only for current version of Capistrano
 lock "3.9.1"
 
-set :application, "top_lawyer_staging"
+set :application, "top_lawyer"
 set :repo_url, "git@github.com:cuongncFramgia/top_lawyer.git"
+set :deploy_to, "/deploy/apps/top_lawyer"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
