@@ -61,6 +61,6 @@
 #   }
 set :stage, :production
 set :rails_env, :staging
-set :deploy_to, "/deploy/apps/top_lawyer_staging"
+set :deploy_to, "/deploy/apps/top_lawyer"
 set :branch, :master
 server "18.220.205.216", user: "cuongnc", roles: %w(web app db)

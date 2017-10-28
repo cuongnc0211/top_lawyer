@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :request_law_firms, only: [:new, :create]
   resources :questions, only: [:show, :index]
   resources :clips, only: [:create, :destroy]
+  resources :categories, only: [:index, :show]
 
   namespace :admin do
     root "home_page#index"
