@@ -7,9 +7,11 @@ class Article < ApplicationRecord
   has_many :notifies, as: :notifyable
   has_many :clips
 
+  acts_as_taggable
+
   enum status: [:draft, :publish]
 
-  ARTICLE_ATTRIBUTES = [:title, :content, :category_id, :status, :total_vote]
+  ARTICLE_ATTRIBUTES = [:title, :content, :category_id, :status, :total_vote, :tag_list]
 
   delegate :name, to: :category, prefix: true, allow_nil: true
   delegate :name, to: :account, prefix: true, allow_nil: true

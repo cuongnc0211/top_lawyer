@@ -63,4 +63,7 @@ Rails.application.routes.draw do
     root "top_pages#index"
     resources :top_pages, only: [:index]
   end
+
+  resources :tags, only: :show
+
 end
