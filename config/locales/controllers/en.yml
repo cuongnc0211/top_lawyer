@@ -72,3 +72,7 @@ en:
       destroy:
         deleted: *deleted
         delete_fail: *delete_fail
+    questions:
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail

@@ -1,0 +1,18 @@
+<div class="row">
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="top-navi">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand item" href="/"><%= t ".top_lawyer" %></a>
+        </div>
+        <%= render "layouts/shared/top_search" %>
+
+        <% if current_account.nil? %>
+          <%= render "layouts/shared/login_buttons" %>
+        <% else %>
+          <%= render "layouts/shared/account_buttons" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</div>

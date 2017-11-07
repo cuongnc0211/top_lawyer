@@ -1,6 +1,6 @@
 class Admin::ArticlesController < Admin::BaseController
   def index
-    @articles = Article.all.page(params[:page]).per Settings.paginate.default
+    @articles = Kaminari.paginate_array(Article.all.reverse).page(params[:page]).per Settings.paginate.default
   end
 
   def destroy

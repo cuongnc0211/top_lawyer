@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :law_firms, only: [:index, :update]
     resources :accounts, only: [:index, :update]
     resources :articles, only: [:index, :destroy]
+    resources :questions, only: [:index, :destroy]
   end
 
   namespace :user do
@@ -65,5 +66,4 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: :show
-
 end
