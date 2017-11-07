@@ -1,0 +1,33 @@
+.index-article-title {
+  font-size: 12px;
+}
+
+.index-article-body {
+  font-size: 14px;
+}
+
+.row .article-index {
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+  min-height: 180px;
+  .account-info {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid grey;
+    background-color: #ffe6cc;
+    min-height: 180px;
+  }
+}
+
+.grid {
+  margin: 0px !important;
+  .nav__item {
+    display: inline-block !important;
+    margin: 0px !important;
+    padding: 0px 5px 0px 5px !important;
+  }
+
+  li :hover {
+    background-color: white !important;
+  }
+}

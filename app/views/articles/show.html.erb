@@ -9,24 +9,44 @@
   <% end %>
 </div>
 <div class="col-md-8">
+  <div class="section-body padding-arround">
+    <p class="bold"><%= @article.title %></h2>
+    <p><%= raw @article.content %></p>
   <div class="form-group">
     <h1><%= t(".Title") %></h1> <%= @article.title %>
   </div>
 
   <div class="form-group">
-    <h1><%= t(".Content") %></h1> <%= @article.content %>
-  </div>
-
-  <div class="form-group">
     <h1><%= t(".Status") %></h1> <%= @article.status %>
   </div>
+    <div class="form-group">
+      <h4>Comment</h4>
+      <% if current_account != nil %>
+        <%= render "comments/form", comment: @comment%>
+      <% end %>
+      <%= comments_tree_for @comments %>
+    </div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".author" %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
+    <%= link_to lawyer_profile_path(@article.account.lawyer_profile) do %>
+      <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
 
   <div class="form-group">
-    <h1><%= t(".Category") %></h1> <%= @article.category_name %>
+    <h1><%= t(".tag_list") %></h1>
+    <p>
+      <% @article.tag_list.each do |tag| %>
+        <%= link_to tag, tag_path(tag), class: "tag" %>
+      <% end %>
+    </p>
   </div>
 
   <div class="form-group">
-    <h1><%= t(".Category") %></h1> <%= @article.total_vote %>
+    <h1><%= t(".Content") %></h1> <%= @article.content.html_safe %>
   </div>
 
   <div class="form-group">
@@ -34,6 +54,9 @@
     <% if current_account != nil %>
       <%= render "comments/form", comment: @comment%>
     <% end %>
-    <%= comments_tree_for @comments %>
+    <p><%= link_to @article.account_name, lawyer_profile_path(@article.account.lawyer_profile) %></p>
+    <p>
+      <%= render "shared/clip", clip: @clip %>
+    </p>
   </div>
 </div>

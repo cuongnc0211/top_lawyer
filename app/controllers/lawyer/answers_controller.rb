@@ -9,6 +9,8 @@ class Lawyer::AnswersController < Lawyer::BaseController
     @answer.account_id = current_account.id
     if @answer.save
       flash[:success] = t ".updated"
+      ::Notifies::CreateNotificationService.new(current_account: current_account,
+        target_account: @answer.question.account, model: @answer.question, action: :answer_question).perform
       redirect_to lawyer_questions_path
     else
       flash.now[:error] = t ".fail"

@@ -6,6 +6,8 @@ class User::VotesController < User::BaseController
     @article = Article.find params[:vote][:voteable_id]
     if @vote.save
       update_infomation @article
+      ::Notifies::CreateNotificationService.new(current_account: current_account,
+        target_account: @article.account, model: @article, action: :up_vote).perform
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -16,6 +18,8 @@ class User::VotesController < User::BaseController
     @article = Article.find params[:vote][:voteable_id]
     if @vote.destroy
       update_infomation @article
+      ::Notifies::CreateNotificationService.new(current_account: current_account,
+        target_account: @article.account, model: @article, action: :down_vote).perform
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)

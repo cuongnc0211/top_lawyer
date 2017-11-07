@@ -1,7 +1,11 @@
-<div class="row">
-  <div class="col-md-9 pd-10">
-    <%= render("articles", articles: @articles)if @articles.present? %>
+<div class="col-md-9">
+  <div class="section-title al-center">
+    <h4>Article</h4>
   </div>
-  <div class="col-md-3 pd-10">
+  <div class="section-body padding-arround">
+    <%= render("articles", articles: @articles) if @articles.present? %>
+    <div class="row al-center"><%= paginate @articles %></div>
   </div>
+</div>
+<div class="col-md-3 pd-10">
 </div>

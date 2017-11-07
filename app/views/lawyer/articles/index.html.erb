@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<h1><%= t ".article" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <td><%= link_to t(".new"), new_lawyer_article_path %></td>
+    </tr>
+    <tr>
+      <th><%=t ".title" %></th>
+      <th><%=t ".content" %></th>
+      <th><%=t ".category_name" %></th>
+      <th><%=t ".tag_list" %></th>
+      <th><%=t ".status" %></th>
+      <th><%=t ".total_vote" %></th>
+      <th><%=t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "article", collection: @articles, as: :article %>
+  </tbody>
+</table>
+<br>

@@ -24,7 +24,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,8 +57,9 @@ end
 
 group :staging, :production do
   gem "capistrano"
-  gem "capistrano-bundler"
+  gem "capistrano3-puma"
   gem "capistrano-rails"
+  gem "capistrano-bundler"
   gem "capistrano-rvm"
   gem "capistrano-faster-assets", "~> 1.0"
   gem "capistrano-sidekiq"
@@ -91,3 +92,4 @@ gem "fog-aws"
 gem "aws-sdk", "~> 3"
 gem "fog"
 gem "asset_sync"
+gem "acts-as-taggable-on"

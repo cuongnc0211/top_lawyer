@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<h1>Tag: <%= @tag_text %></h1>
+<h1><%= t ".article" %></h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%=t ".title" %></th>
+      <th><%=t ".content" %></th>
+      <th><%=t ".category_name" %></th>
+      <th><%=t ".tag_list" %></th>
+      <th><%=t ".status" %></th>
+      <th><%=t ".total_vote" %></th>
+      <th><%=t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "articles/article", collection: @articles, as: :article %>
+  </tbody>
+</table>
+<br>

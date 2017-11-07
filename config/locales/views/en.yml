@@ -20,28 +20,45 @@ en:
         law_firm: LawFirm
         user: User
         article: Article
+    lawyers:
+      lawyer_navigator:
+        notification: Notification
+        history_advertise: Advertise
+        law_firm: LawFirm
+        account: Account
+        request_law_firm: Request law firm
+        law_firm_member: Law firm member
+        add_law_firm: Add law firm
+    shared:
+      login_buttons:
+        sign_in: Sign in
   articles:
-      _article.html:
+      _article:
         show: Show
-        edit: Edit
-        destroy: Destroy
-      _form.html:
-        draft: Draft
-        publish: Publish
-      edit:
-        edit: Edit
-        edit_article: Edit Article
       index:
         article: Article
         new: New
         title: Title
         content: Content
-        category_name: Category Name
+        category_name: Category name
+        tag_list: Tag list
         status: Status
         total_vote: Total vote
         action: Action
         edit: Edit
         destroy: destroy
+      show:
+        destroy: Destroy
+      show:
+        title: Title
+        content: Content
+        category_name: Category name
+        tag_list: Tag list
+        status: Status
+        total_vote: Total vote
+        action: Action
+        edit: Edit
+        destroy: Destroy
   top_pages:
     index:
       top_page: "This is top page"
@@ -73,16 +90,72 @@ en:
         publish: Publish
         create: Create
   comments:
-    _comment.html:
+    _comment:
       started_by: Started by
       replied_by: Replied by
       reply: Reply
-    _form.html:
-    new.html:
+  law_firms:
+    show:
+      out_law_firm: Out law firm
   lawyer:
     accounts:
       edit:
         submit: *submit
+    add_law_firms:
+      _add_law_firm:
+        approve: Approve
+        reject: Reject
+        confirm: confirm
+      index:
+        add_law_firm: Add law firm
+        name: Name
+        phone_number: Phone number
+        fax: Fax
+        email: Email
+        address: Address
+        introduction: Introduction
+    answers:
+      new:
+        new_answers: New Answer
+        submit: *submit
+    advertise:
+      history_advertises:
+        new:
+          submit: *submit
+    articles:
+      _article.html:
+        show: Show
+        edit: Edit
+        destroy: Destroy
+      _form.html:
+        draft: Draft
+        publish: Publish
+        tag_list_message: Tags are separated by commas
+      edit:
+        edit: Edit
+        edit_article: Edit Article
+      index:
+        article: Article
+        new: New
+        title: Title
+        content: Content
+        category_name: Category Name
+        tag_list: Tag list
+        status: Status
+        total_vote: Total vote
+        action: Action
+        edit: Edit
+        destroy: destroy
+    law_firm_members:
+      _search_lawyer_result:
+      _show_lawyer_profile:
+        name: Name
+        id: Id
+        email: Email
+        address: Address
+        phone_number: Phone number
+        fax_number: Fax number
+        introduction: Introduction
     law_firms:
       new:
         create_law_firm: My LawFirm
@@ -91,10 +164,10 @@ en:
       edit:
         edit_lawyer_profile: Edit Lawyer Profile
         submit: *submit
-    answers:
-      new:
-        new_answers: New Answer
-        submit: *submit
+    request_law_firms:
+      approve: Approve
+      reject: Reject
+      confirm: confirm
   admin:
     lawyer_profiles:
       index:
@@ -125,7 +198,30 @@ en:
         action: *action
         delete: *delete
         confirm: Are you sure to delete this article?
+  search:
+    top_pages:
+      _show_article_question:
+        title: *title
+        content: *content
+      _show_law_firm:
+        name: Name
+        email: Email
+        phone_number: Phone number
+        address: Address
+        fax_number: Fax number
+        introduction: Introduction
+      _show_lawyer_profile:
+        name: Name
+        id: Id
+        email: Email
+        phone_number: Phone number
+        address: Address
+        fax_number: Fax number
+        introduction: Introduction
   shared:
+    clip:
+      clip_this_article: Clip this Article
+      remove_this_clip: Remove this Clip
     users:
       votes:
         new_vote_form:

@@ -4,11 +4,6 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :content %>
-  <%= f.text_field :content, class: "form-control" %>
-</div>
-
-<div class="form-group">
   <%= f.label :status %>
   <%= f.select :status, options_for_select([[t(".draft"), :draft], [t(".publish"), :publish]]), class: "form-control" %>
 </div>
@@ -18,7 +13,17 @@
   <%= f.select :category_id, options_for_select(categories.pluck(:name, :id)), class: "form_control" %>
 </div>
 
+<div class="form-group">
+  <%= f.label :tag_list%>
+  <%= f.text_field :tag_list, placeholder: "Tags are separated by commas", class: "form-control" %>
+</div>
+
 <div class="form-group" hidden>
   <%= f.label :total_vote %>
   <%= f.number_field :total_vote, :value => 0, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :content %>
+  <%= f.cktext_area :content, rows: 10, class: "form-control" %>
 </div>
