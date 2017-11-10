@@ -14,6 +14,7 @@ class Account < ApplicationRecord
   has_many :history_points
   has_many :history_advertises
   has_many :points, through: :history_points
+  has_many :last_month_bonus_points, -> {bonus_point.in_last_month}, class_name: "HistoryPoint"
   has_many :answers
   has_many :clips
 
@@ -26,6 +27,17 @@ class Account < ApplicationRecord
   ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
 
   delegate :manager_of, :law_firm_id, :point, :point, to: :lawyer_profile, prefix: false, allow_nil: true
+
+  scope :lawyer, -> {where(role: :Lawyer)}
+  scope :active, -> {where(is_active: true)}
+  scope :top_lawyer, -> number do
+    active.lawyer.left_outer_joins(:last_month_bonus_points)
+      .select("#{table_name}.*, SUM(total) AS ranking_point")
+      .group("#{table_name}.id")
+      .order("ranking_point DESC")
+      .limit number
+  end
+
   def can_register_lawyer
     return true if lawyer_profile.nil? || !lawyer_profile.approved
   end

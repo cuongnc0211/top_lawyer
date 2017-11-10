@@ -1,0 +1,8 @@
+<div class="row section-item al-center">
+  <%= link_to lawyer_profile_path(account.lawyer_profile) do %>
+    <div>
+      <%= image_tag account.account_avatar_url, size: "50x50", class: "no_margin" %>
+      <p><%= account.name %></p>
+    </div>
+  <% end %>
+</div>

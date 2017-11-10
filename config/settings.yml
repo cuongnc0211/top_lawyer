@@ -27,3 +27,5 @@ carrierwave:
  fog_public: true
 per_page:
   default: 10
+ranking:
+  top_page: 5
