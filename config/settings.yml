@@ -29,3 +29,5 @@ per_page:
   default: 10
 ranking:
   top_page: 5
+advertise_number:
+  category: 6
