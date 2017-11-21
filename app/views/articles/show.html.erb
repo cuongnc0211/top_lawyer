@@ -40,8 +40,18 @@
       <%= render("shared/clip", clip: @clip) if current_account %>
     </p>
   </div>
-  <div class="form-group">
-    <h1><%= t(".tag_list") %></h1>
+
+  <div class="section-title al-center">
+    <h4><%= t ".recommend_lawyers" %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @advertise_lawyers %>
+  </div>
+
+  <div class="section-title al-center">
+    <h4><%= t(".tag_list") %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
     <p>
       <% @article.tag_list.each do |tag| %>
         <%= link_to tag, tag_path(tag), class: "tag" %>

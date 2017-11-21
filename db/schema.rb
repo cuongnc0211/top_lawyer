@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171019081841) do
 
-  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
-  create_table "add_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "add_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "lawyer_profile_id"
     t.integer "status"
     t.bigint "law_firm_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["lawyer_profile_id"], name: "index_add_law_firms_on_lawyer_profile_id"
   end
 
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.bigint "question_id"
     t.text "content"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "title"
     t.text "content"
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.bigint "article_id"
     t.datetime "created_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["article_id"], name: "index_clips_on_article_id"
   end
 
-  create_table "comment_hierarchies", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comment_hierarchies", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "ancestor_id", null: false
     t.integer "descendant_id", null: false
     t.integer "generations", null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["descendant_id"], name: "comment_desc_idx"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.text "content"
     t.integer "type"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["commentable_type"], name: "index_comments_on_commentable_type"
   end
 
-  create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "lawyer_profile_id"
     t.string "degree"
     t.string "school"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
   end
 
-  create_table "history_advertises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "history_advertises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.bigint "category_id"
     t.integer "province_id"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["history_point_id"], name: "index_history_advertises_on_history_point_id"
   end
 
-  create_table "history_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "history_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.bigint "point_id"
     t.datetime "created_at", null: false
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["point_id"], name: "index_history_points_on_point_id"
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "picture"
     t.string "imageable_type"
     t.bigint "imageable_id"
@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
-  create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "phone_number"
     t.string "fax"
     t.string "email"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["province_id"], name: "index_law_firms_on_province_id"
   end
 
-  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "lawyer_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.integer "point"
     t.string "lawyer_id"
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
-  create_table "notifies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notifies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.integer "target_id"
     t.string "notifyable_type"
@@ -208,20 +208,20 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["notifyable_type", "notifyable_id"], name: "index_notifies_on_notifyable_type_and_notifyable_id"
   end
 
-  create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "option"
     t.integer "point_per_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "provinces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.string "title"
     t.text "content"
@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
-  create_table "request_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "request_law_firms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "account_id"
     t.integer "status"
     t.bigint "law_firm_id"
@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
 
-  create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -261,13 +261,13 @@ ActiveRecord::Schema.define(version: 20171019081841) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "vote_type"
     t.bigint "account_id"
     t.string "voteable_type"

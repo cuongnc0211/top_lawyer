@@ -15,6 +15,7 @@ class Account < ApplicationRecord
   has_many :history_advertises
   has_many :points, through: :history_points
   has_many :last_month_bonus_points, -> {bonus_point.in_last_month}, class_name: "HistoryPoint"
+  has_many :unexpired_advertise, -> {unexpired}, class_name: "HistoryAdvertise"
   has_many :answers
   has_many :clips
 
@@ -36,6 +37,15 @@ class Account < ApplicationRecord
       .group("#{table_name}.id")
       .order("ranking_point DESC")
       .limit number
+  end
+
+  def self.advertise_lawyer category_id
+    accounts = HistoryAdvertise.advertise_lawyer(category_id, Settings.advertise_number.category).pluck(:account_id)
+    gap = Settings.advertise_number.category - accounts.length
+    if gap > 0
+      accounts += Account.top_lawyer(Settings.advertise_number.category).where.not(id: accounts).first(gap).pluck(:id)
+    end
+    Account.find(accounts)
   end
 
   def can_register_lawyer
