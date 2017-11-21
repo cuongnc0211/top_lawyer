@@ -12,13 +12,18 @@
   <div class="section-body padding-arround">
     <p class="bold"><%= @article.title %></h2>
     <p><%= raw @article.content %></p>
-  <div class="form-group">
-    <h1><%= t(".Title") %></h1> <%= @article.title %>
+
+    <div class="row">
+      <p><%= t ".related" %></p>
+      <%= render partial: "shared/articles/related_article", collection: @related_articles, as: :article %>
+    </div>
+    <div class="row">
+      <p><%= t ".author" %></p>
+      <%= render partial: "shared/articles/related_article", collection: @author_articles, as: :article %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <h1><%= t(".Status") %></h1> <%= @article.status %>
-  </div>
+  <div class="section-body padding-arround">
     <div class="form-group">
       <h4>Comment</h4>
       <% if current_account != nil %>
