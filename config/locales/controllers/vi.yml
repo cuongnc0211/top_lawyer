@@ -1,0 +1,78 @@
+vi:
+  dictionary:
+    updated: &updated Cập nhật thành công!
+    update_fail: &update_fail Cập nhật lỗi!
+    created: &created Tạo mới thành công!
+    create_fail: &create_fail Tạo mới lỗi!
+    deleted: &deleted Xóa thành công!
+    delete_fail: &delete_fail Xóa lỗi!
+  user:
+    register_lawyer:
+      lawyer_profiles:
+        update:
+          updated: *updated
+          update_fail: *update_fail
+        create:
+          created: *created
+          create_fail: *create_fail
+    accounts:
+      update:
+        access_denies: Truy cập không hợp lệ!
+        updated: *updated
+        update_fail: *update_fail
+    questions:
+      create:
+        updated: Câu hỏi của bạn đã tạo thành công!
+        fail: Lỗi! Vui lòng sửa theo mẫu
+      destroy:
+        updated: Câu hỏi của bạn đã tạo thành công!
+        fail: Lỗi! Vui lòng sửa theo mẫu
+  articles:
+    create:
+      new: Tạo mới
+      Please_correct_the_form: Lỗi! Vui lòng sửa theo mẫu
+    update:
+      updated: Cập nhật
+      fail: Lỗi
+    article:
+      access_denies: Truy cập không hợp lệ!
+  comments:
+    new: Tạo mới
+    comment_error: Nhận xét lỗi
+  request_law_firms:
+    new: Tạo mới
+  lawyer:
+    accounts:
+      update:
+        updated: *updated
+        update_fail: *update_fail
+    law_firms:
+      create:
+        created: *created
+        create_fail: *create_fail
+      update:
+        updated: *updated
+        update_fail: *update_fail
+    lawyer_profiles:
+      edit:
+        access_denies: Truy cập không hợp lệ!
+        updated: *updated
+        update_fail: *update_fail
+  admin:
+    lawyer_profiles:
+      updated: *updated
+      update_fail: *update_fail
+    law_firms:
+      updated: *updated
+      update_fail: *update_fail
+    accounts:
+      updated: *updated
+      update_fail: *update_fail
+    articles:
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail
+    questions:
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail
