@@ -8,6 +8,7 @@ article:
   top_page:
     per: 20
     truncate: 200
+  related: 4
 question:
   top_page:
     per: 20

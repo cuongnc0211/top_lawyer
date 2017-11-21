@@ -31,3 +31,23 @@
     background-color: white !important;
   }
 }
+
+.related_articles {
+  padding: 5px 0px 5px 0px;
+  height: 130;
+  .title-part {
+    p {
+      text-decoration: none !important;
+      color: black !important;
+    }
+    height: 70px;
+    overflow: hidden;
+  }
+  .body-part {
+    height: auto;
+    overflow: hidden;
+    p, span {
+      font-size: 14px;
+    }
+  }
+}

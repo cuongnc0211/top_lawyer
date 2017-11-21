@@ -1,0 +1,13 @@
+<div class="col-md-3 related_articles">
+  <%= link_to article_path(article) do %>
+    <div class="title-part">
+      <p><b><%= article.title %></b></p>
+    </div>
+  <% end %>
+  <div class="body-part">
+    <p><%= link_to article.account_name, lawyer_profile_path(article.account.lawyer_profile) %></p>
+    <p>
+      <span>vote: <%= article.total_vote %></span>
+    </p>
+  </div>
+</div>
