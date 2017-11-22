@@ -13,6 +13,9 @@ en:
     title: &title Title
     delete: &delete Delete
     content: &content Content
+    author: &author Author
+    recommend_lawyers: &recommend_lawyers Recommend Lawyers
+    article: &article Article
   layouts:
     admins:
       navigator:
@@ -48,8 +51,6 @@ en:
         edit: Edit
         destroy: destroy
       show:
-        destroy: Destroy
-      show:
         title: Title
         content: Content
         category_name: Category name
@@ -59,6 +60,13 @@ en:
         action: Action
         edit: Edit
         destroy: Destroy
+        article: *article
+        author: *author
+        recommend_lawyers: *recommend_lawyers
+        comment: Comment
+      recommend:
+        related: Related articles
+        from_author: More from this author
   top_pages:
     index:
       top_page: "This is top page"

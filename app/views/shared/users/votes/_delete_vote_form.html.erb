@@ -1,13 +1,15 @@
-<%= form_for [:user, vote], html: { method: :delete } do |f| %>
-  <%= f.hidden_field :vote_type %>
-  <%= f.hidden_field :voteable_type %>
-  <%= f.hidden_field :voteable_id %>
-  <%= f.submit t(".vote_up"), disabled: vote.vote_down? %>
-<% end %>
-
-<%= form_for [:user, vote], html: { method: :delete } do |f| %>
-  <%= f.hidden_field :vote_type %>
-  <%= f.hidden_field :voteable_type %>
-  <%= f.hidden_field :voteable_id %>
-  <%= f.submit t(".vote_down"), disabled: vote.vote_up? %>
+<% if vote.vote_up? %>
+  <%= form_for [:user, vote], html: { method: :delete } do |f| %>
+    <%= f.hidden_field :vote_type %>
+    <%= f.hidden_field :voteable_type %>
+    <%= f.hidden_field :voteable_id %>
+    <%= f.submit t(".vote_up") %>
+  <% end %>
+<% else %>
+  <%= form_for [:user, vote], html: { method: :delete } do |f| %>
+    <%= f.hidden_field :vote_type %>
+    <%= f.hidden_field :voteable_type %>
+    <%= f.hidden_field :voteable_id %>
+    <%= f.submit t(".vote_down") %>
+  <% end %>
 <% end %>
