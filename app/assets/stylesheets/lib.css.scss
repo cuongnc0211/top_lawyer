@@ -14,9 +14,16 @@ div {
 }
 
 .footer {
-  margin-top: 20px;
+  margin-top: 80px;
   height: 200px;
-  background-color: #80d4ff;
+  // background: url("https://s3-ap-southeast-1.amazonaws.com/toplawyer/footer-background.jpg") no-repeat center;
+  // background-position: 50% 50%;
+  // background-size: 100%;
+  background-color: black;
+}
+
+.small_font {
+  font-size: 13px !important;
 }
 
 .bold {
