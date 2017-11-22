@@ -4,13 +4,13 @@
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
 
-    <%= f.submit t(".vote_up") %>
+    <%= f.submit t(".vote_up"), class: "btn--success", "style":"width: 100%;" %>
   <% end %>
   <%= form_for [:user, vote] do |f| %>
-    <%= f.hidden_field :vote_type, value: :vote_up %>
+    <%= f.hidden_field :vote_type, value: :vote_down %>
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
 
-    <%= f.submit t(".vote_down") %>
+    <%= f.submit t(".vote_down"), class: "btn--warning", "style":"width: 100%;" %>
   <% end %>
 </div>

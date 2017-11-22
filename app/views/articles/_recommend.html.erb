@@ -1,0 +1,16 @@
+<div class="section-title al-center">
+  <h4 class="al-center"><%= t ".related" %></h4>
+</div>
+<div class="section-body padding-arround">
+  <div class="row">
+    <%= render partial: "shared/articles/related_article", collection: related_articles, as: :article %>
+  </div>
+</div>
+<div class="section-title al-center">
+  <h4 class="al-center"><%= t ".from_author" %></h4>
+</div>
+<div class="section-body padding-arround">
+  <div class="row">
+    <%= render partial: "shared/articles/related_article", collection: author_articles, as: :article %>
+  </div>
+</div>
