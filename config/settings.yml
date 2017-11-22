@@ -8,6 +8,7 @@ article:
   top_page:
     per: 20
     truncate: 200
+  related: 4
 question:
   top_page:
     per: 20
@@ -27,3 +28,7 @@ carrierwave:
  fog_public: true
 per_page:
   default: 10
+ranking:
+  top_page: 5
+advertise_number:
+  category: 6

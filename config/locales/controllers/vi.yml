@@ -1,11 +1,11 @@
-en:
+vi:
   dictionary:
-    updated: &updated Update Successfully
-    update_fail: &update_fail Update fail
-    created: &created Create Successfully
-    create_fail: &create_fail Create Fail
-    deleted: &deleted Delete Successfully.
-    delete_fail: &delete_fail Delete failed!
+    updated: &updated Cập nhật thành công!
+    update_fail: &update_fail Cập nhật lỗi!
+    created: &created Tạo mới thành công!
+    create_fail: &create_fail Tạo mới lỗi!
+    deleted: &deleted Xóa thành công!
+    delete_fail: &delete_fail Xóa lỗi!
   user:
     register_lawyer:
       lawyer_profiles:
@@ -17,30 +17,30 @@ en:
           create_fail: *create_fail
     accounts:
       update:
-        access_denies: Access Denies
+        access_denies: Truy cập không hợp lệ!
         updated: *updated
         update_fail: *update_fail
     questions:
       create:
-        updated: Your question was created successfully
-        fail: Please correct the form
+        updated: Câu hỏi của bạn đã tạo thành công!
+        fail: Lỗi! Vui lòng sửa theo mẫu
       destroy:
-        updated: Your question was created successfully
-        fail: Please correct the form
+        updated: Câu hỏi của bạn đã tạo thành công!
+        fail: Lỗi! Vui lòng sửa theo mẫu
   articles:
     create:
-      new: New
-      Please_correct_the_form: Please correct the form
+      new: Tạo mới
+      Please_correct_the_form: Lỗi! Vui lòng sửa theo mẫu
     update:
-      updated: Update
-      fail: Fail
+      updated: Cập nhật
+      fail: Lỗi
     article:
-      access_denies: Access Denies
+      access_denies: Truy cập không hợp lệ!
   comments:
-    new: New
-    comment_error: Comment Error
+    new: Tạo mới
+    comment_error: Nhận xét lỗi
   request_law_firms:
-    new: New
+    new: Tạo mới
   lawyer:
     accounts:
       update:
@@ -55,7 +55,7 @@ en:
         update_fail: *update_fail
     lawyer_profiles:
       edit:
-        access_denies: Access Denies
+        access_denies: Truy cập không hợp lệ!
         updated: *updated
         update_fail: *update_fail
   admin:

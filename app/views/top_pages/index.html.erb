@@ -1,11 +1,17 @@
 <div class="col-md-9">
   <div class="section-title al-center">
-    <h4>Article</h4>
+    <h4><%= t ".article" %></h4>
   </div>
   <div class="section-body padding-arround">
     <%= render("articles", articles: @articles) if @articles.present? %>
     <div class="row al-center"><%= paginate @articles %></div>
   </div>
 </div>
-<div class="col-md-3 pd-10">
+<div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".top_month" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @top_page.top_lawyers_ranking %>
+  </div>
 </div>

@@ -12,13 +12,18 @@
   <div class="section-body padding-arround">
     <p class="bold"><%= @article.title %></h2>
     <p><%= raw @article.content %></p>
-  <div class="form-group">
-    <h1><%= t(".Title") %></h1> <%= @article.title %>
+
+    <div class="row">
+      <p><%= t ".related" %></p>
+      <%= render partial: "shared/articles/related_article", collection: @related_articles, as: :article %>
+    </div>
+    <div class="row">
+      <p><%= t ".author" %></p>
+      <%= render partial: "shared/articles/related_article", collection: @author_articles, as: :article %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <h1><%= t(".Status") %></h1> <%= @article.status %>
-  </div>
+  <div class="section-body padding-arround">
     <div class="form-group">
       <h4>Comment</h4>
       <% if current_account != nil %>
@@ -35,28 +40,27 @@
   <div class="section-body padding-arround al-center">
     <%= link_to lawyer_profile_path(@article.account.lawyer_profile) do %>
       <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
+    <% end %>
+    <p>
+      <%= render("shared/clip", clip: @clip) if current_account %>
+    </p>
+  </div>
 
-  <div class="form-group">
-    <h1><%= t(".tag_list") %></h1>
+  <div class="section-title al-center">
+    <h4><%= t ".recommend_lawyers" %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @advertise_lawyers %>
+  </div>
+
+  <div class="section-title al-center">
+    <h4><%= t(".tag_list") %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
     <p>
       <% @article.tag_list.each do |tag| %>
         <%= link_to tag, tag_path(tag), class: "tag" %>
       <% end %>
-    </p>
-  </div>
-
-  <div class="form-group">
-    <h1><%= t(".Content") %></h1> <%= @article.content.html_safe %>
-  </div>
-
-  <div class="form-group">
-    <h1>Comment</h1>
-    <% if current_account != nil %>
-      <%= render "comments/form", comment: @comment%>
-    <% end %>
-    <p><%= link_to @article.account_name, lawyer_profile_path(@article.account.lawyer_profile) %></p>
-    <p>
-      <%= render "shared/clip", clip: @clip %>
     </p>
   </div>
 </div>
