@@ -11,7 +11,8 @@ puts "create_user"
   Account.create email: "user#{n+1}@example.com",
     name: Faker::Name.name,
     password: "12345678",
-    role: 1
+    role: 1,
+    is_active: true
 end
 
 puts "create_province"
@@ -31,7 +32,8 @@ province_ids = Province.all.pluck :id
     introduction: Faker::Lorem.paragraph,
     province_id: province_ids.sample,
     working_start_time: "08:00".to_time,
-    working_end_time: "17:00".to_time
+    working_end_time: "17:00".to_time,
+    is_active: true
 end
 
 puts "create_lawyer"
@@ -40,7 +42,8 @@ law_firm_ids = LawFirm.all.pluck :id
   account = Account.create(email: "lawyer#{n+1}@example.com",
     name: Faker::Name.name,
     password: "12345678",
-    role: 2)
+    role: 2,
+    is_active: true)
   account.create_lawyer_profile(point: Array(1..1000).sample,
     lawyer_id: Faker::Lorem.characters(10),
     address: Faker::Address.street_address,
@@ -72,16 +75,24 @@ category_ids = Category.all.pluck :id
 50.times do |n|
   Question.create account_id: user_ids.sample,
     title: Faker::Lorem.sentence(3),
-    content: Faker::Lorem.paragraph(2),
+    content: Faker::Lorem.paragraph(10, false, 4),
     category_id: category_ids.sample
 end
 
-puts "create_article"
+puts "create_answer"
 lawyer_account_ids = Account.Lawyer.pluck :id
+question_ids = Question.all.pluck :id
+40.times do |n|
+  Answer.create account_id: lawyer_account_ids.sample,
+    question_id: question_ids.sample,
+    content: Faker::Lorem.paragraph(6, false, 4)
+end
+
+puts "create_article"
 50.times do |n|
   Article.create account_id: lawyer_account_ids.sample,
     title: Faker::Lorem.sentence(3),
-    content: Faker::Lorem.paragraph(2),
+    content: Faker::Lorem.paragraph(50, false, 4),
     category_id: category_ids.sample,
     status: [0,1].sample,
     total_vote: Array(1..50).sample
@@ -96,5 +107,17 @@ end
 puts "create_history_point"
 point_ids = Point.all.pluck :id
 50.times do |n|
-  HistoryPoint.create account_id: lawyer_account_ids.sample, point_id: point_ids.sample
+  HistoryPoint.create account_id: lawyer_account_ids.sample, point_id: point_ids.sample,
+    amount: [1,2,3,4].sample, total: [10,20,30,40].sample
+end
+
+puts "create_advertise"
+history_point_ids = HistoryPoint.all.pluck(:id)
+30.times do |n|
+  HistoryAdvertise.create account_id: lawyer_account_ids.sample,
+    category_id: category_ids.sample,
+    province_id: province_ids.sample,
+    history_point_id: history_point_ids.sample,
+    start_time: [1,2,3,4,5].sample.days.ago,
+    end_time: [0,1,2,3,4].sample.days.from_now
 end

@@ -10,7 +10,7 @@
         <p>total vote: <%= article.total_vote %></p>
       </div>
       <div class="index-article-body">
-        <%= raw article.content.truncate 300 %>
+        <%= strip_tags(article.content).truncate 300 %>
       </div>
     </div>
     <div class="col-md-3 al-center pd10">
