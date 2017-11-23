@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @author_articles = @article.account.articles.where.not(id: @article.id)
       .order(total_vote: :desc).limit(Settings.article.related)
-    @related_articles = Article.tagged_with(@article.tag_list, any: true).first(Settings.article.related)
+    @related_articles = @article.related_articles
     @advertise_lawyers = Kaminari.paginate_array(Account.advertise_lawyer @article.category_id)
       .page(params[:page]).per Settings.advertise_number.category
 

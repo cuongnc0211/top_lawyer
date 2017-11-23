@@ -1,5 +1,5 @@
 <div class="col-md-1" id="form-vote">
-  <p>total_vote: <%= @article.total_vote %></p>
+  <p><%= t ".total_vote" %>: <%= @article.total_vote %></p>
   <% if current_account.present? %>
     <% if @vote.persisted? %>
       <p><%= render "shared/users/votes/delete_vote_form", vote: @vote %></p>
@@ -9,29 +9,27 @@
   <% end %>
 </div>
 <div class="col-md-8">
+  <div class="section-title al-center">
+    <h4><%= t ".article" %></h4>
+  </div>
   <div class="section-body padding-arround">
     <p class="bold"><%= @article.title %></h2>
     <p><%= raw @article.content %></p>
-
-    <div class="row">
-      <p><%= t ".related" %></p>
-      <%= render partial: "shared/articles/related_article", collection: @related_articles, as: :article %>
-    </div>
-    <div class="row">
-      <p><%= t ".author" %></p>
-      <%= render partial: "shared/articles/related_article", collection: @author_articles, as: :article %>
-    </div>
   </div>
 
+  <div class="section-title al-center">
+    <h4><%= t ".comment" %></h4>
+  </div>
   <div class="section-body padding-arround">
     <div class="form-group">
-      <h4>Comment</h4>
       <% if current_account != nil %>
         <%= render "comments/form", comment: @comment%>
       <% end %>
       <%= comments_tree_for @comments %>
     </div>
   </div>
+
+  <%= render "recommend", author_articles: @author_articles, related_articles: @related_articles %>
 </div>
 <div class="col-md-3">
   <div class="section-title al-center">

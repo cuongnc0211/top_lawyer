@@ -5,7 +5,10 @@
     </div>
   <% end %>
   <div class="body-part">
-    <p><%= link_to article.account_name, lawyer_profile_path(article.account.lawyer_profile) %></p>
+    <p>
+      <%= image_tag article.account.account_avatar_url, size: "30x30", class: "no_margin" %>
+      <%= link_to article.account_name, lawyer_profile_path(article.account.lawyer_profile) %>
+    </p>
     <p>
       <span>vote: <%= article.total_vote %></span>
     </p>

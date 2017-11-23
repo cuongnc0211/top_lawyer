@@ -14,9 +14,16 @@ div {
 }
 
 .footer {
-  margin-top: 20px;
+  margin-top: 80px;
   height: 200px;
-  background-color: #80d4ff;
+  // background: url("https://s3-ap-southeast-1.amazonaws.com/toplawyer/footer-background.jpg") no-repeat center;
+  // background-position: 50% 50%;
+  // background-size: 100%;
+  background-color: black;
+}
+
+.small_font {
+  font-size: 13px !important;
 }
 
 .bold {
@@ -72,4 +79,15 @@ div {
 .row .section-item {
   margin: 10px 10px 10px 10px;
   border-bottom: 1px solid grey;
+}
+
+.sub-section-title {
+  border-bottom: 2px solid #52bab3;
+  margin: 0px !important ;
+}
+
+.sub-section-title-both {
+  border-bottom: 2px solid #52bab3;
+  border-top: 2px solid #52bab3;
+  margin: 0px !important ;
 }
