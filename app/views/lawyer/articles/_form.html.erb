@@ -15,7 +15,17 @@
 
 <div class="form-group">
   <%= f.label :tag_list%>
-  <%= f.text_field :tag_list, placeholder: "Tags are separated by commas", class: "form-control" %>
+  <%= f.hidden_field :tag_list, class: "form-control", readonly: true%>
+  <ul id="show-tag-list" class="list-inline"></ul>
+</div>
+
+<div class="form-group">
+  <input list="tag-data-list" id="input-tag" class="form-control" placeholder="input tags">
+  <datalist id="tag-data-list">
+    <% Tag.all.each do |tag| %>
+      <option value="<%= tag.name %>"></option>
+    <% end %>
+  </datalist>
 </div>
 
 <div class="form-group" hidden>
@@ -27,3 +37,6 @@
   <%= f.label :content %>
   <%= f.cktext_area :content, rows: 10, class: "form-control" %>
 </div>
+<script>
+  <%= render "tag_search.js"%>
+</script>
