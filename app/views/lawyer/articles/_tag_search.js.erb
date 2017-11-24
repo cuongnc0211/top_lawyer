@@ -1,0 +1,18 @@
+$(document).on('turbolinks:load', function(){
+	$("#input-tag").change(function(){
+	  var x = $("#input-tag").val();
+	  var taglist = $("#article_tag_list").val();
+	  $("#article_tag_list").val(taglist + "," + x);
+	  document.getElementById("show-tag-list").innerHTML 
+	  	+= '<li class="list-inline-item">' + x + '<i class="fa fa-close" id="tag-item" style="font-size:15px"></i></li>';
+	  $("#input-tag").val("");
+	});
+
+	$(document).on("click", "#tag-item",function() {
+		var delTag = ',' + $(this).parent().text();
+		$(this).parent().remove();
+		var tagList = $("#article_tag_list").val();
+		tagList = tagList.replace(delTag, "");
+		$("#article_tag_list").val(tagList);	
+	});
+});

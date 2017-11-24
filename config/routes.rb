@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   devise_for :accounts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top_pages#index"
+  resources :test_search
   resources :law_firms, only: [:show, :index]
   resources :lawyer_profiles, only: :show
   resources :request_law_firms, only: [:new, :create]
   resources :questions, only: [:show, :index]
   resources :clips, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
-
   namespace :admin do
     root "home_page#index"
     resources :lawyer_profiles, only: [:index, :update]
