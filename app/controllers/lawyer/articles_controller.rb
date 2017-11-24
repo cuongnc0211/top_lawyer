@@ -11,11 +11,15 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   def new
     @article = Article.new
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
+    gon.tags = @article.tags.pluck(:name)
   end
 
   def edit
     @article = Article.find(params[:id])
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
+    gon.tags = @article.tags.pluck(:name)
   end
 
   def create
