@@ -1,0 +1,9 @@
+<ul class="class=list-inline list_tag_show">
+  <% tags.each do |tag| %>
+    <%= link_to tag_path(tag) do %>
+      <li class="list-inline-item">
+        <span class="content_tag"><%= tag.name %></span>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
