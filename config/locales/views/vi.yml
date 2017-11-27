@@ -132,6 +132,13 @@ vi:
         new:
           submit: *submit
     articles:
+      form:
+        title: Tiêu đề
+        status: Trạng thái
+        categories: Thể loại
+        tag_list: Danh sách tag
+        total_vote: Số lượng vote
+        content: Nội dung
       show:
         author: *author
         recommend_lawyers: *recommend_lawyers
@@ -158,6 +165,9 @@ vi:
         action: Hành động
         edit: Sửa
         destroy: Xoá
+      new:
+        submit: Tạo bài viết
+        create_article: Tạo Bài viết
     law_firm_members:
       _search_lawyer_result:
       _show_lawyer_profile:

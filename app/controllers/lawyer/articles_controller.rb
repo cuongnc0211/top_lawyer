@@ -16,6 +16,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   end
 
   def edit
+    params[:tag_list] = params[:tag_list].lowercase
     @article = Article.find(params[:id])
     @categories = Category.all
     @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
