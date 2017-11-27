@@ -14,4 +14,12 @@
   <div class="section-body padding-arround">
     <%= render "shared/ranking/monthly_top_lawyer", accounts: @top_page.top_lawyers_ranking %>
   </div>
+  <div class="section-title al-center">
+    <h4><%= t ".popular_tag" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <ul class="list_tag_show">
+      <%= render partial: "shared/tags/tag", collection: @top_tags, as: :tag %>
+    </ul>
+  </div>
 </div>

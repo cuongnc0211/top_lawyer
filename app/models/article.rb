@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  is_impressionable
+
   belongs_to :category
   belongs_to :account
   has_one :lawyer_profile, through: :account

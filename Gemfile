@@ -93,4 +93,4 @@ gem "fog"
 gem "asset_sync"
 gem "acts-as-taggable-on"
 gem "gon"
-gem 'impressionist'
+gem "impressionist"

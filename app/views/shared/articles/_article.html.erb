@@ -4,10 +4,15 @@
       <div class="index-article-title">
         <p><%= link_to article.title, article_path(article), class: "bold" %></p>
         <p>
-          <span><%= article.category_name %></span>
+          <span><%= article.category_name %> | </span>
           <span><%= article.created_at.to_formatted_s(:short) %></span>
         </p>
-        <p>total vote: <%= article.total_vote %></p>
+        <p>
+          <% vote_class = (article.total_vote < 0) ? "fa-chevron-circle-down" : "fa-chevron-circle-up" %>
+          <span><i aria-hidden="true" class="fa fa-eye"></i> <%= article.impressionist_count %></span>
+          <span><i aria-hidden="true" class="fa <%= vote_class %>"></i> <%= article.total_vote %></span>
+          <span><i aria-hidden="true" class="fa fa-paperclip"></i> <%= article.clips.count %></span>
+        </p>
       </div>
       <div class="index-article-body">
         <%= strip_tags(article.content).truncate 300 %>
@@ -15,8 +20,10 @@
     </div>
     <div class="col-md-3 al-center pd10">
       <div class="account-info">
-        <div><%= image_tag article.account_avatar_url, size: "50x50", class: "no_margin" %></div>
-        <p><%= article.account_name %></p>
+        <%= link_to lawyer_profile_path(article.account.lawyer_profile) do %>
+          <div><%= image_tag article.account_avatar_url, size: "50x50", class: "no_margin" %></div>
+          <p><%= article.account_name %></p>
+        <% end %>
       </div>
     </div>
   </div>

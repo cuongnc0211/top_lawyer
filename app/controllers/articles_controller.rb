@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  impressionist actions: [:show], unique: [:session_hash]
 
   def index
     redirect_to root_path
@@ -11,7 +12,6 @@ class ArticlesController < ApplicationController
     @related_articles = @article.related_articles
     @advertise_lawyers = Kaminari.paginate_array(Account.advertise_lawyer @article.category_id)
       .page(params[:page]).per Settings.advertise_number.category
-
 
     if current_account.present?
       @vote = @article.init_vote(current_account.id)
