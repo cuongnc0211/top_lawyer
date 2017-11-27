@@ -5,6 +5,7 @@ default: &default
   database: <%= ENV["DATABASE_NAME"] %>
   username: <%= ENV["DATABASE_USERNAME"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
   redis:
     host: redis://<%= ENV["REDIS_HOSTNAME"] %>:6379
     options:
