@@ -1,0 +1,8 @@
+<li class="list-inline-item">
+  <%= link_to tag_path(tag) do %>
+    <span class="content_tag">
+      <%= tag.name %>
+      <span class="badge"><%= tag.taggings_count %></span>
+    </span>
+  <% end %>
+</li>

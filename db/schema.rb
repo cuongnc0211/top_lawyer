@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20171127090038) do
     t.integer "total_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "is_admin_article"
     t.index ["account_id"], name: "index_articles_on_account_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
@@ -267,6 +266,16 @@ ActiveRecord::Schema.define(version: 20171127090038) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_request_law_firms_on_account_id"
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
+  end
+
+  create_table "tag_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "tag_id"
+    t.string "content"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_tag_descriptions_on_account_id"
+    t.index ["tag_id"], name: "index_tag_descriptions_on_tag_id"
   end
 
   create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
