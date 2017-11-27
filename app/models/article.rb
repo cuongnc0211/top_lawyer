@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :notifies, as: :notifyable
   has_many :clips
+  has_many :taggings, as: :taggable
 
   acts_as_taggable
 

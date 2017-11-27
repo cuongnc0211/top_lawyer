@@ -61,7 +61,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   def article
     return if params[:id].nil?
     article = current_account.articles.find params[:id]
-    unless current_account == article.account
+    unless (current_account.Admin? || current_account == article.account)
       flash[:error] = t ".access_denies"
       redirect_to root_path
     end

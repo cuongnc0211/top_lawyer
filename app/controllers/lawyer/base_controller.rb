@@ -6,6 +6,6 @@ class Lawyer::BaseController < ApplicationController
   private
   def authenticate_lawyer
   	flash[:danger] = t ".access_denies"
-    redirect_to root_path unless current_account.Lawyer?
+    redirect_to root_path unless (current_account.Lawyer || current_account.Admin)?
   end
 end
