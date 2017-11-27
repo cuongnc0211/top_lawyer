@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
 	});
 
 	function add_tag(){
-	  var x = $("#input-tag").val();
+	  var x = $("#input-tag").val().toLowerCase();
 	  var taglist = $("#question_tag_list").val();
 		//add value of new tag to hidden_field
 	  $("#question_tag_list").val(taglist + ", " + x);
