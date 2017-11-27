@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171127090038) do
     t.integer "total_vote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "is_admin_article"
     t.index ["account_id"], name: "index_articles_on_account_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
