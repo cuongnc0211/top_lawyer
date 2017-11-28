@@ -88,14 +88,23 @@ question_ids = Question.all.pluck :id
     content: Faker::Lorem.paragraph(6, false, 4)
 end
 
+puts "create tag"
+15.times do |n|
+  Tag.create name: Faker::Job.field + "#{n}"
+end
+
 puts "create_article"
+tags_name = Tag.all.pluck :name
 50.times do |n|
-  Article.create account_id: lawyer_account_ids.sample,
+  article = Article.create(account_id: lawyer_account_ids.sample,
     title: Faker::Lorem.sentence(3),
     content: Faker::Lorem.paragraph(50, false, 4),
     category_id: category_ids.sample,
     status: [0,1].sample,
-    total_vote: Array(1..50).sample
+    total_vote: Array(1..50).sample)
+
+  article.tag_list.add(tags_name.sample, tags_name.sample, tags_name.sample)
+  article.save
 end
 
 puts "create_point"
