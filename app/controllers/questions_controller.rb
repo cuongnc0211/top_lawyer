@@ -11,5 +11,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @comment = Comment.new
+    @top_tags = ActsAsTaggableOn::Tag.most_used(10)
+    @related_questions = @question.related_questions
   end
 end
