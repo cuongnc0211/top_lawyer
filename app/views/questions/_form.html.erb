@@ -1,21 +1,21 @@
-<%= form_for [@commentable, comment] do |f| %>
-  <% if comment.errors.any? %>
-    <div class="error_messages">
-      <h2>Please correct the following errors.</h2>
-      <ul>
-      <% comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="">
+  <%= form_for [@commentable, comment] do |f| %>
+    <% if comment.errors.any? %>
+      <div class="error_messages">
+        <h2>Please correct the following errors.</h2>
+        <ul>
+        <% comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :parent_id %>
+
+    <div class="field">
+      <%= f.text_area :content, rows: 2, class: "reply_comment_content form__input",
+        placeholder: t(".create_comment_box") %>
     </div>
   <% end %>
-
-  <%= f.hidden_field :parent_id %>
-
-  <div class="field">
-    <%= f.text_area :content, cols: 100,rows: 3, class: "reply_comment_content form__input" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

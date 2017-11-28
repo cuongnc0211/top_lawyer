@@ -33,16 +33,7 @@
     <div class="">
       <%= render "recommend", author_articles: @author_articles, related_articles: @related_articles %>
     </div>
-    <button id="a">show/hide</button>
   </div>
-
-  <script>
-    $(document).on("turbolinks:load", function(){
-      $("#a").click(function(){
-        $(this).siblings().toggle();
-      });
-    });
-  </script>
 </div>
 <div class="col-md-3">
   <div class="section-title al-center">

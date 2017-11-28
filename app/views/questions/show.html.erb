@@ -1,10 +1,52 @@
 <div class="col-md-9">
+  <div class="section-title al-center">
+    <h4><%= t ".question" %></h4>
+  </div>
   <div class="section-body padding-arround">
     <p class="bold"><%= @question.title %></h2>
     <p><%= raw @question.content %></p>
+  </div>
+
+  <div class="section-title al-center">
+    <h4><%= t ".answer" %></h4>
   </div>
   <div class="section-body padding-arround">
     <%= render partial: "answer", collection: @answers, as: :answer %>
   </div>
   <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar"></div>
 </div>
+
+<div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".popular_tags" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <ul class="list_tag_show">
+      <%= render partial: "shared/tags/tag", collection: @top_tags, as: :tag %>
+    </ul>
+  </div>
+
+  <div class="section-title al-center">
+    <h4><%= t ".related_question" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= render partial: "shared/questions/related_question", collection: @related_questions, as: :question %>
+  </div>
+</div>
+
+
+<script data-turbolinks-eval=false>
+$(document).on("turbolinks:load", function(){
+  $(".create_comment").click(function(e){
+    e.preventDefault();
+    var answerId = $(this).attr("data");
+    $("#answer-" + answerId).toggle();
+  });
+
+  $(".toggle_comments").click(function(e){
+    e.preventDefault();
+    var commentsId = $(this).attr("data");
+    $("#comments-" + commentsId).toggle();
+  });
+});
+</script>

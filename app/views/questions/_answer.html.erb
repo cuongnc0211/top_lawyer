@@ -1,27 +1,39 @@
-<div class="row section-item">
-  <!-- <div class="w3-example">
-    <div style="padding: 0px" class="clearfix">
-      <div id="avatar" style="padding: 0px, margin:0px, float: left"></div>
-      <div class="UFICommentContentBlock">
-        <div>
-          <h4><%= @question.account_name %></h4>
-        </div>
-        <div><%= answer.content %></div>
-      </div>
+<div class="section-item">
+  <div class="row">
+    <div class="col-md-9">
+      <p><%= answer.content %></p>
+    </div>
+    <div class="col-md-3">
+      <%= link_to lawyer_profile_path(answer.account.lawyer_profile) do %>
+        <p><%= image_tag answer.account_avatar_url, size: "40x40", class: "no_margin" %></p>
+        <p><%= answer.account_name %></p>
+      <% end %>
     </div>
   </div>
-  <div>
-    <div>
-      <h5>Comment</h5>
-      <% if current_account != nil %>
-      <% @commentable = answer%>
-      <%= render "form", comment: @comment%>
-      <% end %>
 
-      <% @comments = answer.comments.hash_tree(limit_depth: 5) %>
+  <div class="row padding-arround">
+    <% answer_id = answer.id %>
+    <p>
+      <% if current_account %>
+        <span><%= link_to t(".create_comment"), "", class: "create_comment", data: "#{answer_id}" %></span>
+      <% end %>
+      <% if answer.comments.count > 0 %>
+        <span> | <%= link_to t(".hide_show_comment"), "", class: "toggle_comments", data: "#{answer_id}" %></span>
+      <% end %>
+    <p>
+    <div class="item-hide" id="answer-<%= answer_id %>">
+      <% if current_account != nil %>
+        <% @commentable = answer%>
+        <%= render "form", comment: @comment%>
+      <% end %>
+    </div>
+    <% @comments = answer.comments.hash_tree(limit_depth: 5) %>
+  </div>
+
+  <div class="row padding-arround item-hide" id="comments-<%= answer_id %>">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
       <%= comments_tree_for @comments %>
     </div>
-    <button class="toggle_comments">Toggle between hide() and show()</button>
-  </div> -->
-  
+  </div>
 </div>

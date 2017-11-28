@@ -13,6 +13,7 @@ question:
   top_page:
     per: 20
     truncate: 200
+  related: 4
 paginate:
   default: 10
 time_format:

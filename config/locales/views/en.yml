@@ -16,6 +16,9 @@ en:
     author: &author Author
     recommend_lawyers: &recommend_lawyers Recommend Lawyers
     article: &article Article
+    answer: &answer Answer
+    qustion: &question Question
+    popular_tags: &popular_tags Popular Tags
   layouts:
     admins:
       navigator:
@@ -35,6 +38,17 @@ en:
     shared:
       login_buttons:
         sign_in: Sign in
+  question:
+    form:
+      create_comment_box: Input your comment
+    show:
+      answer: *answer
+      qustion: *question
+      related_question: Related questions
+      popular_tags: *popular_tags
+    answer:
+      create_comment: Create Comment
+      hide_show_comment: Hide/Show comments
   articles:
       _article:
         show: Show

@@ -17,6 +17,9 @@ vi:
     author: &author Tác giả
     recommend_lawyers: &recommend_lawyers Luật sư khuyến nghị
     article: &article Bài viết
+    answer: &answer Câu trả lời
+    qustion: &question Câu hỏi
+    popular_tags: &popular_tags Thẻ phổ biển
   layouts:
     admins:
       navigator:
@@ -36,6 +39,17 @@ vi:
     shared:
       login_buttons:
         sign_in: Đăng nhập
+  questions:
+    form:
+      create_comment_box: Nhập bình luận của bạn
+    show:
+      answer: *answer
+      qustion: *question
+      related_question: Câu hỏi liên quan
+      popular_tags: *popular_tags
+    answer:
+      create_comment: Tạo bình luận
+      hide_show_comment: Ẩn/Hiện bình luận
   articles:
     _article:
       show: Chưng bày
