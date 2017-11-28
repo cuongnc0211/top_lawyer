@@ -1,29 +1,10 @@
-<div class="inner-content">
-  <div id="question-header">
-    <div class="col-md-12" style="padding: 0px">
-      <div id="avatar" class="col-md-3" style="padding: 0px"></div>
-      <div class="col-md-9">
-        <h4><%= @question.account_name %></h4>
-      </div>
-    </div>
-    <div class="col-md-12" style="padding: 0px">
-      <div class="col-md-12">
-        <div class="section-body padding-arround al-center">
-          <div class="form-group">
-            <%= render "shared/articles/tags", tags: @question.tags %>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12" style="padding: 0px">
-        <h3><%= @question.title %></h3><hr style="display: block;margin-top: 0.5em;margin-bottom: 0.5em;margin-left: auto;margin-right: auto;border-style: inset;border-width: 1px;"></div>
-      <div class="col-md-12 w3-code" style="padding: 0px"><%= @question.content %>
-      </div>
-    </div>
+<div class="col-md-9">
+  <div class="section-body padding-arround">
+    <p class="bold"><%= @question.title %></h2>
+    <p><%= raw @question.content %></p>
   </div>
-  <div id="mainbar" role="main">
-    <div class="col-md-12">
-      <%= render partial: "answer", collection: @answers, as: :answer %>
-    </div>
+  <div class="section-body padding-arround">
+    <%= render partial: "answer", collection: @answers, as: :answer %>
   </div>
   <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar"></div>
 </div>
