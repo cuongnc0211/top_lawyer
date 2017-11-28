@@ -29,13 +29,14 @@ vi:
         article: Bài viết
     lawyers:
       lawyer_navigator:
+        article: Bài viết
         notification: Thông báo
         history_advertise: Quảng cáo
         law_firm: Văn phòng luật
-        account: Tài khỏa
-        request_law_firm: Yêu cầu văn phòng luật
+        account: Tài khỏan
+        request_law_firm: Yêu cầu tham gia văn phòng luật
         law_firm_member: Thành viên văn phòng luật
-        add_law_firm: Thêm văn phòng luật
+        law_fim_invitation: Lời mời của văn phòng luật
     shared:
       login_buttons:
         sign_in: Đăng nhập
