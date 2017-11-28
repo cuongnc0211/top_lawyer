@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all.order(created_at: :desc).page(params[:page])
       .per Settings.article.top_page.per
-    @ranking_lawyers ||= Account.top_lawyer Settings.ranking.top_page
+    @top_lawyers ||= Account.top_lawyer Settings.ranking.top_page
   end
 
   def show

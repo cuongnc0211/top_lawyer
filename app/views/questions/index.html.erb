@@ -12,6 +12,6 @@
     <h4><%= t ".top_month" %></h4>
   </div>
   <div class="section-body padding-arround">
-    <%= render  @ranking_lawyers %>
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @top_lawyers %>
   </div>
 </div>
