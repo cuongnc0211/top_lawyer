@@ -53,7 +53,7 @@ class Account < ApplicationRecord
   end
 
   def account_avatar_url
-    avatar_url(:avatar) || Rails.root.join("/images/default-avatar.jpg")
+    avatar_url(:avatar) || Settings.images.default_avatar
   end
 
   def can_join law_firm, request_law_firms

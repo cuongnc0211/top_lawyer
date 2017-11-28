@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :test_search
   resources :law_firms, only: [:show, :index]
   resources :lawyer_profiles, only: :show
+  resources :accounts, only: :show
   resources :request_law_firms, only: [:new, :create]
   resources :questions, only: [:show, :index]
   resources :clips, only: [:create, :destroy]
@@ -26,7 +27,6 @@ Rails.application.routes.draw do
     resources :questions
     resources :votes, except: [:show, :new, :edit]
     namespace :register_lawyer do
-      resources :lawyer_profiles, only: [:new, :create, :update]
     end
     resources :clips, only: :index
   end
