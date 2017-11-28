@@ -32,3 +32,5 @@ ranking:
   top_page: 5
 advertise_number:
   category: 6
+images:
+  default_avatar: https://s3-ap-southeast-1.amazonaws.com/toplawyer/default-avatar.jpg
