@@ -131,6 +131,13 @@ en:
         new:
           submit: *submit
     articles:
+      form:
+        title: Title
+        status: Status
+        categories: Categories
+        tag_list: Tag list
+        total_vote: Total Vote
+        content: Content
       _article.html:
         show: Show
         edit: Edit
@@ -154,6 +161,9 @@ en:
         action: Action
         edit: Edit
         destroy: destroy
+      new:
+        submit: Create
+        create_article: Create Article
     law_firm_members:
       _search_lawyer_result:
       _show_lawyer_profile:

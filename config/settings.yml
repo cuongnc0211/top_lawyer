@@ -6,7 +6,7 @@ flash:
   failed: "alert-danger"
 article:
   top_page:
-    per: 20
+    per: 10
     truncate: 200
   related: 4
 question:

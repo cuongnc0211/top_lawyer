@@ -4,6 +4,8 @@ class User::QuestionsController < User::BaseController
   def new
     @question = Question.new
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @question.tags.pluck(:name))
+    gon.tags = @question.tags.pluck(:name)
   end
   
   def index
@@ -12,6 +14,8 @@ class User::QuestionsController < User::BaseController
   
   def edit
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @question.tags.pluck(:name))
+    gon.tags = @question.tags.pluck(:name)
   end 
 
   def create

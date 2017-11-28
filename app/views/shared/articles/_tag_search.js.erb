@@ -1,0 +1,53 @@
+$(document).on('turbolinks:load', function(){
+	// $("#input-tag").change(add_tag());
+	render_tag(gon.tags);
+
+	$(document).on("click", "#tag-item", function() {
+		// get text value of remove element
+		var delTag = $(this).parent().text();
+		// remove displayed element
+		$(this).parent().remove();
+		//get tags list from hiddenfield into a array
+		var tagList = $("#article_tag_list").val().split(",");
+		//remove element in array
+		tagList.splice(tagList.indexOf(delTag), 1);
+		//set data of hidden_field by new data
+		$("#article_tag_list").val(tagList);
+	});
+
+	//disable submit form by press enter and display new tag
+	$(".edit_article, .new_article").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+			add_tag();
+			e.preventDefault();
+    }
+	});
+
+	function add_tag(){
+	  var x = $("#input-tag").val().toLowerCase();
+	  var taglist = $("#article_tag_list").val();
+		//add value of new tag to hidden_field
+	  $("#article_tag_list").val(taglist + ", " + x);
+		//add new tag to displayed tags
+	  document.getElementById("show-tag-list").innerHTML
+	  	+= '<li class="list-inline-item"><span class="content_tag">' + x
+			+ '</span><i class="fa fa-close" id="tag-item" style="font-size:15px"></i></li>';
+		//remove value of input field
+	  $("#input-tag").val("");
+		//remove tag in list
+		console.log(x)
+		$("#"+x).remove();
+	}
+
+	function render_tag(taglist){
+		//remove old data
+		$(".list-inline-item").remove();
+		//browse all tags
+		for (var i = 0; i < taglist.length; i++) {
+			//print tags to ul
+			document.getElementById("show-tag-list").innerHTML
+		  	+= '<li class="list-inline-item"><span class="content_tag">' + taglist[i]
+				+ '</span><i class="fa fa-close" id="tag-item" style="font-size:15px"></i></li>';
+		}
+	}
+});

@@ -1,29 +1,42 @@
 <div class="form-group">
-  <%= f.label :title %>
+  <%= f.label t(".title") %>
   <%= f.text_field :title, class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :status %>
+  <%= f.label t(".status") %>
   <%= f.select :status, options_for_select([[t(".draft"), :draft], [t(".publish"), :publish]]), class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :categories %>
+  <%= f.label t(".categories") %>
   <%= f.select :category_id, options_for_select(categories.pluck(:name, :id)), class: "form_control" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :tag_list%>
-  <%= f.text_field :tag_list, placeholder: "Tags are separated by commas", class: "form-control" %>
+  <%= f.label t(".tag_list")%>
+  <%= f.hidden_field :tag_list, class: "form-control", value: @article.tag_list.join(", "), readonly: true%>
+  <ul id="show-tag-list" class="list-inline list_tag_show"></ul>
+</div>
+
+<div class="form-group">
+  <input list="tag-data-list" id="input-tag" class="form-control" placeholder="input tags">
+  <datalist id="tag-data-list">
+    <% @tags.all.each do |tag| %>
+      <option id="<%= tag.name %>" value="<%= tag.name %>"></option>
+    <% end %>
+  </datalist>
 </div>
 
 <div class="form-group" hidden>
-  <%= f.label :total_vote %>
+  <%= f.label t(".total_vote") %>
   <%= f.number_field :total_vote, :value => 0, class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :content %>
+  <%= f.label t(".content") %>
   <%= f.cktext_area :content, rows: 10, class: "form-control" %>
 </div>
+<script>
+  <%= render "shared/articles/tag_search.js"%>
+</script>

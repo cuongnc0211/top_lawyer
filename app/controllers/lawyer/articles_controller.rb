@@ -11,11 +11,16 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   def new
     @article = Article.new
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
+    gon.tags = @article.tags.pluck(:name)
   end
 
   def edit
+    params[:tag_list] = params[:tag_list].lowercase
     @article = Article.find(params[:id])
     @categories = Category.all
+    @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
+    gon.tags = @article.tags.pluck(:name)
   end
 
   def create
@@ -57,7 +62,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   def article
     return if params[:id].nil?
     article = current_account.articles.find params[:id]
-    unless current_account == article.account
+    unless (current_account.Admin? || current_account == article.account)
       flash[:error] = t ".access_denies"
       redirect_to root_path
     end
