@@ -7,4 +7,11 @@
     <div class="row al-center"><%= paginate @questions %></div>
   </div>
 </div>
-<div class="col-md-3"></div>
+<div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".top_month" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @top_lawyers %>
+  </div>
+</div>
