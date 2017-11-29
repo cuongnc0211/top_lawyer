@@ -31,6 +31,7 @@
       <% if answer.comments.count > 0 %>
         <!-- Link to show comment -->
         <span> | <%= link_to t(".hide_show_comment"), "", class: "toggle_comments", data: "#{answer_id}" %></span>
+        <span class="badge"><%= answer.comments.count %></span>
       <% end %>
     <p>
     <div class="item-hide" id="answer-<%= answer_id %>">

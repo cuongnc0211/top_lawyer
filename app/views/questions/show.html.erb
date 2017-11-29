@@ -13,6 +13,11 @@
       </div>
       <div class="col-md-10">
         <p class="bold"><%= @question.title %></h2>
+        <p>
+          <span><%= link_to @question.category_name, category_path(@question.category) %></span>
+          <span> | <%= @question.created_at.to_formatted_s(:short) %></span>
+        </p>
+        <%= render "shared/statistics/question_statitic", question: @question %>
         <p><%= raw @question.content %></p>
         <hr>
         <%= form_for [:lawyer, @question.answers.build] do |f| %>
@@ -38,6 +43,16 @@
 </div>
 
 <div class="col-md-3">
+  <div class="section-title al-center">
+    <h4><%= t ".user" %></h4>
+  </div>
+  <div class="section-body padding-arround al-center">
+    <%= link_to account_path(@question.account) do %>
+      <%= image_tag @question.account_avatar_url, size: "50x50", class: "no_margin" %>
+      <p><%= @question.account_name %></p>
+    <% end %>
+  </div>
+
   <div class="section-title al-center">
     <h4><%= t ".popular_tags" %></h4>
   </div>

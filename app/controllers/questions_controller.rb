@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order(created_at: :desc).page(params[:page])
       .per Settings.article.top_page.per
     @top_lawyers ||= Account.top_lawyer Settings.ranking.top_page
+    @top_tags = ActsAsTaggableOn::Tag.most_used(10)
   end
 
   def show
