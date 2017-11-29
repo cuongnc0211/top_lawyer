@@ -1,4 +1,10 @@
 vi:
+  views:
+    pagination:
+      next: Tiếp
+      last: Cuối
+      previous: Trước
+      first: Đầu tiên
   account: Tài khoản
   law_firm: Văn phòng luật
   dictionary:
@@ -18,8 +24,9 @@ vi:
     recommend_lawyers: &recommend_lawyers Luật sư khuyến nghị
     article: &article Bài viết
     answer: &answer Câu trả lời
-    qustion: &question Câu hỏi
+    question: &question Câu hỏi
     popular_tags: &popular_tags Thẻ phổ biển
+    top_month: &top_month Luật sư nổi bật
   layouts:
     admins:
       navigator:
@@ -41,6 +48,10 @@ vi:
       login_buttons:
         sign_in: Đăng nhập
   questions:
+    index:
+      popular_tag: *popular_tags
+      top_month: *top_month
+      questions: *question
     form:
       create_comment_box: Nhập bình luận của bạn
       submit: Tạo bình luận
@@ -89,6 +100,9 @@ vi:
   top_pages:
     index:
       top_page: "Đây là trang đầu"
+      popular_tag: *popular_tags
+      top_month: *top_month
+      article: *article
   user:
     register_lawyer:
       lawyer_profiles:
