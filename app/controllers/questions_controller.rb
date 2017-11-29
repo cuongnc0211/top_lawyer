@@ -9,9 +9,13 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answers = @question.answers
+    @answers = @question.answers.order(total_vote: :desc)
     @comment = Comment.new
     @top_tags = ActsAsTaggableOn::Tag.most_used(10)
     @related_questions = @question.related_questions
+
+    if current_account.present?
+      @vote = @question.init_vote(current_account.id)
+    end
   end
 end

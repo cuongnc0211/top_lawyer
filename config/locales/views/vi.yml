@@ -43,11 +43,14 @@ vi:
   questions:
     form:
       create_comment_box: Nhập bình luận của bạn
+      submit: Tạo bình luận
     show:
       answer: *answer
-      qustion: *question
+      question: *question
       related_question: Câu hỏi liên quan
       popular_tags: *popular_tags
+      create_answer_box: Nhập câu trả lời của bạn
+      submit: Tạo câu trả lời
     answer:
       create_comment: Tạo bình luận
       hide_show_comment: Ẩn/Hiện bình luận

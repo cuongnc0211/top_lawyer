@@ -38,14 +38,17 @@ en:
     shared:
       login_buttons:
         sign_in: Sign in
-  question:
+  questions:
     form:
       create_comment_box: Input your comment
+      submit: Tạo bình luận
     show:
       answer: *answer
       qustion: *question
       related_question: Related questions
       popular_tags: *popular_tags
+      create_answer_box: Input your answer
+      submit: Create Answer
     answer:
       create_comment: Create Comment
       hide_show_comment: Hide/Show comments

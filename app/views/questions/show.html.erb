@@ -3,8 +3,29 @@
     <h4><%= t ".question" %></h4>
   </div>
   <div class="section-body padding-arround">
-    <p class="bold"><%= @question.title %></h2>
-    <p><%= raw @question.content %></p>
+    <div class="row">
+      <div class="col-md-1 al-center" id="form-vote">
+        <% if current_account.present? && @vote.persisted? %>
+          <p><%= render "shared/users/votes/delete_vote_form", vote: @vote, model: @question %></p>
+        <% else %>
+          <p><%= render "shared/users/votes/new_vote_form", vote: @vote, model: @question %></p>
+        <% end %>
+      </div>
+      <div class="col-md-10">
+        <p class="bold"><%= @question.title %></h2>
+        <p><%= raw @question.content %></p>
+        <hr>
+        <%= form_for [:lawyer, @question.answers.build] do |f| %>
+          <div class="field">
+            <%= f.hidden_field :from_page, value: :top_page %>
+            <%= f.hidden_field :question_id %>
+            <%= f.text_area :content, rows: 2, class: "form__input",
+              placeholder: t(".create_answer_box") %>
+            <%= f.submit t(".submit"), class: "btn--default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="section-title al-center">

@@ -1,9 +1,19 @@
 <div class="section-item">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-1 al-center">
+      <% if current_account.present? %>
+        <% answer_vote = answer.init_vote current_account.id %>
+        <% if answer_vote.persisted? %>
+          <p><%= render "shared/users/votes/delete_vote_form", vote: answer_vote, model: answer %></p>
+        <% else %>
+          <p><%= render "shared/users/votes/new_vote_form", vote: answer_vote, model: answer %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
       <p><%= answer.content %></p>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <%= link_to lawyer_profile_path(answer.account.lawyer_profile) do %>
         <p><%= image_tag answer.account_avatar_url, size: "40x40", class: "no_margin" %></p>
         <p><%= answer.account_name %></p>
@@ -15,15 +25,18 @@
     <% answer_id = answer.id %>
     <p>
       <% if current_account %>
+        <!-- Link to show comment form -->
         <span><%= link_to t(".create_comment"), "", class: "create_comment", data: "#{answer_id}" %></span>
       <% end %>
       <% if answer.comments.count > 0 %>
+        <!-- Link to show comment -->
         <span> | <%= link_to t(".hide_show_comment"), "", class: "toggle_comments", data: "#{answer_id}" %></span>
       <% end %>
     <p>
     <div class="item-hide" id="answer-<%= answer_id %>">
       <% if current_account != nil %>
         <% @commentable = answer%>
+        <!-- render comment form -->
         <%= render "form", comment: @comment%>
       <% end %>
     </div>
