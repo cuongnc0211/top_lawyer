@@ -16,7 +16,7 @@ class Lawyer::LawFirmMembersController < Lawyer::BaseController
   end
 
   def destroy
-    if LawyerProfile.find(params[:id]).update_attributes(law_firm_id: 0)
+    if LawyerProfile.find(params[:id]).update_attributes(law_firm_id: nil)
       flash[:success] = t ".remove"
       redirect_to lawyer_law_firm_members_path(current_account)
     end

@@ -8,7 +8,7 @@
         </td>
         <td>
           <%= form_tag lawyer_add_law_firms_path(), method: :post do %>
-            <%= hidden_field_tag add_id: f.id %>
+            <%= hidden_field_tag :add_id, f.id %>
             <div class="actions">
               <%= submit_tag :Add %>
             </div>
