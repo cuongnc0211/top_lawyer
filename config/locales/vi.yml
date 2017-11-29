@@ -1,0 +1,14 @@
+vi:
+  hello: "Hello world"
+  layouts:
+    shared:
+      navigation_bar:
+        top_lawyer: TopLawyer
+        articles: Bài viết
+        questions: Hỏi đáp
+  notify:
+    up_vote: "%{post} vừa nhận đánh giá hữu ích"
+    down_vote: "%{post} vừa nhận đánh giá không hữu ích"
+    comment_article: "%{from_name} đã bình luần về bài viết của bạn"
+    answer_question: "%{from_name} đã trả lời bài viết của bạn"
+    comment_answer: "%{from_name} đã bình luận về câu trả lời của bạn"

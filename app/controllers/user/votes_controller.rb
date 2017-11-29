@@ -3,11 +3,9 @@ class User::VotesController < User::BaseController
 
   def create
     @vote = current_account.votes.build vote_parmas
-    @article = Article.find params[:vote][:voteable_id]
+    load_model params[:vote][:voteable_type], params[:vote][:voteable_id]
     if @vote.save
-      update_infomation @article
-      ::Notifies::CreateNotificationService.new(current_account: current_account,
-        target_account: @article.account, model: @article, action: :up_vote).perform
+      update_infomation @model, @vote.voteable_type
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -15,11 +13,10 @@ class User::VotesController < User::BaseController
   end
 
   def destroy
-    @article = Article.find params[:vote][:voteable_id]
+    load_model params[:vote][:voteable_type], params[:vote][:voteable_id]
+    vote_type = @vote.voteable_type
     if @vote.destroy
-      update_infomation @article
-      ::Notifies::CreateNotificationService.new(current_account: current_account,
-        target_account: @article.account, model: @article, action: :down_vote).perform
+      update_infomation @model, vote_type
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -35,9 +32,31 @@ class User::VotesController < User::BaseController
     @vote = current_account.votes.find_by id: params[:id]
   end
 
-  def update_infomation article
-    ::CreateHistoryPointService.new(point: Point.article, account: article.account)
-    ::UpdatePointLawyerService.new(article.lawyer_profile).perform
-    ::Votes::UpdateTotalVotesService.new(article).perform
+  def load_model vote_type, model_id
+    case vote_type
+    when "Article"
+      @model = Article.find model_id
+    when "Question"
+      @model = Question.find model_id
+    when "Answer"
+      @model = Answer.find model_id
+    end
+  end
+
+  def update_infomation model, vote_type
+    case vote_type
+    when "Article"
+      ::CreateHistoryPointService.new(point: Point.article, account: model.account)
+      ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
+      ::Notifies::CreateNotificationService.new(current_account: current_account,
+        target_account: @model.account, model: @model, action: :up_vote).perform
+    when "Question"
+    when "Answer"
+      ::CreateHistoryPointService.new(point: Point.answer, account: model.account)
+      ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
+      ::Notifies::CreateNotificationService.new(current_account: current_account,
+        target_account: @model.account, model: @model, action: :down_vote).perform
+    end
+    ::Votes::UpdateTotalVotesService.new(model).perform
   end
 end

@@ -1,10 +1,9 @@
-<div class="col-md-1" id="form-vote">
-  <p><%= t ".total_vote" %>: <%= @article.total_vote %></p>
+<div class="col-md-1 al-center" id="form-vote">
   <% if current_account.present? %>
     <% if @vote.persisted? %>
-      <p><%= render "shared/users/votes/delete_vote_form", vote: @vote %></p>
+      <p><%= render "shared/users/votes/delete_vote_form", vote: @vote, model: @article %></p>
     <% else %>
-      <p><%= render "shared/users/votes/new_vote_form", vote: @vote %></p>
+      <p><%= render "shared/users/votes/new_vote_form", vote: @vote, model: @article %></p>
     <% end %>
   <% end %>
 </div>

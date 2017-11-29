@@ -10,7 +10,7 @@ class Notify < ApplicationRecord
   def noti_content
     case self.action
     when "up_vote", "down_vote"
-      I18n.t("notify.#{self.action}", post: self.notifyable.title.truncate(15))
+      I18n.t("notify.#{self.action}", post: self.notifyable.class)
     when "comment_article", "answer_question", "comment_answer"
       I18n.t("notify.#{self.action}", from_name: self.account_name)
     end

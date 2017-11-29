@@ -1,9 +1,9 @@
 en:
   dictionary:
-    updated: &updated Update Successfully
-    update_fail: &update_fail Update fail
-    created: &created Create Successfully
-    create_fail: &create_fail Create Fail
+    updated: &updated Update Successfully.
+    update_fail: &update_fail Update fail!
+    created: &created Create Successfully.
+    create_fail: &create_fail Create Fail!
     deleted: &deleted Delete Successfully.
     delete_fail: &delete_fail Delete failed!
   user:
@@ -42,6 +42,9 @@ en:
   request_law_firms:
     new: New
   lawyer:
+    question:
+      create: *created
+      create_fail: *create_fail
     accounts:
       update:
         updated: *updated

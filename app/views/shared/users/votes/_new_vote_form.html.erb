@@ -4,13 +4,18 @@
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
 
-    <%= f.submit t(".vote_up"), class: "btn--success", "style":"width: 100%;" %>
+    <%= link_to "", class: "vote_button" do %>
+      <i aria-hidden="true" class="fa fa-caret-up" style="font-size:48px"></i>
+    <% end %>
   <% end %>
+  <h4><%= model.total_vote.to_i %></h4>
   <%= form_for [:user, vote] do |f| %>
     <%= f.hidden_field :vote_type, value: :vote_down %>
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
 
-    <%= f.submit t(".vote_down"), class: "btn--warning", "style":"width: 100%;" %>
+    <%= link_to "", class: "vote_button" do %>
+      <i aria-hidden="true" class="fa fa-caret-down" style="font-size:48px"></i>
+    <% end %>
   <% end %>
 </div>

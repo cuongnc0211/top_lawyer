@@ -1,11 +1,11 @@
 vi:
   dictionary:
     updated: &updated Cập nhật thành công!
-    update_fail: &update_fail Cập nhật lỗi!
+    update_fail: &update_fail Cập nhật Thất bại!
     created: &created Tạo mới thành công!
-    create_fail: &create_fail Tạo mới lỗi!
+    create_fail: &create_fail Tạo mới Thất bại!
     deleted: &deleted Xóa thành công!
-    delete_fail: &delete_fail Xóa lỗi!
+    delete_fail: &delete_fail Xóa Thất bại!
   user:
     register_lawyer:
       lawyer_profiles:
@@ -42,6 +42,9 @@ vi:
   request_law_firms:
     new: Tạo mới
   lawyer:
+    question:
+      create: *created
+      create_fail: *create_fail
     accounts:
       update:
         updated: *updated

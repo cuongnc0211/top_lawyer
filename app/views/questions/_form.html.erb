@@ -16,6 +16,7 @@
     <div class="field">
       <%= f.text_area :content, rows: 2, class: "reply_comment_content form__input",
         placeholder: t(".create_comment_box") %>
+      <%= f.submit t(".submit"), class: "btn--default" %>
     </div>
   <% end %>
 </div>
