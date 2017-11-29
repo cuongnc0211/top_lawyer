@@ -1,0 +1,6 @@
+<p>
+  <% vote_class = (article.total_vote.to_i < 0) ? "fa-chevron-circle-down" : "fa-chevron-circle-up" %>
+  <span><i aria-hidden="true" class="fa fa-eye"></i> <%= article.impressionist_count %></span>
+  <span><i aria-hidden="true" class="fa <%= vote_class %>"></i> <%= article.total_vote.to_i %></span>
+  <span><i aria-hidden="true" class="fa fa-paperclip"></i> <%= article.clips.count %></span>
+</p>

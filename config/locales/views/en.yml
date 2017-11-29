@@ -1,4 +1,10 @@
 en:
+  views:
+    pagination:
+      next: Next
+      last: Last
+      previous: Previous
+      first: First
   account: Account
   law_firm: Law Firm
   dictionary:
@@ -16,6 +22,10 @@ en:
     author: &author Author
     recommend_lawyers: &recommend_lawyers Recommend Lawyers
     article: &article Article
+    answer: &answer Answer
+    question: &question Question
+    popular_tags: &popular_tags Popular Tags
+    top_month: &top_month Top Month
   layouts:
     admins:
       navigator:
@@ -35,6 +45,24 @@ en:
     shared:
       login_buttons:
         sign_in: Sign in
+  questions:
+    index:
+      popular_tag: *popular_tags
+      top_month: *top_month
+      questions: *question
+    form:
+      create_comment_box: Input your comment
+      submit: Tạo bình luận
+    show:
+      answer: *answer
+      qustion: *question
+      related_question: Related questions
+      popular_tags: *popular_tags
+      create_answer_box: Input your answer
+      submit: Create Answer
+    answer:
+      create_comment: Create Comment
+      hide_show_comment: Hide/Show comments
   articles:
       _article:
         show: Show
@@ -70,6 +98,9 @@ en:
   top_pages:
     index:
       top_page: "This is top page"
+      popular_tag: *popular_tags
+      top_month: *top_month
+      article: *article
   user:
     register_lawyer:
       lawyer_profiles:

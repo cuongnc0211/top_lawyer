@@ -21,7 +21,8 @@ class Article < ApplicationRecord
   delegate :account_avatar_url, to: :account, prefix: false, allow_nil: true
 
   def related_articles
-    articles = Article.tagged_with(self.tag_list, any: true).first(Settings.article.related)
+    articles = Article.tagged_with(self.tag_list, any: true).where.not(id: self.id)
+      .first(Settings.article.related)
     gap = Settings.article.related - articles.length
     if gap > 0
       articles += self.category.articles.order(total_vote: :desc).first(gap)

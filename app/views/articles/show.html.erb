@@ -1,20 +1,28 @@
-<div class="col-md-1" id="form-vote">
-  <p><%= t ".total_vote" %>: <%= @article.total_vote %></p>
-  <% if current_account.present? %>
-    <% if @vote.persisted? %>
-      <p><%= render "shared/users/votes/delete_vote_form", vote: @vote %></p>
-    <% else %>
-      <p><%= render "shared/users/votes/new_vote_form", vote: @vote %></p>
-    <% end %>
-  <% end %>
-</div>
-<div class="col-md-8">
+<div class="col-md-9">
   <div class="section-title al-center">
     <h4><%= t ".article" %></h4>
   </div>
   <div class="section-body padding-arround">
-    <p class="bold"><%= @article.title %></h2>
-    <p><%= raw @article.content %></p>
+    <div class="row">
+      <div class="col-md-1 al-center" id="form-vote">
+        <% if current_account.present? %>
+          <% if @vote.persisted? %>
+            <p><%= render "shared/users/votes/delete_vote_form", vote: @vote, model: @article %></p>
+          <% else %>
+            <p><%= render "shared/users/votes/new_vote_form", vote: @vote, model: @article %></p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-10">
+        <p class="bold"><%= @article.title %></h2>
+        <p>
+          <span><%= link_to @article.category_name, category_path(@article.category) %> | </span>
+          <span><%= @article.created_at.to_formatted_s(:short) %></span>
+        </p>
+        <%= render "shared/statistics/article_statitic", article: @article %>
+        <p><%= raw @article.content %></p>
+      </div>
+    </div>
   </div>
 
   <div class="section-title al-center">
@@ -33,16 +41,7 @@
     <div class="">
       <%= render "recommend", author_articles: @author_articles, related_articles: @related_articles %>
     </div>
-    <button id="a">show/hide</button>
   </div>
-
-  <script>
-    $(document).on("turbolinks:load", function(){
-      $("#a").click(function(){
-        $(this).siblings().toggle();
-      });
-    });
-  </script>
 </div>
 <div class="col-md-3">
   <div class="section-title al-center">

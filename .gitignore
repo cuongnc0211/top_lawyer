@@ -23,6 +23,7 @@
 .byebug_history
 
 # Ignore application configuration
+/config/database.yml
 /config/application.yml
 public/
 !/public/images

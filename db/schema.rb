@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127090038) do
+ActiveRecord::Schema.define(version: 20171128081953) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -254,6 +254,7 @@ ActiveRecord::Schema.define(version: 20171127090038) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_vote"
     t.index ["account_id"], name: "index_questions_on_account_id"
     t.index ["category_id"], name: "index_questions_on_category_id"
   end

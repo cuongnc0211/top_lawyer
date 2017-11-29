@@ -34,6 +34,14 @@ div {
   padding: 10px 10px 10px 10px;
 }
 
+.mg-left {
+  margin-left: 20px;
+}
+
+.item-hide {
+  display: none;
+}
+
 .no_margin {
   margin: 0px;
 }
@@ -47,7 +55,7 @@ div {
 }
 
 .padding-arround {
-  padding: 15px;
+  padding: 15px !important;
 }
 
 #top-navi {
@@ -72,7 +80,7 @@ div {
   width: 100%;
   background-color: white;
   color: black;
-  margin: 0px; margin-bottom: 10px;
+  margin: 0px; margin-bottom: 20px;
   border: 2px solid $main-green;
 }
 

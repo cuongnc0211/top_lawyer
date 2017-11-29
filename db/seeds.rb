@@ -69,14 +69,22 @@ puts "create_category"
   Category.create name: Faker::Lorem.word
 end
 
+puts "create tag"
+15.times do |n|
+  Tag.create name: Faker::Job.field + "#{n}"
+end
+tags_name = Tag.all.pluck :name
+
 puts "create_question"
 user_ids = Account.User.all.pluck :id
 category_ids = Category.all.pluck :id
 50.times do |n|
-  Question.create account_id: user_ids.sample,
+  question = Question.create(account_id: user_ids.sample,
     title: Faker::Lorem.sentence(3),
     content: Faker::Lorem.paragraph(10, false, 4),
-    category_id: category_ids.sample
+    category_id: category_ids.sample)
+  question.tag_list.add(tags_name.sample, tags_name.sample, tags_name.sample)
+  question.save
 end
 
 puts "create_answer"
@@ -88,13 +96,7 @@ question_ids = Question.all.pluck :id
     content: Faker::Lorem.paragraph(6, false, 4)
 end
 
-puts "create tag"
-15.times do |n|
-  Tag.create name: Faker::Job.field + "#{n}"
-end
-
 puts "create_article"
-tags_name = Tag.all.pluck :name
 50.times do |n|
   article = Article.create(account_id: lawyer_account_ids.sample,
     title: Faker::Lorem.sentence(3),
