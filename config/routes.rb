@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :questions
     resources :votes, except: [:show, :new, :edit]
     namespace :register_lawyer do
-      resources :lawyer_profiles, only: [:new, :create, :update]
     end
     resources :clips, only: :index
   end

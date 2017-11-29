@@ -21,3 +21,67 @@
 
 
 .replies {margin-left: 50px;}
+.no-border-radius{border-radius: 0!important;}
+.no-border{border: none!important;}
+.card{
+	position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    }
+.mb-0{margin-bottom: 0!important;}
+.post-feed-item{
+	padding: .5rem;
+    border-bottom: 1px solid #d6d6d7;
+    }
+.d-flex{
+	display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+	}
+.card-block{
+	-webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.full-width{
+	width: 100%!important;
+}
+.post-header .post-meta{
+	font-size: 1.5rem;
+}
+.flex-wrap{
+	    flex-wrap: wrap;
+}
+.align-items-center{
+	-webkit-box-align: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+.post-header .post-title-box{
+	flex-wrap: wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+*, :after, :before{
+	box-sizing: inherit;
+}
+.padding-left {
+	padding-left :10px;
+}
+.padding-row-left{
+	padding-left : 100px;
+}
+.user-profile .profile-stats{
+	padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #d6d6d7;
+}
