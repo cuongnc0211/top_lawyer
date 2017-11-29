@@ -1,6 +1,10 @@
 <div class="row section-item">
   <div class="col-md-2">
-    <p><%= image_tag question.account_avatar_url, size: "40x40", class: "no_margin" %></p>
+    <p>
+      <%= link_to account_path(question.account) do %>
+      <%= image_tag question.account_avatar_url, size: "40x40", class: "no_margin" %>
+        <% end %>
+      </p>
     <p><%= question.created_at.to_formatted_s(:short) %></p>
     <p><%= link_to question.category_name, category_path(question.category) %></p>
   </div>
