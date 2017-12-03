@@ -6,7 +6,8 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   steps :new, :tag, :finish
 
   def index
-    @articles = current_account.articles
+    @articles = current_account.articles.publish.page(params[:page])
+      .per Settings.per_page.default
   end
 
   def show

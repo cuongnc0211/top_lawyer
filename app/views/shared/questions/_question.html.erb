@@ -9,8 +9,13 @@
     <p><%= link_to question.category_name, category_path(question.category) %></p>
   </div>
   <div class="col-md-10">
-    <p><%= link_to question.title, question_path(question), class: "bold" %></p>
-    <%= render "shared/statistics/question_statitic", question: question %>    
+    <p>
+      <%= link_to question.title, question_path(question), class: "bold" %>
+      <span class="pull-right">
+        <%= render("shared/questions/action_buttons", question: question) if current_account %>
+      </span>
+    </p>
+    <%= render "shared/statistics/question_statitic", question: question %>
     <p><%= question.content.truncate Settings.question.top_page.truncate %></p>
   </div>
 </div>

@@ -27,6 +27,7 @@ vi:
     question: &question Câu hỏi
     popular_tags: &popular_tags Thẻ phổ biển
     top_month: &top_month Luật sư nổi bật
+    confirm_delete: &confirm_delete Bạn chắc chắn muốn xoá?
   layouts:
     admins:
       navigator:
@@ -273,6 +274,25 @@ vi:
         fax_number: Số fax
         introduction: Giới thiệu
   shared:
+    statistics:
+      article_statitic:
+        view_number: Số lượt xem
+        votes_number: Số lượt hữu ích
+        clips_number: Số lượt ghim
+      question_statitic:
+        view_number: Số lượt xem
+        vote_number: Số lượt vote
+        answer_number: Số câu trả lời
+    articles:
+      action_buttons:
+        edit: Chỉnh sửa
+        delete: Xoá
+        confirm_delete: *confirm_delete
+    questions:
+      action_buttons:
+        edit: Chỉnh sửa
+        delete: Xoá
+        confirm_delete: *confirm_delete
     clip:
       clip_this_article: Ghim bài viết
       remove_this_clip: Xóa ghim bài viết
