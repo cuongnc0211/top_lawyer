@@ -4,7 +4,9 @@
   <%= form_for [:lawyer, @article], class: "article-form" do |f| %>
     <%= render "form", f: f , categories: @categories%>
     <div class="form-group">
-      <%= f.submit t(".edit") , class: "form-control btn btn-primary" %>
+      <%= f.button t(".next"), type: :submit, name: :step, value: :tag,
+        class: "form-control btn btn-primary" %>
+      <!-- <%= f.submit t(".edit") , class: "form-control btn btn-primary" %> -->
     </div>
   <% end %>
 </div>
