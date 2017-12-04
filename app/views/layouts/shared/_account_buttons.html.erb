@@ -1,6 +1,7 @@
 <ul class="nav navbar-nav navbar-right">
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span><%= image_tag current_account.account_avatar_url, size: "30x30", class: "no_margin" %></span>
       <span class="item"><%= current_account.name %></span>
       <span class="caret item"></span>
     </a>

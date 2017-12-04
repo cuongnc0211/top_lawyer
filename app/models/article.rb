@@ -49,4 +49,8 @@ class Article < ApplicationRecord
   def all_vote_up
     votes.vote_up.count
   end
+
+  def all_tags
+    Tag.find(self.tags.pluck :id)
+  end
 end

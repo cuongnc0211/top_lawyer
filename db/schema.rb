@@ -269,6 +269,16 @@ ActiveRecord::Schema.define(version: 20171128081953) do
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
 
+  create_table "tag_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "tag_id"
+    t.string "content"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_tag_descriptions_on_account_id"
+    t.index ["tag_id"], name: "index_tag_descriptions_on_tag_id"
+  end
+
   create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "tag_id"
     t.string "taggable_type"

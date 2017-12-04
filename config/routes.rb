@@ -57,6 +57,9 @@ Rails.application.routes.draw do
     namespace :advertise do
       resources :history_advertises, only: [:new, :create]
     end
+    namespace :draft do
+      resources :articles, only: :index
+    end
     resources :notifies, only: :index
     resources :clips, only: :index
   end

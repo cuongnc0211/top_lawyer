@@ -2,7 +2,12 @@
   <div>
     <div class="col-md-9">
       <div class="index-article-title">
-        <p><%= link_to article.title, article_path(article), class: "bold" %></p>
+        <p>
+          <%= link_to article.title, article_path(article), class: "bold" %>
+          <span class="pull-right">
+            <%= render("shared/articles/action_buttons", article: article) if current_account %>
+          </span>
+        </p>
         <p>
           <span><%= link_to article.category_name, category_path(article.category) %> | </span>
           <span><%= article.created_at.to_formatted_s(:short) %></span>

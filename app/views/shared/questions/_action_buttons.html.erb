@@ -1,0 +1,12 @@
+<span>
+  <% if current_account.own? question %>
+    <%= link_to edit_user_question_path(question) do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.edit' %>"></i>
+    <% end %>
+  <% end %>
+  <% if current_account.own?(question) || current_account.Admin? %>
+    <%= link_to user_question_path(question), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+      <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+    <% end %>
+  <% end %>
+</span>

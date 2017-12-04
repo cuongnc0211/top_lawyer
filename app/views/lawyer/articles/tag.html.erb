@@ -1,0 +1,20 @@
+<div class="col-md-6 col-md-offset-3">
+  <h3><%= t ".add_tag_description" %></h3>
+  <% tags = @article.all_tags %>
+  <%= form_tag lawyer_articles_path, :html => { :method => :put } do %>
+    <%= hidden_field_tag :article_id, @article.id %>
+    <% for tag in tags %>
+      <% td = tag.tag_descriptions.find_by(account_id: current_account.id) %>
+      <% description = td.nil? ? "" : td.content %>
+      <%= fields_for "tags[#{tag.id}]" do |f| %>
+        <p>
+          <span><%= tag.name %></span>
+          <%= f.text_field :content, value: description, class: "form-control" %>
+          <%= f.hidden_field :account_id, value: current_account.id %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <%= submit_tag "next", name: :step, value: :finish, class: "form-control btn btn-primary" %>
+  <% end %>
+</div>
