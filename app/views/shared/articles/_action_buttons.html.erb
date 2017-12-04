@@ -1,0 +1,12 @@
+<span>
+  <% if current_account.own? article %>
+    <%= link_to edit_lawyer_article_path(article) do %>
+      <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.edit' %>"></i>
+    <% end %>
+  <% end %>
+  <% if current_account.own?(article) || current_account.Admin? %>
+    <%= link_to lawyer_article_path(article), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+      <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+    <% end %>
+  <% end %>
+</span>

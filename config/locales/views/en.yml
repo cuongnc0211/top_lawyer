@@ -1,4 +1,6 @@
 en:
+  my_page: My Page
+  sign_out: Sign Out
   views:
     pagination:
       next: Next
@@ -26,6 +28,7 @@ en:
     question: &question Question
     popular_tags: &popular_tags Popular Tags
     top_month: &top_month Top Month
+    confirm_delete: &confirm_delete Delete? Are you sure?
   layouts:
     admins:
       navigator:
@@ -268,6 +271,25 @@ en:
         fax_number: Fax number
         introduction: Introduction
   shared:
+    statistics:
+      article_statitic:
+        view_number: Views number
+        votes_number: Votes number
+        clips_number: Clipped number
+      question_statitic:
+        view_number: Views number
+        vote_number: Votes number
+        answer_number: Answer number
+    articles:
+      action_buttons:
+        edit: Edit
+        delete: Delete
+        confirm_delete: *confirm_delete
+    questions:
+      action_buttons:
+        edit: Edit
+        delete: Delete
+        confirm_delete: *confirm_delete
     clip:
       clip_this_article: Clip this Article
       remove_this_clip: Remove this Clip

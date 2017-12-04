@@ -13,8 +13,13 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-md-10">
-        <p class="bold"><%= @article.title %></h2>
+      <div class="col-md-11">
+        <p class="bold">
+          <span><%= @article.title %></span>
+          <span class="pull-right">
+            <%= render("shared/articles/action_buttons", article: @article) if current_account %>
+          </span>
+        </h2>
         <p>
           <span><%= link_to @article.category_name, category_path(@article.category) %> | </span>
           <span><%= @article.created_at.to_formatted_s(:short) %></span>

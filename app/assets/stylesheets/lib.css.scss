@@ -31,7 +31,7 @@ div {
 }
 
 .pd-10 {
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
 }
 
 .mg-left {
@@ -43,11 +43,11 @@ div {
 }
 
 .no_margin {
-  margin: 0px;
+  margin: 0;
 }
 
 .margin-tb-10 {
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0;
 }
 
 .al-center {
@@ -58,21 +58,31 @@ div {
   padding: 15px !important;
 }
 
+.navbar-inverse .navbar-nav, .dropdown-menu {
+  li {
+    a:focus, a:hover {
+      color: #fff !important;
+      background-color: grey !important;
+    }
+  }
+}
+
 #top-navi {
-  margin-top: 0px;
+  margin-top: 0;
   background-color: $main-green;
   border-color: $main-green;
+
   .item {
     color: black;
   }
 }
 
-
 .section-title {
-  min-height: 40px; width: 100%;
+  min-height: 40px;
+  width: 100%;
   background-color: $main-green;
   color: black;
-  margin: 0px;
+  margin: 0;
   border: 2px solid $main-green;
 }
 
@@ -80,22 +90,32 @@ div {
   width: 100%;
   background-color: white;
   color: black;
-  margin: 0px; margin-bottom: 20px;
+  margin: 0 0 20px;
   border: 2px solid $main-green;
 }
 
 .row .section-item {
-  margin: 10px 10px 10px 10px;
+  margin: 10px;
   border-bottom: 1px solid grey;
 }
 
 .sub-section-title {
   border-bottom: 2px solid #52bab3;
-  margin: 0px !important ;
+  margin: 0 !important;
 }
 
 .sub-section-title-both {
   border-bottom: 2px solid #52bab3;
   border-top: 2px solid #52bab3;
-  margin: 0px !important ;
+  margin: 0 !important;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip_body {
+  border-bottom: 1px dotted black;
+  display: inline-block;
 }

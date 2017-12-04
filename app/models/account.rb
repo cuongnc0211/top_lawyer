@@ -63,4 +63,8 @@ class Account < ApplicationRecord
   def total_point
     history_points.sum :total
   end
+
+  def own? model
+    id == model.account_id
+  end
 end
