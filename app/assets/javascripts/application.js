@@ -21,3 +21,4 @@
 //= require_tree ./channels
 //= require ckeditor/init
 //= require turbolinks
+

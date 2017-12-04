@@ -1,5 +1,178 @@
-<div class="col-md-9">
-  <h3><%= @lawyer_profile.account_name %>
+<div class="col-md-12">
+  <div class="avata-image">
+      <%= image_tag @account.account_avatar_url, size: "120x120", class: "" %>
+  </div>
+  <div class="col-md-9" style="padding-bottom: 50px">
+    <div>
+      <h3><%= @lawyer_profile.account_name %></h3>
+    </div>
+    <div class="glyphicon glyphicon-envelope">
+        <%= @lawyer_profile.account.email %>
+    </div>
+    </br>
+    <div class="glyphicon glyphicon-flag">
+        <%= @lawyer_profile.created_at %>
+    </div>
+    </br>
+    <div class="glyphicon glyphicon-map-marker">
+        <%= @lawyer_profile.address %>
+    </div>
+  </div>
 </div>
-<div class="col-md-3">
+  <div class="col-md-8 padding-row-left ">   
+    <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+    <li><a data-toggle="tab" href="#menu1">Articles</a></li>
+    <li><a data-toggle="tab" href="#menu2">Answers</a></li>
+    <li><a data-toggle="tab" href="#menu3">Review</a></li>
+  </ul>
+    <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div class="content-trouble clearfix">
+        <div class="row">
+          <div class="col-md-12 mb-pd0">
+            <div class="title-content">
+              <h3><font style="vertical-align: inherit;">A word from a lawyer</font></h3>
+            </div>
+          </div>
+        </div>
+        <div class="description">
+            <font style="vertical-align: inherit;">
+            <%= @lawyer_profile.introduction %>
+              </font>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-pd0">
+            <div class="title-content">
+              <h3><font style="vertical-align: inherit;">Profile</font></h3>
+            </div>
+          </div>
+        </div>
+        <div class="description">
+            <font style="vertical-align: inherit;">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><%= @lawyer_profile.account_name %></td>
+                  </tr>
+                 <tr>
+                  <td>Lawyer_id</td>
+                  <td><%= @lawyer_profile.lawyer_id %></td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td><%= @lawyer_profile.address %></td>
+                </tr>
+                <tr>
+                  <td>Phone number</td>
+                  <td><%= @lawyer_profile.phone_number %></td>
+                </tr>
+                <tr>
+                  <td>Fax number</td>
+                  <td><%= @lawyer_profile.fax_number %></td>
+                </tr>
+                <tr>
+                  <td>Van Phong luat</td>
+                  <td><%= @lawyer_profile.law_firm.name %></td>
+                </tr>
+                </tbody>
+              </table>
+            </font>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-pd0">
+            <div class="title-content">
+              <h3><font style="vertical-align: inherit;"> Thông tin văn phòng luật </font></h3>
+            </div>
+          </div>
+        </div>
+        <div class="description">
+            <font style="vertical-align: inherit;">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td width="40%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.417062152358!2d105.79863395108696!3d21.01599198593659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab5ec39ca3eb%3A0x9d5241cf9534c97a!2zVsSDbiBwaMOybmcgbHXhuq10IHPGsCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1511989195394" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></td>
+                    <td style="padding-left: 20px">
+                      <div class="box-info-detail">
+                        <p class="clearfix">
+                          <label>Location : </label> <%= @lawyer_profile.law_firm.address %>
+                        </p>
+                        <p class="clearfix">
+                          <label>TEL : </label> <%= @lawyer_profile.law_firm.phone_number %>
+                        </p>
+                        <p class="clearfix">
+                          <label>FAX :</label> <%= @lawyer_profile.law_firm.fax %>
+                        </p>
+                        <p class="clearfix">
+                          <label>Reception hours :</label> <%= @lawyer_profile.law_firm.working_start_time.strftime("%I:%M%p") %> - <%= @lawyer_profile.law_firm.working_end_time.strftime("%I:%M%p") %> 
+                        </p>
+                        <p class="clearfix">
+                          <label>Fixed holiday　:</label>
+                        </p>
+                        <p class="clearfix">
+                          <label>Email :</label> <%= @lawyer_profile.law_firm.email %> 
+                        </p>  
+                      </div>
+                    </td>
+                </tbody>
+              </table>        
+            </font>
+        </div>
+      </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <%= render "article", collection: @articles, as: @article %>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <%= render "answers", collection: @answers, as: @answer %>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+    </br>
+    
+
+  </div>
+<div class="col-md-3 clearfix">
+  <div class="module-section box-contact
+    bg-light-purple">
+    <div class="info-profile">
+      <h4 class="title">
+        <font style="vertical-align: inherit;"><%= @lawyer_profile.account_name %></font>
+      </h4>
+        <font style="vertical-align: inherit;"><%= @law_firm_id.name %></font>
+    </div>
+      <a href="tel:<%= @lawyer_profile.phone_number %>" class="phone" onclick="ga('send', 'event', 'Tel', '<%= @lawyer_profile.phone_number %>', location.href);">
+  <i class="fa fa-phone" aria-hidden="true"></i>
+  <font style="vertical-align: inherit;"><%= @lawyer_profile.phone_number %>
+  </font></a>
+<a class="email" href="/inquiries/new?inquiry%5Bquestionable_id%5D=27402&amp;inquiry%5Bquestionable_type%5D=LawyerProfile">
+<i class="fa fa-envelope-o" aria-hidden="true"></i>
+<font style="vertical-align: inherit;">
+  <%= @lawyer_profile.account.email %>
+</font></a>
+    <table class="contact-table sidebar-contact">
+      <tbody>
+        <tr>
+          <th><font style="vertical-align: inherit;">Reception time</font></th>
+          <td><font style="vertical-align: inherit;">  Weekdays 9: 00-17: 30</font><br></td>
+        </tr>
+        <tr>
+          <th><font style="vertical-align: inherit;">Regular holiday</font></th>
+          <td><font style="vertical-align: inherit;">Saturdays, Sundays, and holidays</font></td>
+        </tr>
+        <tr>
+          <th><font style="vertical-align: inherit;">Corresponding area</font></th>
+          <td><font style="vertical-align: inherit;">Osaka prefecture, Hyogo prefecture, Kyoto prefecture, Nara prefecture  </font></td>
+        </tr>
+        <tr>
+          <th><font style="vertical-align: inherit;">Correspondence system of the office</font></th>
+          <td><font style="vertical-align: inherit;">Enrolled in female staff</font></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
