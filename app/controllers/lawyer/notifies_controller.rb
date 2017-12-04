@@ -1,5 +1,5 @@
 class Lawyer::NotifiesController < Lawyer::BaseController
   def index
-    @notifies = Notify.all.reverse
+    @notifies = current_account.notified
   end
 end

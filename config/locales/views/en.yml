@@ -1,4 +1,6 @@
 en:
+  my_page: My Page
+  sign_out: Sign Out
   views:
     pagination:
       next: Next

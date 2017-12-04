@@ -58,6 +58,15 @@ div {
   padding: 15px !important;
 }
 
+.navbar-inverse .navbar-nav, .dropdown-menu {
+  li {
+    a:focus, a:hover {
+      color: #fff !important;
+      background-color: grey !important;
+    }
+  }
+}
+
 #top-navi {
   margin-top: 0;
   background-color: $main-green;
