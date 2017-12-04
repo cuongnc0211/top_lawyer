@@ -1,4 +1,6 @@
 vi:
+  my_page: Trang của tôi
+  sign_out: Đăng xuất
   views:
     pagination:
       next: Tiếp

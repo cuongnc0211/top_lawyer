@@ -1,7 +1,8 @@
 class Lawyer::ArticlesController < Lawyer::BaseController
   include Wicked::Wizard
   include SetupWizard
-  # before_action :article
+
+  before_action :article
 
   steps :new, :tag, :finish
 
@@ -18,6 +19,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
     @categories = Category.all
     @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
     gon.tags = @article.tags.pluck(:name)
+    render layout: "article"
   end
 
   def edit
@@ -25,6 +27,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
     @categories = Category.all
     @tags = Tag.all.where.not(name: @article.tags.pluck(:name))
     gon.tags = @article.tags.pluck(:name)
+    render layout: "article"
   end
 
   def create
