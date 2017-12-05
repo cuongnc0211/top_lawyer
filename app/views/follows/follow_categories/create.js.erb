@@ -1,0 +1,6 @@
+<% if @follow_category.errors.blank? %>
+  $("#follow-category-<%= @follow_category.category_id %>")
+    .replaceWith("<%= j render 'shared/categories/follow', category: @category %>")
+<% else %>
+  $("#flash-notice").html('<%= j render "layouts/shared/flash" %>');
+<% end %>

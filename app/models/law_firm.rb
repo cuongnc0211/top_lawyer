@@ -4,6 +4,7 @@ class LawFirm < ApplicationRecord
   belongs_to :province
   has_many :request_law_firms
   has_many :add_law_firms
+  has_many :reviews, as: :reviewable
 
   validates :name, presence: true, uniqueness: true
 

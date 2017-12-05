@@ -69,5 +69,9 @@ Rails.application.routes.draw do
     resources :top_pages, only: [:index]
   end
 
+  namespace :follows do
+    resources :follow_categories, only: [:index, :create, :destroy]
+  end
+
   resources :tags, only: :show
 end
