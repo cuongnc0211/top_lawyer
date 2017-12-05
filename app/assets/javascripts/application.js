@@ -13,12 +13,11 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require js/bootstrap
 //= require jquery_nested_form
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree ./channels
 //= require ckeditor/init
+//= require_tree .
 //= require turbolinks
-

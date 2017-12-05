@@ -18,6 +18,8 @@ class Account < ApplicationRecord
   has_many :unexpired_advertise, -> {unexpired}, class_name: "HistoryAdvertise"
   has_many :answers
   has_many :clips
+  has_many :review_lawfirms
+  has_many :follow_categories
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -66,5 +68,9 @@ class Account < ApplicationRecord
 
   def own? model
     id == model.account_id
+  end
+
+  def init_follow_category category
+    category.follow_categories.find_by(account_id: self.id) || category.follow_categories.new(account_id: self.id)
   end
 end
