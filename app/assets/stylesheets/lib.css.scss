@@ -63,6 +63,15 @@ div {
     a:focus, a:hover {
       color: #fff !important;
       background-color: grey !important;
+      height: 55px !important;
+    }
+  }
+}
+
+.navbar-nav {
+  li {
+    a {
+      padding-bottom: 0px !important;
     }
   }
 }
@@ -118,4 +127,16 @@ div {
 .tooltip_body {
   border-bottom: 1px dotted black;
   display: inline-block;
+}
+
+.category_container {
+  width: 20%;
+  padding: 5px;
+  display: inline-block;
+}
+
+.category_box {
+  border: 1px solid $main-green;
+  color: $main-green;
+  padding: 10px;
 }

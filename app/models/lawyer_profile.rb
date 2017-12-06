@@ -3,6 +3,7 @@ class LawyerProfile < ApplicationRecord
   belongs_to :law_firm, optional: true
   has_many :educations
   has_many :add_law_firms
+  has_many :reviews, as: :reviewable
 
   LAWYER_PROFILE_ATTRIBUTES = [:full_name, :address, :phone_number, :fax_number, :lawyer_id, :introduction]
 

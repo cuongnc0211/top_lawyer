@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128081953) do
+ActiveRecord::Schema.define(version: 20171205161807) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -125,6 +125,13 @@ ActiveRecord::Schema.define(version: 20171128081953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
+  end
+
+  create_table "follow_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.bigint "category_id"
+    t.index ["account_id"], name: "index_follow_categories_on_account_id"
+    t.index ["category_id"], name: "index_follow_categories_on_category_id"
   end
 
   create_table "history_advertises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -269,9 +276,21 @@ ActiveRecord::Schema.define(version: 20171128081953) do
     t.index ["law_firm_id"], name: "index_request_law_firms_on_law_firm_id"
   end
 
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "account_id"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.string "content"
+    t.integer "stars"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_reviews_on_account_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
+  end
+
   create_table "tag_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "tag_id"
-    t.string "content"
+    t.text "content"
     t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
