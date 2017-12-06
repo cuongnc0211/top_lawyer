@@ -20,6 +20,7 @@ class Account < ApplicationRecord
   has_many :clips
   has_many :review_lawfirms
   has_many :follow_categories
+  has_many :categories, through: :follow_categories
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
