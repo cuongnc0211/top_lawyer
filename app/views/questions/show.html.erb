@@ -69,20 +69,3 @@
     <%= render partial: "shared/questions/related_question", collection: @related_questions, as: :question %>
   </div>
 </div>
-
-
-<script data-turbolinks-eval=false>
-$(document).on("turbolinks:load", function(){
-  $(".create_comment").click(function(e){
-    e.preventDefault();
-    var answerId = $(this).attr("data");
-    $("#answer-" + answerId).toggle();
-  });
-
-  $(".toggle_comments").click(function(e){
-    e.preventDefault();
-    var commentsId = $(this).attr("data");
-    $("#comments-" + commentsId).toggle();
-  });
-});
-</script>
