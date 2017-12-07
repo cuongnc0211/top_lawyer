@@ -5,7 +5,7 @@
   <div class="section-body padding-arround">
     <div class="row">
       <div class="col-md-1 al-center" id="form-vote">
-        <%= render "vote_form", vote: @vote, model: @article %>
+        <%= render("vote_form", vote: @vote, model: @article) if current_account.present? %>
       </div>
       <div class="col-md-11">
         <p class="bold">
