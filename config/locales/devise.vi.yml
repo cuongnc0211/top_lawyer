@@ -1,9 +1,24 @@
 vi:
+  accounts:
+    shared:
+      links:
+        sign_in: Đăng nhập
+        sign_up: Đăng ký
+        forgot_your_password: Quên mật khẩu?
+        resent_confirmation: Gửi lại email kích hoạt.
   devise:
+    shared:
+      links:
+        sign_in: Đăng nhập
+        sign_up: Đăng ký
+        forgot_your_password: Quên mật khẩu?
+        resent_confirmation: Gửi lại email kích hoạt.
     confirmations:
       confirmed: Xác nhận tài khoản thành công! Bạn hiện đang đăng nhập.
       send_instructions: Bạn sẽ nhận được email hướng dẫn xác nhận tài khoản trong vài phút nữa.
       send_paranoid_instructions: Nếu email của bạn có trong hệ thống, bạn sẽ nhận được email hướng dẫn xác nhận tài khoản trong một vài phút nữa.
+      new:
+        resend_confirmation: Gửi lại email kích hoạt
     failure:
       already_authenticated: Bạn đã đăng nhập.
       inactive: Tài khoản của bạn chưa được kích hoạt.
@@ -30,6 +45,8 @@ vi:
       send_paranoid_instructions: Nếu email của bạn có trong hệ thống, bạn sẽ nhận được đường dẫn khôi phục mật khẩu trong vài phút nữa qua email.
       updated: Đổi mật khẩu thành công! Bạn hiện đang đăng nhập.
       updated_not_active: Mật khẩu đã được đổi thành công.
+      new:
+        send_password_instructions: Gửi tôi hướng dẫn đặt lại mật khẩu
     registrations:
       destroyed: Tạm biệt! Tài khoản của bạn đã được xóa. Chúng tôi hy vọng sẽ sớm gặp lại bạn.
       signed_up: Xin chào! Bạn đã đăng ký thành công.
@@ -38,9 +55,19 @@ vi:
       signed_up_but_unconfirmed: Một email chứa đường dẫn xác nhận tài khoản đã được gửi cho bạn. Bạn vui lòng kiểm tra email.
       update_needs_confirmation: Tài khoản của bạn được cập nhật thành công, nhưng bạn cần xác nhận địa chỉ email mới. Vui lòng kiểm tra email và nhấn vào đường dẫn xác nhận tài khoản để hoàn tất việc thay đổi địa chỉ email.
       updated: Cập nhật tài khoản thành công.
+      new:
+        name: Tên
+        password: Mật Khẩu
+        password_confirmation: Nhập lại mật khẩu
+        sign_up: Đăng ký
+        min_char: tối thiểu 6 ký tự.
     sessions:
       signed_in: Đăng nhập thành công.
       signed_out: Đăng xuất thành công.
+      new:
+        email: Email
+        password: Mật khẩu
+        remember_me: Ghi nhớ đăng nhập
     unlocks:
       send_instructions: Bạn sẽ nhận được email hướng dẫn cách mở khóa tài khoản trong vài phút nữa.
       send_paranoid_instructions: Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được email hướng dẫn cách mở khóa tài khoản trong vài phút nữa.

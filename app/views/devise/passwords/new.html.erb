@@ -1,0 +1,21 @@
+<div class="login_box">
+  <h2 class="al-center">
+    <%= link_to "TopLawyer", root_path, class: "link_none_decorate" %>
+  </h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: "form__input" %>
+    </div>
+
+    <div class="actions">
+      <br>
+      <%= f.submit t(".send_password_instructions"), class: "form__btn" %>
+    </div>
+  <% end %>
+  <br>
+  <%= render "devise/shared/links" %>
+</div>
