@@ -1,0 +1,5 @@
+<% if @clip.errors.blank? %>
+  $("#form-clip").replaceWith("<%= j render('shared/clip', clip: @clip) if current_account %>");
+<% else %>
+  $("#flash-notice").html('<%= j render "layouts/shared/flash" %>');
+<% end %>
