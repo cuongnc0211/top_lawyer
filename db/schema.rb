@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205161807) do
+ActiveRecord::Schema.define(version: 20171207144910) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -122,12 +122,12 @@ ActiveRecord::Schema.define(version: 20171205161807) do
 
   create_table "educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "lawyer_profile_id"
-    t.string "degree"
-    t.string "school"
+    t.integer "degree"
     t.date "start_time"
     t.date "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "university_id"
     t.index ["lawyer_profile_id"], name: "index_educations_on_lawyer_profile_id"
   end
 
@@ -325,6 +325,10 @@ ActiveRecord::Schema.define(version: 20171205161807) do
     t.string "name", collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
   end
 
   create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

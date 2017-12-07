@@ -1,10 +1,12 @@
-<% if clip.persisted? %>
-  <%= form_for(clip, html: { method: :delete }) do |f| %>
-    <%= f.submit t(".remove_this_clip"), class: "btn--error" %>
+<div id="form-clip">
+  <% if clip.persisted? %>
+    <%= form_for(clip, html: { method: :delete, remote: true }) do |f| %>
+      <%= f.submit t(".remove_this_clip"), class: "btn--error" %>
+    <% end %>
+  <% else %>
+    <%= form_for clip, remote: true do |f| %>
+      <%= f.hidden_field :article_id, value: @article.id %>
+      <%= f.submit t(".clip_this_article"), class: "btn--default" %>
+    <% end %>
   <% end %>
-<% else %>
-  <%= form_for(clip) do |f| %>
-    <%= f.hidden_field :article_id, value: @article.id %>
-    <%= f.submit t(".clip_this_article"), class: "btn--default" %>
-  <% end %>
-<% end %>
+</div>
