@@ -27,7 +27,7 @@ class Article < ApplicationRecord
   scope :all_feed, -> do
     find_by_sql("
       select x.*, (x.view_count*0.5 + x.comment_count*2 + x.clip_count*4 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`request_hash`) AS view_count,
+      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
       COUNT(DISTINCT `comments`.`id`) AS comment_count,
       COUNT(DISTINCT `clips`.`id`) AS clip_count,
       TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours
@@ -42,7 +42,7 @@ class Article < ApplicationRecord
   scope :new_feed, -> category_ids do
     find_by_sql(["
       select x.*, (x.view_count*0.5 + x.comment_count*2 + x.clip_count*4 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`request_hash`) AS view_count ,
+      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count ,
       COUNT(DISTINCT `comments`.`id`) AS comment_count,
       COUNT(DISTINCT `clips`.`id`) AS clip_count,
       TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours

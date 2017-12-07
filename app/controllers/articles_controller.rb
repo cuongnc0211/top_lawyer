@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    impressionist @article
     @author_articles = @article.account.articles.where.not(id: @article.id)
       .order(total_vote: :desc).limit(Settings.article.related)
     @related_articles = @article.related_articles
