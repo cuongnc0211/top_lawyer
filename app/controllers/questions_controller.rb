@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    impressionist @question
     @answers = @question.answers.order(total_vote: :desc)
     @comment = Comment.new
     @top_tags = ActsAsTaggableOn::Tag.most_used(10)

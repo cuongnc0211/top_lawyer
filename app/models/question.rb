@@ -18,7 +18,7 @@ class Question < ApplicationRecord
   scope :all_feed, -> do
     find_by_sql("
       select x.*, (x.view_count*0.5 + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`request_hash`) AS view_count,
+      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
       COUNT(DISTINCT `answers`.`id`) AS answer_count,
       TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
        FROM `questions`
@@ -32,7 +32,7 @@ class Question < ApplicationRecord
   scope :new_feed, -> category_ids do
     find_by_sql(["
       select x.*, (x.view_count*0.5 + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`request_hash`) AS view_count,
+      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
       COUNT(DISTINCT `answers`.`id`) AS answer_count,
       TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
        FROM `questions`

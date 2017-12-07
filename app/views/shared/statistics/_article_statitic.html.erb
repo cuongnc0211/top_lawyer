@@ -1,7 +1,7 @@
 <p>
   <% vote_class = (article.total_vote.to_i < 0) ? "fa-chevron-circle-down" : "fa-chevron-circle-up" %>
   <span class="stat_item" data-toggle="tooltip" title="<%= t '.view_number' %>">
-    <i aria-hidden="true" class="fa fa-eye"></i> <%= article.impressionist_count %>
+    <i aria-hidden="true" class="fa fa-eye"></i> <%= article.impressionist_count(filter: :session_hash) %>
   </span>
   <% if action == "index" %>
     <span class="stat_item" data-toggle="tooltip" title="<%= t '.votes_number' %>">
