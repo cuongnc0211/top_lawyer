@@ -4,20 +4,20 @@
   </div>
   <div class="section-body padding-arround">
     <div class="row">
-      <div class="col-md-1 al-center" id="form-vote">
-        <% if current_account.present? && @vote.persisted? %>
-          <p><%= render "shared/users/votes/delete_vote_form", vote: @vote, model: @question %></p>
-        <% else %>
-          <p><%= render "shared/users/votes/new_vote_form", vote: @vote, model: @question %></p>
-        <% end %>
+      <div class="col-md-1 al-center">
+        <%= render "vote_form", vote: @vote, model: @question %>
       </div>
-      <div class="col-md-10">
-        <p class="bold"><%= @question.title %></h2>
+      <div class="col-md-11">
+        <p class="bold">
+          <span><%= @question.title %></span>
+          <span class="pull-right">
+            <%= render("shared/questions/action_buttons", question: @question) if current_account %>
+          </span>
         <p>
           <span><%= link_to @question.category_name, category_path(@question.category) %></span>
           <span> | <%= @question.created_at.to_formatted_s(:short) %></span>
         </p>
-        <%= render "shared/statistics/question_statitic", question: @question %>
+        <%= render "shared/statistics/question_statitic", question: @question, action: "show" %>
         <p><%= raw @question.content %></p>
         <hr>
         <%= form_for [:lawyer, @question.answers.build] do |f| %>

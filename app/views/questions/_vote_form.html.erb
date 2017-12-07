@@ -1,0 +1,7 @@
+<div id="form-vote">
+  <% if current_account.present? && vote.persisted? %>
+    <p><%= render "shared/users/votes/delete_vote_form", vote: vote, model: model %></p>
+  <% else %>
+    <p><%= render "shared/users/votes/new_vote_form", vote: vote, model: model %></p>
+  <% end %>
+</div>

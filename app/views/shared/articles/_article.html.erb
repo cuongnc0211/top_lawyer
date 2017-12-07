@@ -12,7 +12,7 @@
           <span><%= link_to article.category_name, category_path(article.category) %> | </span>
           <span><%= article.created_at.to_formatted_s(:short) %></span>
         </p>
-        <%= render "shared/statistics/article_statitic", article: article %>
+        <%= render "shared/statistics/article_statitic", article: article, action: "index" %>
       </div>
       <div class="index-article-body">
         <%= strip_tags(article.content).truncate 300 %>
