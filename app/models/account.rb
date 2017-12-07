@@ -3,7 +3,7 @@ class Account < ApplicationRecord
 
   has_one :lawyer_profile
   has_one :law_firm, through: :lawyer_profile
-  has_one :notifies, dependent: :destroy
+  has_many :notifies, dependent: :destroy
   has_many :notified, class_name: Notify.name, foreign_key: "target_id"
 
   has_many :questions
@@ -24,7 +24,7 @@ class Account < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   enum role: [:Admin, :User, :Lawyer]
 
@@ -73,5 +73,17 @@ class Account < ApplicationRecord
 
   def init_follow_category category
     category.follow_categories.find_by(account_id: self.id) || category.follow_categories.new(account_id: self.id)
+  end
+
+  def account_active?
+    is_active.nil? || is_active
+  end
+
+  def active_for_authentication?
+    super && account_active?
+  end
+
+  def inactive_message
+    account_active? ? super : :locked
   end
 end
