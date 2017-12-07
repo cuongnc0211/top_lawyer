@@ -1,12 +1,17 @@
 <p>
   <% vote_class = (article.total_vote.to_i < 0) ? "fa-chevron-circle-down" : "fa-chevron-circle-up" %>
-  <span data-toggle="tooltip" title="<%= t '.view_number' %>">
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.view_number' %>">
     <i aria-hidden="true" class="fa fa-eye"></i> <%= article.impressionist_count %>
   </span>
-  <span data-toggle="tooltip" title="<%= t '.votes_number' %>">
-    <i aria-hidden="true" class="fa <%= vote_class %>"></i> <%= article.total_vote.to_i %>
-  </span>
-  <span data-toggle="tooltip" title="<%= t '.clips_number' %>">
+  <% if action == "index" %>
+    <span class="stat_item" data-toggle="tooltip" title="<%= t '.votes_number' %>">
+      <i aria-hidden="true" class="fa <%= vote_class %>"></i> <%= article.total_vote.to_i %>
+    </span>
+  <% end %>
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.clips_number' %>">
     <i aria-hidden="true" class="fa fa-paperclip"></i> <%= article.clips.count %>
+  </span>
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.comment_number' %>">
+    <i aria-hidden="true" class="fa fa-reply" ></i> <%= article.comments.count %>
   </span>
 </p>

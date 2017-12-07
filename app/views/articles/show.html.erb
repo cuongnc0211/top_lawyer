@@ -5,13 +5,7 @@
   <div class="section-body padding-arround">
     <div class="row">
       <div class="col-md-1 al-center" id="form-vote">
-        <% if current_account.present? %>
-          <% if @vote.persisted? %>
-            <p><%= render "shared/users/votes/delete_vote_form", vote: @vote, model: @article %></p>
-          <% else %>
-            <p><%= render "shared/users/votes/new_vote_form", vote: @vote, model: @article %></p>
-          <% end %>
-        <% end %>
+        <%= render "vote_form", vote: @vote, model: @article %>
       </div>
       <div class="col-md-11">
         <p class="bold">
@@ -24,7 +18,7 @@
           <span><%= link_to @article.category_name, category_path(@article.category) %> | </span>
           <span><%= @article.created_at.to_formatted_s(:short) %></span>
         </p>
-        <%= render "shared/statistics/article_statitic", article: @article %>
+        <%= render "shared/statistics/article_statitic", article: @article, action: "show" %>
         <p><%= raw @article.content %></p>
       </div>
     </div>

@@ -62,6 +62,23 @@ div {
   padding: 15px !important;
 }
 
+.icon_btn {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.new_vote {
+  color: #337ab7;
+}
+
+.new_vote :hover {
+  color: #0033cc;
+}
+
 .navbar-inverse .navbar-nav, .dropdown-menu {
   li {
     a:focus, a:hover {

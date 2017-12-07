@@ -276,6 +276,7 @@ en:
         view_number: Views number
         votes_number: Votes number
         clips_number: Clipped number
+        comment_number: Comments number
       question_statitic:
         view_number: Views number
         vote_number: Votes number

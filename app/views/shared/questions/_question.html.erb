@@ -15,7 +15,7 @@
         <%= render("shared/questions/action_buttons", question: question) if current_account %>
       </span>
     </p>
-    <%= render "shared/statistics/question_statitic", question: question %>
+    <%= render "shared/statistics/question_statitic", question: question, action: "index" %>
     <p><%= question.content.truncate Settings.question.top_page.truncate %></p>
   </div>
 </div>

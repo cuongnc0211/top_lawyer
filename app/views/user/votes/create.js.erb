@@ -1,0 +1,9 @@
+<% if @vote.errors.blank? %>
+  <% if current_account.present? && @vote.persisted? %>
+    $("#form-vote").replaceWith("<div id='form-vote'><%= j render 'shared/users/votes/delete_vote_form', vote: @vote, model: @model %></div>")
+  <% else %>
+    $("#form-vote").replaceWith("<div id='form-vote'><%= j render 'shared/users/votes/new_vote_form', vote: @vote, model: @model %></div>")
+  <% end %>
+<% else %>
+  $("#flash-notice").html('<%= j render "layouts/shared/flash" %>');
+<% end %>
