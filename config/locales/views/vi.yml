@@ -50,6 +50,11 @@ vi:
     shared:
       login_buttons:
         sign_in: Đăng nhập
+  follows:
+    follow_categories:
+      index:
+        first_follow: Theo dõi lĩnh vực bạn quan tâm để nhận được những câu hỏi và bài viết mới nhất
+        next: Tiếp theo
   questions:
     index:
       popular_tag: *popular_tags
@@ -276,6 +281,10 @@ vi:
         fax_number: Số fax
         introduction: Giới thiệu
   shared:
+    categories:
+      follow:
+        follow: Theo dõi
+        unfollow: Bỏ theo dõi
     statistics:
       article_statitic:
         view_number: Số lượt xem
@@ -286,6 +295,10 @@ vi:
         view_number: Số lượt xem
         vote_number: Số lượt vote
         answer_number: Số câu trả lời
+      lawyer_profile_stat:
+        reputation: Danh tiếng
+        articles: Số bài viết
+        answers: Số câu trả lời
     articles:
       action_buttons:
         edit: Chỉnh sửa

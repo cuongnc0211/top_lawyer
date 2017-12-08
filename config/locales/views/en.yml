@@ -48,6 +48,11 @@ en:
     shared:
       login_buttons:
         sign_in: Sign in
+  follows:
+    follow_categories:
+      index:
+        first_follow: Follow the category, which you are interested to recieve newset ảticles and questions
+        next: Tiếp theo
   questions:
     index:
       popular_tag: *popular_tags
@@ -271,6 +276,10 @@ en:
         fax_number: Fax number
         introduction: Introduction
   shared:
+    categories:
+      follow:
+        follow: Theo dõi
+        unfollow: Bỏ theo dõi
     statistics:
       article_statitic:
         view_number: Views number
@@ -281,6 +290,10 @@ en:
         view_number: Views number
         vote_number: Votes number
         answer_number: Answer number
+      lawyer_profile_stat:
+        reputation: Reputation
+        articles: Articles number
+        answers: Answer number
     articles:
       action_buttons:
         edit: Edit

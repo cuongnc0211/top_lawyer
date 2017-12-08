@@ -1,0 +1,23 @@
+<div class="category_container">
+  <div class="category_box">
+    <table style="border: none">
+      <tr>
+        <td rowspan="2">
+          <%= link_to lawyer_profile_path(lawyer_profile) do %>
+            <%= image_tag lawyer_profile.account_avatar_url, size: "50x50", class: "mg-5" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to lawyer_profile_path(lawyer_profile) do %>
+            <span> <%= lawyer_profile.account_name %></span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= render "shared/statistics/lawyer_profile_stat", lawyer_profile: lawyer_profile %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
