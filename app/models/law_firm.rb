@@ -12,6 +12,7 @@ class LawFirm < ApplicationRecord
 
   LAWFIRM_ATTRIBUTES = [:name, :mail, :address, :province_id, :phone_number, :fax, :working_start_time,
     :working_end_time, :introduction, images_attributes: [:picture]]
+
   def in_adding
     add_law_firms.pluck(:lawyer_profile_id)
   end
