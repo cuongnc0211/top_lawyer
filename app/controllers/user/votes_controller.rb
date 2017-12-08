@@ -6,9 +6,9 @@ class User::VotesController < User::BaseController
     load_model params[:vote][:voteable_type], params[:vote][:voteable_id]
     if @vote.save
       update_infomation @model, @vote.voteable_type
-      redirect_back(fallback_location: root_path)
+      respond_to{|format| format.js}
     else
-      redirect_back(fallback_location: root_path)
+      flash.now[:error] = t ".failed"
     end
   end
 
@@ -17,9 +17,10 @@ class User::VotesController < User::BaseController
     vote_type = @vote.voteable_type
     if @vote.destroy
       update_infomation @model, vote_type
-      redirect_back(fallback_location: root_path)
+      @vote = @model.init_vote(current_account.id)
+      respond_to{|format| format.js}
     else
-      redirect_back(fallback_location: root_path)
+      flash.now[:error] = t ".failed"
     end
   end
 

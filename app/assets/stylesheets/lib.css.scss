@@ -13,6 +13,10 @@ div {
   height: 200px;
 }
 
+.link_none_decorate {
+  text-decoration: none !important;
+}
+
 .footer {
   margin-top: 80px;
   height: 200px;
@@ -56,6 +60,23 @@ div {
 
 .padding-arround {
   padding: 15px !important;
+}
+
+.icon_btn {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.new_vote {
+  color: #337ab7;
+}
+
+.new_vote :hover {
+  color: #0033cc;
 }
 
 .navbar-inverse .navbar-nav, .dropdown-menu {

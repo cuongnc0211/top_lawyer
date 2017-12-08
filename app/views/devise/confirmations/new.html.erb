@@ -1,0 +1,22 @@
+<div class="login_box">
+  <h2 class="al-center">
+    <%= link_to "TopLawyer", root_path, class: "link_none_decorate" %>
+  </h2>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class: "form__input",
+        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    </div>
+
+    <div class="actions">
+      <br />
+      <%= f.submit t(".resend_confirmation"), class: "form__btn" %>
+    </div>
+  <% end %>
+  <br />
+  <%= render "devise/shared/links" %>
+</div>

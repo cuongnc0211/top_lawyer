@@ -15,6 +15,35 @@ class Question < ApplicationRecord
   delegate :name, to: :category, prefix: true, allow_nil: true
   delegate :account_avatar_url, to: :account, prefix: false, allow_nil: true
 
+  scope :all_feed, -> do
+    find_by_sql("
+      select x.*, (x.view_count*0.5 + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
+      COUNT(DISTINCT `answers`.`id`) AS answer_count,
+      TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
+       FROM `questions`
+       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `questions`.`id` AND `impressions`.`impressionable_type` = 'Question'
+       LEFT OUTER JOIN `answers` ON `answers`.`question_id` = `questions`.`id`
+	   GROUP BY questions.id) x
+     ORDER BY rank DESC
+    ")
+  end
+
+  scope :new_feed, -> category_ids do
+    find_by_sql(["
+      select x.*, (x.view_count*0.5 + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
+      COUNT(DISTINCT `answers`.`id`) AS answer_count,
+      TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
+       FROM `questions`
+       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `questions`.`id` AND `impressions`.`impressionable_type` = 'Question'
+       LEFT OUTER JOIN `answers` ON `answers`.`question_id` = `questions`.`id`
+	    GROUP BY questions.id) x
+      WHERE x.category_id IN (?)
+      ORDER BY rank DESC
+    ", category_ids])
+  end
+
   def related_questions
     questions = Question.tagged_with(self.tag_list, any: true).where.not(id: self.id)
       .first(Settings.question.related)

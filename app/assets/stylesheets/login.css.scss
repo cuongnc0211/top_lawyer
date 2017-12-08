@@ -1,0 +1,40 @@
+.login_box {
+  height: auto;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -190px;
+  margin-left: -160px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid balck;
+  color: white;
+  a, span, p, h2 {
+    color: white;
+  }
+}
+
+.login_body {
+  background: url("https://s3-ap-southeast-1.amazonaws.com/toplawyer/Background.jpg") no-repeat;
+  background-position: 20% 30%;
+}
+
+.signup_box {
+  height: auto;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: -190px;
+  margin-left: -160px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid balck;
+  color: white;
+  a, span, p, h2 {
+    color: white;
+  }
+}

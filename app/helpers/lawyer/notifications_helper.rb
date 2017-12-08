@@ -1,2 +1,0 @@
-module Lawyer::NotificationsHelper
-end

@@ -7,16 +7,17 @@ class User::QuestionsController < User::BaseController
     @tags = Tag.all.where.not(name: @question.tags.pluck(:name))
     gon.tags = @question.tags.pluck(:name)
   end
-  
+
   def index
-    @questions = current_account.questions
+    @questions = current_account.questions.order(created_at: :desc).page(params[:page])
+      .per Settings.article.top_page.per
   end
-  
+
   def edit
     @categories = Category.all
     @tags = Tag.all.where.not(name: @question.tags.pluck(:name))
     gon.tags = @question.tags.pluck(:name)
-  end 
+  end
 
   def create
     @question = current_account.questions.new(question_params)
@@ -45,7 +46,7 @@ class User::QuestionsController < User::BaseController
       redirect_to user_questions_path
       flash[:success] = t ".updated"
     else
-      redirect_to user_questions_path 
+      redirect_to user_questions_path
       flash[:error] = t ".fail"
     end
   end
@@ -59,7 +60,7 @@ class User::QuestionsController < User::BaseController
     @question = Question.find params[:id]
     unless current_account == @question.account
       flash[:error] = t ".access_denies"
-      redirect_to root_path 
-    end   
+      redirect_to root_path
+    end
   end
 end

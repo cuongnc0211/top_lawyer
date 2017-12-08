@@ -1,5 +1,7 @@
+require "csv"
+
 puts "create_admin"
-10.times do |n|
+2.times do |n|
   Account.create email: "admin#{n + 1}@example.com",
     name: "admin#{n+1}",
     password: "12345678",
@@ -7,7 +9,7 @@ puts "create_admin"
 end
 
 puts "create_user"
-20.times do |n|
+10.times do |n|
   Account.create email: "user#{n+1}@example.com",
     name: Faker::Name.name,
     password: "12345678",
@@ -16,9 +18,8 @@ puts "create_user"
 end
 
 puts "create_province"
-
-10.times do |n|
-  Province.create name: Faker::Address.city
+CSV.foreach(Rails.root.  join("db/master/provinces.csv"), headers: true) do |row|
+  Province.create name: row.to_s
 end
 
 puts "create law_firm"
@@ -56,22 +57,28 @@ law_firm_ids = LawFirm.all.pluck :id
     reputation: Array(1..100).sample)
 end
 
+puts "create_universities"
+CSV.foreach(Rails.root.  join("db/master/universities.csv"), headers: true) do |row|
+  University.create name: row.to_s
+end
+university_ids = University.all.pluck :id
+
 puts "create_education"
 lawyer_profile_ids = LawyerProfile.all.pluck :id
 30.times do |n|
   Education.create lawyer_profile_id: lawyer_profile_ids.sample,
     degree: [:bachelor, :master, :doctor].sample,
-    school: Faker::Educator.university
+    university_id: university_ids.sample
 end
 
 puts "create_category"
-13.times do |n|
-  Category.create name: Faker::Lorem.word
+CSV.foreach(Rails.root.  join("db/master/categories.csv"), headers: true) do |row|
+  Category.create name: row.to_s
 end
 
 puts "create tag"
-15.times do |n|
-  Tag.create name: Faker::Job.field + "#{n}"
+CSV.foreach(Rails.root.  join("db/master/tags.csv"), headers: true) do |row|
+  Tag.create name: row.to_s
 end
 tags_name = Tag.all.pluck :name
 

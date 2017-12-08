@@ -1,0 +1,30 @@
+<div class="login_box">
+  <h2 class="al-center">
+    <%= link_to "TopLawyer", root_path, class: "link_none_decorate" %>
+  </h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email, t(".email") %><br />
+      <%= f.email_field :email, autofocus: true, class: "form__input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label t(".password") %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form__input" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label t(".remember_me") %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "form__btn" %>
+    </div>
+  <% end %>
+  <br />
+  <%= render "accounts/shared/links" %>
+</div>

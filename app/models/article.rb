@@ -20,6 +20,41 @@ class Article < ApplicationRecord
   delegate :name, to: :account, prefix: true, allow_nil: true
   delegate :account_avatar_url, to: :account, prefix: false, allow_nil: true
 
+  scope :in_category, -> ids do
+    where(category_id: ids)
+  end
+
+  scope :all_feed, -> do
+    find_by_sql("
+      select x.*, (x.view_count*0.5 + x.comment_count*2 + x.clip_count*4 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
+      COUNT(DISTINCT `comments`.`id`) AS comment_count,
+      COUNT(DISTINCT `clips`.`id`) AS clip_count,
+      TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours
+       FROM `articles`
+       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `articles`.`id` AND `impressions`.`impressionable_type` = 'Article'
+       LEFT OUTER JOIN `comments` ON `comments`.`commentable_id` = `articles`.`id` AND `comments`.`commentable_type` = 'Article'
+       LEFT OUTER JOIN `clips` ON `clips`.`article_id` = `articles`.`id` GROUP BY articles.id) x
+      ORDER BY rank DESC
+    ")
+  end
+
+  scope :new_feed, -> category_ids do
+    find_by_sql(["
+      select x.*, (x.view_count*0.5 + x.comment_count*2 + x.clip_count*4 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count ,
+      COUNT(DISTINCT `comments`.`id`) AS comment_count,
+      COUNT(DISTINCT `clips`.`id`) AS clip_count,
+      TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours
+       FROM `articles`
+       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `articles`.`id` AND `impressions`.`impressionable_type` = 'Article'
+       LEFT OUTER JOIN `comments` ON `comments`.`commentable_id` = `articles`.`id` AND `comments`.`commentable_type` = 'Article'
+       LEFT OUTER JOIN `clips` ON `clips`.`article_id` = `articles`.`id` GROUP BY articles.id) x
+      WHERE x.category_id IN (?)
+      ORDER BY rank DESC
+    ", category_ids])
+  end
+
   def related_articles
     articles = Article.tagged_with(self.tag_list, any: true).where.not(id: self.id)
       .first(Settings.article.related)

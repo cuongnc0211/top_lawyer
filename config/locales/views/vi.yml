@@ -281,6 +281,7 @@ vi:
         view_number: Số lượt xem
         votes_number: Số lượt hữu ích
         clips_number: Số lượt ghim
+        comment_number: Số lượt bình luận
       question_statitic:
         view_number: Số lượt xem
         vote_number: Số lượt vote
