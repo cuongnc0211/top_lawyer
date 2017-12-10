@@ -1,0 +1,9 @@
+<div class="grid no-margin" style="max-width: 1550px !important;">
+  <div class="grid__col--12">
+    <ul class="nav" role="navigation">
+      <% Category.all.each do |category| %>
+        <li class="nav__item"> <%= link_to category.name, category_path(category) %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

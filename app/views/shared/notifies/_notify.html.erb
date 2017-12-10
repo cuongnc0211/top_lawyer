@@ -1,1 +1,7 @@
-<div class="notify"><p><%= notify.action %> - <%= notify.created_at.to_formatted_s(:short) %></p></div>
+<li class="<%= notify.status %>">
+  <%= link_to user_notify_path(notify), method: :put do %>
+    <div class="notify">
+      <p><%= notify.noti_content %> - <%= notify.created_at.to_formatted_s(:short) %></p>
+    </div>
+  <% end %>
+</li>

@@ -1,6 +1,29 @@
 <ul class="nav navbar-nav navbar-right">
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span>
+        <i class="fa fa-bell-o" aria-hidden="true" style="font-size:23px;color:white"></i>
+        <i class="fa fa-asterisk <%= current_account.new_noti? ? '' : 'item-hide' %>"
+          style="font-size:13px; color:red; position: absolute; top: 15px;" id="new_noti">
+        </i>
+      </span>
+    </a>
+    <ul class="dropdown-menu">
+      <div class="notify_container">
+        <div id="notifies">
+          <% notifies = current_account.get_noti(5) %>
+          <% if notifies.blank? %>
+            <p id="notify">No notification</p>
+          <% else %>
+            <%= render partial: "shared/notifies/notify", collection: notifies, as: :notify %>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       <span><%= image_tag current_account.account_avatar_url, size: "30x30", class: "no_margin" %></span>
       <span class="item"><%= current_account.name %></span>
       <span class="caret item"></span>

@@ -6,6 +6,7 @@ class Notify < ApplicationRecord
 
   delegate :name, to: :account, prefix: true, allow_nil: true
   enum action: [:up_vote, :down_vote, :comment_article, :answer_question, :comment_answer]
+  enum status: [:unread, :read]
 
   def noti_content
     case self.action
