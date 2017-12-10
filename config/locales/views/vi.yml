@@ -1,6 +1,7 @@
 vi:
   my_page: Trang của tôi
   sign_out: Đăng xuất
+  search: Tìm kiếm
   views:
     pagination:
       next: Tiếp
@@ -47,9 +48,20 @@ vi:
         request_law_firm: Yêu cầu tham gia văn phòng luật
         law_firm_member: Thành viên văn phòng luật
         law_fim_invitation: Lời mời của văn phòng luật
+        draft: Bản nháp
+        clips: Bài viết đã ghim
     shared:
       login_buttons:
         sign_in: Đăng nhập
+        sign_up: Đăng ký
+      account_buttons:
+        my_page: Trang cá nhân
+    users:
+      user_navigator:
+        Questions: Câu hỏi
+        clips: Các bài đã ghim
+        account: Thông tin tài khoản
+        register_lawyer: Đăng kí thành luật sư
   follows:
     follow_categories:
       index:
@@ -106,6 +118,7 @@ vi:
       related: Cùng chủ đề
       from_author: Cùng tác giả
   top_pages:
+    search: Tìm kiếm
     index:
       top_page: "Đây là trang đầu"
       popular_tag: *popular_tags
@@ -131,6 +144,9 @@ vi:
         title: Tiêu đề
         action: Hành động
         new: Tạo câu hỏi mới
+        questions: Tất cả các câu hỏi
+        create_new_question: Tạo một câu hỏi mới
+        new_question: Tạo mới
       question:
         confirm: Bạn chắc chứ?
       new:
@@ -138,6 +154,9 @@ vi:
         draft: Bản nháp
         publish: Công bố
         create: Tạo mới
+    clips:
+      index:
+        cliped_article: Các bài viết đã theo dõi
   comments:
     _comment:
       started_by: Bắt đầu bởi
@@ -150,6 +169,7 @@ vi:
     accounts:
       edit:
         submit: *submit
+        edit_profile: Chỉnh sửa thông tin cá nhân
     add_law_firms:
       _add_law_firm:
         approve: Chấp nhận
@@ -205,6 +225,8 @@ vi:
         action: Hành động
         edit: Sửa
         destroy: Xoá
+        create_new_article: Tạo mới bài viết
+        new_article: Tạo mới
       new:
         submit: Tạo bài viết
         create_article: Tạo Bài viết
@@ -230,6 +252,17 @@ vi:
       approve: Chấp nhận
       reject: Từ chối
       confirm: Xác nhận
+    clips:
+      index:
+        clipped_article: Các bài viết đã ghim
+        create_new_article: Tạo mới bài viết
+        new_article: Tạo mới
+    draft:
+      articles:
+        index:
+          draft: Các bài viết nháp đã lưu
+          create_new_article: Tạo bài viết mới
+          new_article: Tạo mới
   admin:
     lawyer_profiles:
       index:
@@ -320,3 +353,16 @@ vi:
         delete_vote_form:
           vote_up: Bỏ hữu ích
           vote_down: Bỏ phản đối
+    accounts:
+      form:
+        name: Họ và tên
+        email: Địa chỉ email
+        avatar: Avatar cá nhân
+    lawyer_profiles:
+      form:
+        lawyer_card_id: Mã số thẻ luật sư
+        introduction: Tự giới thiệu
+        fax_number: FAX
+        phone_number: Số điện thoại
+        address: Địa chỉ
+        full_name: Tên của luật sư

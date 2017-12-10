@@ -50,17 +50,49 @@ vi:
         updated: *updated
         update_fail: *update_fail
     law_firms:
+      new:
+        my_law_firm: Văn phòng luật của tôi
       create:
         created: *created
         create_fail: *create_fail
       update:
         updated: *updated
         update_fail: *update_fail
+      form:
+        name: Tên văn phòng luật
+        address: Địa chỉ
+        province_id: Tỉnh thành
+        phone_number: Số điện thoại
+        fax: fax
+        introduction: Giới thiệu
+        working_start_time: Giờ mở cửa
+        working_end_time: Giờ đóng cửa
     lawyer_profiles:
       edit:
         access_denies: Truy cập không hợp lệ!
         updated: *updated
         update_fail: *update_fail
+    law_firm_members:
+      show_lawyer_profile:
+        confirm: Bạn có chắc chắn muốn xóa luật sư này?
+        name: Họ Tên
+        email: Địa chỉ email
+        address: địa chỉ
+        id: ID của luật sư
+        phone_number: Số điện thoại
+        introduction: Giới thiệu
+        show: Xem
+        remove: Xóa
+    advertise:
+      history_advertises:
+        new:
+          buy_advertise: Mua quảng cáo
+          category: Lĩnh vực
+          end_time: Ngày kết thúc
+          start_time: Ngày bắt đầu
+    notifies:
+      index:
+        noti: Thông báo
   admin:
     lawyer_profiles:
       updated: *updated
@@ -79,3 +111,17 @@ vi:
       destroy:
         deleted: *deleted
         delete_fail: *delete_fail
+  lawyer_profiles:
+    show:
+      profile: Thông tin cá nhân
+      article: Bài viết
+      answers: Câu trả lời
+      review: Đánh giá
+      word_lawyer: Vài dòng về luật sư
+      firm_info: Thông tin văn phòng luật
+      location: Vị trí văn phòng
+      phone_number: Số điện thoại
+      fax : FAX
+      reception_hours: Giờ làm việc 
+    answers:
+      view_question: Xem câu hỏi
