@@ -1,23 +1,52 @@
-<% if @articles.present?%>
-  <h1><%= t ".articles" %></h1>
-  <%= render "show_article_question", collections: @articles%>
-  <%= paginate @articles %>
-<% end %>
+<div class="col-md-12">
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#article"><%= t ".article" %></a></li>
+      <li><a data-toggle="tab" href="#question"><%= t ".question" %></a></li>
+      <li><a data-toggle="tab" href="#lawyer_profile"><%= t ".lawyer_profile" %></a></li>
+      <li><a data-toggle="tab" href="#law_firm"><%= t ".law_firm" %></a></li>
+    </ul>
 
-<% if @questions.present?%>
-<h1><%= t ".questions" %></h1>
-<%= render "show_article_question", collections: @questions%>
-<%= paginate @questions %>
-<% end %>
+    <div class="tab-content">
+      <div id="article" class="tab-pane fade in active">
+        <% if @articles.present?%>
+          <%= render partial: "shared/articles/article", collection: @articles, as: :article %>
+          <div class="row al-center">
+            <%= paginate @articles %>
+          </div>
+        <% end %>
+      </div>
 
-<% if @lawyer_profiles.present?%>
-<h1><%= t ".Lawyer_profile" %></h1>
-<%= render "show_lawyer_profile", collections: @lawyer_profiles%>
-<%= paginate @lawyer_profiles %>
-<% end %>
+      <div id="question" class="tab-pane">
+        <% if @questions.present?%>
+          <%= render partial: "shared/questions/question", collection: @questions, as: :question %>
+          <div class="row al-center">
+            <%= paginate @questions %>
+          </div>
+        <% end %>
+      </div>
 
-<h1><%= t ".Law_firm" %></h1>
-<% if @law_firms.present?%>
-<%= render "show_law_firm", collections: @law_firms%>
-<%= paginate @law_firms %>
-<% end %>
+      <div id="lawyer_profile" class="tab-pane">
+        <% if @lawyer_profiles.present?%>
+          <h1><%= t ".Lawyer_profile" %></h1>
+          <%= render partial: "shared/lawyer_profiles/lawyer_profile",
+            collection: @lawyer_profiles, as: :lawyer_profile %>
+          <div class="row al-center">
+            <%= paginate @lawyer_profiles %>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="law_firm" class="tab-pane">
+        <h1><%= t ".Law_firm" %></h1>
+        <% if @law_firms.present?%>
+        <%= render partial: "shared/law_firms/law_firm",
+          collection: @law_firms, as: :law_firm %>
+          <div class="row al-center">
+            <%= paginate @law_firms %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

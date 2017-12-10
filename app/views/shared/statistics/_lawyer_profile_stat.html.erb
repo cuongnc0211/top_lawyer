@@ -1,0 +1,11 @@
+<p>
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.reputation' %>">
+    <i aria-hidden="true" class="fa fa-star"></i> <%= lawyer_profile.reputation %>
+  </span>
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.articles' %>">
+    <i aria-hidden="true" class="fa fa-pencil"></i> <%= lawyer_profile.account.articles.count %>
+  </span>
+  <span class="stat_item" data-toggle="tooltip" title="<%= t '.answers' %>">
+    <i aria-hidden="true" class="fa fa-comments"></i> <%= lawyer_profile.account.answers.count %>
+  </span>
+</p>
