@@ -86,4 +86,13 @@ class Account < ApplicationRecord
   def inactive_message
     account_active? ? super : :locked
   end
+
+  def get_noti number
+    notified.order(created_at: :desc).limit(number)
+  end
+
+  def new_noti?
+    count = notified.order(created_at: :desc).limit(5).where(status: :unread).count
+    count > 0
+  end
 end

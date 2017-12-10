@@ -30,6 +30,7 @@ Rails.application.routes.draw do
        resources :lawyer_profiles, only: [:new, :create, :update]
     end
     resources :clips, only: :index
+    resources :notifies, only: :update
   end
 
   resources :articles do

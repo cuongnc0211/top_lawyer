@@ -1,0 +1,16 @@
+.notify_container {
+  width: 300px;
+  background-color: #e6e6e6;
+
+  .unread {
+    background-color: #d9ffb3;
+  }
+
+  .read {
+    background-color: white;
+  }
+
+  li a p:hover {
+    color: black !important;
+  }
+}

@@ -10,6 +10,6 @@ class Notifies::CreateNotificationService
 
   def perform
     model.notifies.create account_id: current_account.id, target_id: target_account.id,
-      action: action
+      action: action, status: :unread
   end
 end

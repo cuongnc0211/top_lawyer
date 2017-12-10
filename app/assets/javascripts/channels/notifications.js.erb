@@ -7,7 +7,11 @@ $(document).on('turbolinks:load', function() {
      connected: function() {},
      disconnected: function() {},
      received: function(data) {
-       return notifies.prepend("<p>" + data["message"] + "</p>");
+       if(document.getElementById('notifies').childElementCount >= 5) {
+         notifies.children().last().remove();
+       }
+       $('#new_noti').removeClass('item-hide');
+       return notifies.prepend(data["message"]);
      },
    });
 });

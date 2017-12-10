@@ -6,7 +6,7 @@ class Notifies::BroadcastNotificationService
   end
 
   def perform
-    ActionCable.server.broadcast "notifications_channel_#{notify.target_id}", message: notify.noti_content
+    ActionCable.server.broadcast "notifications_channel_#{notify.target_id}", message: render_notification(notify)
   end
 
   private
