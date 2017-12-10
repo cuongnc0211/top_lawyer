@@ -12,19 +12,19 @@
   </thead>
   <tbody>
     <% collections.each do |ar| %>
-      <tr>
-        <td><%= ar.account_name %></td>
-        <td><%= ar.account_email %></td>
-        <td><%= ar.address %></td>
-        <td><%= ar.lawyer_id %></td>
-        <td><%= ar.phone_number %></td>
-        <td><%= ar.fax_number %></td>
-        <td><%= ar.introduction %></td>
-        <td>
-          <%= link_to t(".show") %>
-          <%= link_to t(".remove"), lawyer_law_firm_member_path(ar), method: :delete, data: { confirm: t(".confirm") }%>
-        </td>
-      </tr>
+    <tr>
+      <td><%= ar.account_name %></td>
+      <td><%= ar.account_email %></td>
+      <td><%= ar.address %></td>
+      <td><%= ar.lawyer_id %></td>
+      <td><%= ar.phone_number %></td>
+      <td><%= ar.fax_number %></td>
+      <td><%= ar.introduction %></td>
+      <td>
+        <%= link_to t(".show"), lawyer_profile_path(ar) %>
+        <%= link_to t(".remove"), lawyer_law_firm_member_path(ar), method: :delete, data: { confirm: t(".confirm") }%>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
