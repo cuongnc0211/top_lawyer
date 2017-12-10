@@ -9,7 +9,6 @@ class CreateToolTipService
 
   def perform
     content = ActionController::Base.helpers.strip_tags(article.content)
-    binding.pry
     tags.each do |tag|
       string = "<span class='tooltip_body' data-toggle='tooltip' title='#{tag.tag_descriptions.last.content}'>#{tag.name}</span>"
       content = content.gsub(tag.name, string)

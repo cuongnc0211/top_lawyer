@@ -3,7 +3,7 @@
     <%= f.hidden_field :vote_type %>
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
-    <%= f.button type: :submit, class: "icon_btn new_vote" do %>
+    <%= f.button type: :submit, class: "icon_btn new_vote vote_btn" do %>
       <i aria-hidden="true" class="fa fa-caret-up" style="font-size:48px"></i>
     <% end %>
   <% end %>
@@ -16,7 +16,7 @@
     <%= f.hidden_field :vote_type %>
     <%= f.hidden_field :voteable_type %>
     <%= f.hidden_field :voteable_id %>
-    <%= f.button type: :submit, class: "icon_btn new_vote" do %>
+    <%= f.button type: :submit, class: "icon_btn new_vote vote_btn" do %>
       <i aria-hidden="true" class="fa fa-caret-down" style="font-size:48px"></i>
     <% end %>
   <% end %>

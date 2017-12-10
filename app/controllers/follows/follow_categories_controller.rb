@@ -1,4 +1,6 @@
 class Follows::FollowCategoriesController < User::BaseController
+  layout "application"
+
   def index
     @categories = Category.all
   end

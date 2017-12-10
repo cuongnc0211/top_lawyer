@@ -6,13 +6,13 @@
       <%= form_for [:follows, follow_category], :html => { :method => :delete, :remote => true } do |f| %>
         <%= f.hidden_field :category_id %>
         <%= f.hidden_field :account_id %>
-        <%= f.submit "unfollow", class: "btn--warning" %>
+        <%= f.submit t(".unfollow"), class: "btn--warning" %>
       <% end %>
     <% else %>
       <%= form_for [:follows, follow_category], remote: true do |f| %>
         <%= f.hidden_field :category_id %>
         <%= f.hidden_field :account_id %>
-        <%= f.submit "follow", class: "btn--default" %>
+        <%= f.submit t(".follow"), class: "btn--default" %>
       <% end %>
     <% end %>
   </div>
