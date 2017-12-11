@@ -2,7 +2,16 @@
 require "capistrano/setup"
 
 # Include default deployment tasks
+require "capistrano/rvm"
 require "capistrano/deploy"
+require 'capistrano/bundler'
+require 'capistrano/puma'
+install_plugin Capistrano::Puma
+require 'capistrano/puma/nginx'
+install_plugin Capistrano::Puma::Nginx
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+require 'capistrano/sidekiq'
 
 # Load the SCM plugin appropriate to your project:
 #
