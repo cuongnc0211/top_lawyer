@@ -54,14 +54,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
 end
 
 group :staging, :production do
-  gem "capistrano"
-  gem "capistrano3-puma"
-  gem "capistrano-rails"
-  gem "capistrano-bundler"
-  gem "capistrano-rvm"
   gem "capistrano-faster-assets", "~> 1.0"
   gem "capistrano-sidekiq"
   gem "capistrano-passenger"
