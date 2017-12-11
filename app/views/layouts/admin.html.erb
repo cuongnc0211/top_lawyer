@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
   <%= render "layouts/shared/header" %>
-  <body>
-    <div class="row">
-      <div class="col-md-3 pd-10">
-        <%= render "layouts/admins/navigator" %>
+  <body style="background-color: aliceblue;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="top-navi">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand item" href="/"><%= t ".top_lawyer" %></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to t(".articles"), root_path, class: "item" %></li>
+          <li><%= link_to t(".questions"), questions_path, class: "item" %></li>
+        </ul>
+        <% if current_account.nil? %>
+          <%= render "layouts/shared/login_buttons" %>
+        <% else %>
+          <%= render "layouts/shared/account_buttons" %>
+        <% end %>
       </div>
-      <div class="col-md-9 pd-10">
-        <%= render "layouts/shared/flash" %>
-        <%= yield %>
+    </nav>
+    <div class="row" style="margin-top: 50px;">
+      <div class="">
+        <div class="col-md-2 pd-10 left_side">
+          <%= render "layouts/admins/navigator" %>
+        </div>
+        <div class="col-md-10 pd-10 main_side">
+          <%= render "layouts/shared/flash" %>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
