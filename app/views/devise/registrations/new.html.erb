@@ -13,7 +13,8 @@
 
     <div class="field">
       <%= f.label t(".name") %><br />
-      <%= f.email_field :name, autofocus: true, class: "form__input" %>
+      <%= f.text_field :name, autofocus: true, class: "form__input" %>
+      <%= f.hidden_field :role, value: :User, class: "form__input" %>
     </div>
 
     <div class="field">

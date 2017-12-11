@@ -59,9 +59,8 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-
 set :stage, :production
 set :rails_env, :production
-set :deploy_to, "/deploy/apps/top_lawyer"
+set :deploy_to, "/home/deploy/apps/top_lawyer"
 set :branch, :master
-server "18.220.205.38", user: "deploy", roles: %w(web app db)
+server "18.217.184.98", user: "deploy", roles: %w(web app db)
