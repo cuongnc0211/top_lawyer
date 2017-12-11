@@ -1,0 +1,27 @@
+.left_side {
+  background-color: grey;
+  min-height: 1500px !important;
+  padding: 0px !important;
+}
+
+.main_side {
+  background-color: aliceblue;
+}
+
+.admin_left_menu {
+  padding: 0px !important;
+  margin: 0px !important;
+
+  ul {
+    margin: 0px !important;
+  }
+
+  li a {
+    color: black !important;
+    text-decoration: none;
+  }
+
+  li:hover {
+    background-color: aliceblue;
+  }
+}
