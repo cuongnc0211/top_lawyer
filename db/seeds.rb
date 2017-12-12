@@ -49,6 +49,7 @@ law_firm_ids = LawFirm.all.pluck :id
     lawyer_id: Faker::Lorem.characters(10),
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.cell_phone,
+    approved: true,
     is_active: true,
     is_manager: [0,1].sample,
     law_firm_id: law_firm_ids.sample,

@@ -34,7 +34,8 @@ vi:
   layouts:
     admins:
       navigator:
-        lawyer_profile: Hồ sơ luật sư
+        approve: Luật sư
+        not_approve: Luật sư mới đăng ký
         law_firm: Văn phòng luật
         user: Người dùng
         article: Bài viết
@@ -129,6 +130,9 @@ vi:
       lawyer_profiles:
         new:
           submit: *submit
+          lawyer_card_image: Ảnh chụp thẻ luật sư
+          id_card_image: Ảnh chụp chứng minh thư nhân dân
+          lawyer_card_id: Số thẻ Luật Sư
     accounts:
       edit:
         edit_profile: Sửa hồ sơ
@@ -268,11 +272,24 @@ vi:
       index:
         name: *name
         email: *email
-        is_active: *is_active
+        status: Trạng thái
         action: *action
       lawyer_profile:
         active: *active
         block: *block
+        block_btn: Khoá Luật sư
+        active_btn: Kích hoạt luật sư
+    approve:
+      lawyer_profiles:
+        index:
+          name: *name
+          email: *email
+          status: Trạng thái
+          action: *action
+        lawyer_profile:
+          active: *active
+          block: *block
+          active_btn: Xác nhận luật sư
     law_firms:
       law_firm:
         active: *active

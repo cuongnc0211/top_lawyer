@@ -2,11 +2,11 @@ class Admin::LawyerProfilesController < Admin::BaseController
   before_action :lawyer_profile, only: :update
 
   def index
-    @lawyer_profiles = LawyerProfile.all.page(params[:page]).per Settings.paginate.default
+    @lawyer_profiles = LawyerProfile.approved.page(params[:page]).per Settings.paginate.default
   end
 
   def update
-    if @lawyer_profile.update_attributes is_active: params[:lawyer_profile][:is_active]
+    if @lawyer_profile.update_attributes is_active: params[:lawyer_profile][:is_active], approved: true
       redirect_to admin_lawyer_profiles_path
       flash[:success] = t ".updated"
     else

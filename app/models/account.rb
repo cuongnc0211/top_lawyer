@@ -31,6 +31,7 @@ class Account < ApplicationRecord
   ACCOUNT_ATTRIBUTES = [:name, :email, :avatar]
 
   delegate :manager_of, :law_firm_id, :point, :point, to: :lawyer_profile, prefix: false, allow_nil: true
+  delegate :active?, to: :lawyer_profile, prefix: true, allow_nil: true
 
   scope :lawyer, -> {where(role: :Lawyer)}
   scope :active, -> {where(is_active: true)}

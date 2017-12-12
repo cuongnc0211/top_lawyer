@@ -32,10 +32,12 @@ en:
   layouts:
     admins:
       navigator:
-        lawyer_profile: Lawyer Profile
+        approve: Lawyer
+        not_approve: New register Lawyer
         law_firm: LawFirm
         user: User
         article: Article
+
     lawyers:
       lawyer_navigator:
         notification: Notification
@@ -114,6 +116,9 @@ en:
       lawyer_profiles:
         new:
           submit: *submit
+          lawyer_card_image: Image of lawyer card
+          id_card_image: Image of ID card
+          lawyer_card_id: Lawyer's card ID
     accounts:
       edit:
         edit_profile: Edit Profile
@@ -230,11 +235,24 @@ en:
       index:
         name: *name
         email: *email
-        is_active: *is_active
+        status: Status
         action: *action
       lawyer_profile:
         active: *active
         block: *block
+        block_btn: Block lawyer
+        active_btn: Active lawyer
+    approve:
+      lawyer_profiles:
+        index:
+          name: *name
+          email: *email
+          status: Status
+          action: *action
+        lawyer_profile:
+          active: *active
+          block: *block
+          active_btn: Active lawyer
     law_firms:
       law_firm:
         active: *active
