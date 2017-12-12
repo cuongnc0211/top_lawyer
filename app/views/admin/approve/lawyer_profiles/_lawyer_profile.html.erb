@@ -1,0 +1,14 @@
+<tr id="<%= "lawyer-#{lawyer_profile.id}" %>">
+  <td><%= lawyer_profile.account_name %></td>
+  <td><%= lawyer_profile.account_email %></td>
+  <td>
+    <span class="label label-danger">
+    <%= t ".block" %></span>
+  </td>
+  <td>
+    <%= form_for [:admin, lawyer_profile] do |f| %>
+      <%= f.hidden_field :is_active, value: true %>
+      <%= f.submit t(".active_btn"), class: "btn btn-success" %>
+    <% end %>
+  </td>
+</tr>

@@ -2,7 +2,22 @@
   <%= form_for [:user, :register_lawyer, @lawyer_profile] do |f| %>
     <%= render "shared/lawyer_profiles/form", f: f %>
 
-    <div class="form-group"> 
+    <div class="form-group">
+      <%= f.label t(".lawyer_card_id") %>
+      <%= f.text_field :lawyer_id, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t(".lawyer_card_image") %>
+      <%= f.file_field :lawyer_card_image, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t(".id_card_image") %>
+      <%= f.file_field :id_card_image, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
       <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
     </div>
   <% end %>

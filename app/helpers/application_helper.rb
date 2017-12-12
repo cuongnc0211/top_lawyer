@@ -1,12 +1,9 @@
 module ApplicationHelper
   def my_page_link account
-    case account.role
-    when "Lawyer"
-      link_to t(".my_page"), lawyer_root_path
-    when "User"
-      link_to t(".my_page"),user_root_path
-    when "Admin"
+    if account.role == "Admin"
       link_to t(".my_page"),admin_root_path
+    elsif account.role == "Lawyer" && account.lawyer_profile.active?
+      link_to t(".my_page"), lawyer_root_path
     else
       link_to t(".my_page"),user_root_path
     end

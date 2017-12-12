@@ -10,4 +10,8 @@ $(document).on("turbolinks:load", function(){
     var commentsId = $(this).attr("data");
     $("#comments-" + commentsId).toggle();
   });
+
+  $(".prevent_default").click(function(e){
+    e.preventDefault();
+  });
 });

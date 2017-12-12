@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :accounts, only: [:index, :update]
     resources :articles, only: [:index, :destroy]
     resources :questions, only: [:index, :destroy]
+    namespace :approve do
+      resources :lawyer_profiles, only: [:index, :update]
+    end
   end
 
   namespace :user do

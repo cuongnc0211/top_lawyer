@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210071102) do
+ActiveRecord::Schema.define(version: 20171212180207) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -231,6 +231,8 @@ ActiveRecord::Schema.define(version: 20171210071102) do
     t.integer "law_firm_id"
     t.string "full_name"
     t.boolean "approved"
+    t.string "lawyer_card_image"
+    t.string "id_card_image"
     t.index ["account_id"], name: "index_lawyer_profiles_on_account_id"
   end
 
