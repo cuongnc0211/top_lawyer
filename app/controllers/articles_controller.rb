@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  impressionist actions: [:show], unique: [:session_hash]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
 
   def index
     redirect_to root_path

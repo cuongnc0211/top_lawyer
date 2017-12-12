@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  impressionist actions: [:show], unique: [:session_hash]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
 
   def index
     questions = Questions::NewFeedService.new(current_account).perform()
