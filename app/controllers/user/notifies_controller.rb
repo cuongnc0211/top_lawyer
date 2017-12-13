@@ -20,12 +20,7 @@ class User::NotifiesController < User::BaseController
     when "Answer"
       redirect_to question_path(notifyable.question)
     when "Comment"
-      case notifiable.action
-      when :comment_article
-        redirect_to article_path(notifyable.article)
-      when :comment_answer
-        redirect_to question_path(notifyable.answer.question)
-      end
+      redirect_to polymorphic_path(notifyable.commentable)
     end
   end
 end

@@ -10,6 +10,10 @@ en:
     comment:
       Started_by: Start by
       reply: Reply
+      confirm_delete: Delete? Are you sure?
+      edit: Edit
+      delete: Delete
+      update_comment: Update Comment
   notify:
     up_vote: "%{post} have had an up vote"
     down_vote: "%{post} have had an down vote"

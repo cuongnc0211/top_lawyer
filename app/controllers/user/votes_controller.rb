@@ -16,7 +16,7 @@ class User::VotesController < User::BaseController
     load_model params[:vote][:voteable_type], params[:vote][:voteable_id]
     vote_type = @vote.voteable_type
     if @vote.destroy
-      update_infomation @model, vote_type
+      update_infomation @model, vote_type, false
       @vote = @model.init_vote(current_account.id)
       respond_to{|format| format.js}
     else
@@ -44,19 +44,23 @@ class User::VotesController < User::BaseController
     end
   end
 
-  def update_infomation model, vote_type
+  def update_infomation model, vote_type, noti = true
     case vote_type
     when "Article"
       ::CreateHistoryPointService.new(point: Point.article, account: model.account)
       ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
-      ::Notifies::CreateNotificationService.new(current_account: current_account,
-        target_account: @model.account, model: @model, action: :up_vote).perform
+      if noti
+        ::Notifies::CreateNotificationService.new(current_account: current_account,
+          target_account: @model.account, model: @model, action: :up_vote).perform
+      end
     when "Question"
     when "Answer"
       ::CreateHistoryPointService.new(point: Point.answer, account: model.account)
       ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
-      ::Notifies::CreateNotificationService.new(current_account: current_account,
-        target_account: @model.account, model: @model, action: :down_vote).perform
+      if noti
+        ::Notifies::CreateNotificationService.new(current_account: current_account,
+          target_account: @model.account, model: @model, action: :down_vote).perform
+      end
     end
     ::Votes::UpdateTotalVotesService.new(model).perform
   end
