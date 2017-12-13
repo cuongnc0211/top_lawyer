@@ -37,7 +37,8 @@ en:
         law_firm: LawFirm
         user: User
         article: Article
-
+        question: Question
+        answer: Answer
     lawyers:
       lawyer_navigator:
         notification: Notification
@@ -231,6 +232,13 @@ en:
       reject: Reject
       confirm: confirm
   admin:
+    answers:
+      index:
+        delete: *delete
+        user_name: Tên người dùng
+        content: Content
+        action: *action
+        confirm: *confirm_delete
     lawyer_profiles:
       index:
         name: *name

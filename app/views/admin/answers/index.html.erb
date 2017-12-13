@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <h3>Answer</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t ".user_name" %></th>
+          <th><%= t ".content" %></th>
+          <th><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @answers.each do |answer| %>
+          <tr>
+            <td> <%= answer.account_name %> </td>
+            <td> <%= answer.content.truncate 50 %> </td>
+            <td> <%= link_to t(".delete"), admin_answer_path(answer), method: :delete, data: {confirm: t(".confirm")} %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @answers %>
+  </div>
+</div>

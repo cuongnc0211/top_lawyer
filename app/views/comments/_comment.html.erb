@@ -1,5 +1,5 @@
 <div class="well" style="border:1px solid black;" >
-  <p class="text-muted"><%= comment.root? ? t(".Started_by") : t(".Replied_by") %> <strong><%= comment.account.email %></strong> on
+  <p class="text-muted"><%= comment.root? ? t(".Started_by") : t(".Replied_by") %> <strong><%= comment.account.email %></strong>
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
 
   <blockquote>
@@ -9,7 +9,6 @@
   <% from_reply_form ||= nil %>
   <% unless from_reply_form %>
   <% if comment.leaf? %>
-      <small class="text-muted">There are no replies yet - be the first one to reply!</small>
     <% end %>
     <% if current_account != nil %>
       <% if comment.commentable_type == "Article" %>

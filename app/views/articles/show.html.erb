@@ -4,8 +4,10 @@
   </div>
   <div class="section-body padding-arround">
     <div class="row">
-      <div class="col-md-1 al-center" id="form-vote">
-        <%= render("vote_form", vote: @vote, model: @article) if current_account.present? %>
+      <div class="col-md-1 al-center">
+        <div id="form-vote">
+          <%= render("vote_form", vote: @vote, model: @article) if current_account.present? %>
+        </div>
       </div>
       <div class="col-md-11">
         <p class="bold">

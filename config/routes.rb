@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :questions, only: [:show, :index]
   resources :clips, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
+
   namespace :admin do
     root "home_page#index"
     resources :lawyer_profiles, only: [:index, :update]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :accounts, only: [:index, :update]
     resources :articles, only: [:index, :destroy]
     resources :questions, only: [:index, :destroy]
+    resources :answers, only: [:index, :destroy]
     namespace :approve do
       resources :lawyer_profiles, only: [:index, :update]
     end
