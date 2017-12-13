@@ -1,10 +1,33 @@
 <div class="well" style="border:1px solid black;" >
   <p class="text-muted"><%= comment.root? ? t(".Started_by") : t(".Replied_by") %> <strong><%= comment.account.email %></strong>
-    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %>
+    <span class="pull-right">
+      <% if current_account.own? comment %>
+        <a href="" class="edit_cm_icon" data="<%= comment.id %>">
+          <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip"
+            title="<%= t '.edit' %>"></i>
+        </a>
+      <% end %>
+      <% if current_account.own?(comment) || current_account.Admin? %>
+        <%= link_to user_comment_path(comment), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+          <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+        <% end %>
+      <% end %>
+    </span>
+  </p>
 
-  <blockquote>
-    <p><%= simple_format comment.content %></p>
-  </blockquote>
+  <div id="cm-content-<%= comment.id %>">
+    <blockquote>
+      <p><%= simple_format comment.content %></p>
+    </blockquote>
+  </div>
+
+  <div id="cm-form-<%= comment.id %>" class="temple_hide">
+    <%= form_for [:user, comment] do |f| %>
+      <%= f.text_area :content, row: 3, class: "form__input" %>
+      <%= f.submit t(".update_comment"), class: "form__btn" %>
+    <% end %>
+  </div>
 
   <% from_reply_form ||= nil %>
   <% unless from_reply_form %>

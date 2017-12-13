@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     root "questions#index"
-    resources :accounts, except: [:new, :create, :delete]
+    resources :accounts, except: [:new, :create, :destroy]
     resources :questions
     resources :votes, except: [:show, :new, :edit]
     namespace :register_lawyer do
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     end
     resources :clips, only: :index
     resources :notifies, only: :update
+    resources :comments, only: [:update, :destroy]
   end
 
   resources :articles do
@@ -50,9 +51,9 @@ Rails.application.routes.draw do
 
   namespace :lawyer do
     root "accounts#show"
-    resources :lawyer_profiles, except: [:new, :create, :delete]
-    resources :accounts, except: [:new, :create, :delete]
-    resources :law_firms, except: [:show, :delete]
+    resources :lawyer_profiles, except: [:new, :create, :destroy]
+    resources :accounts, except: [:new, :create, :destroy]
+    resources :law_firms, except: [:show, :destroy]
     resources :request_law_firms, only: [:index, :destroy]
     resources :law_firm_members, only: [:index, :destroy]
     resources :add_law_firms, only: [:create, :index, :destroy]

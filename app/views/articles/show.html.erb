@@ -34,7 +34,7 @@
       <% if current_account != nil %>
         <%= render "comments/form", comment: @comment%>
       <% end %>
-      <%= comments_tree_for @comments %>
+      <%= comments_tree_for @comments.reverse_each %>
     </div>
   </div>
 

@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
+      create_notify @comment
       if @resource == "articles"
         redirect_to article_path(@commentable)
         flash[:success] = t ".new"
@@ -42,5 +43,11 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit!
+  end
+
+  def create_notify comment
+    model = comment.parent_id.nil? ? comment : comment.parent
+    ::Notifies::CreateNotificationService.new(current_account: current_account,
+      target_account: model.commentable.account, model: model, action: :up_vote).perform
   end
 end

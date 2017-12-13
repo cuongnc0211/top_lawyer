@@ -10,6 +10,10 @@ vi:
     comment:
       Started_by: Tạo bởi
       reply: Trả lời
+      confirm_delete: Bạn chắc chắn muốn xoá?
+      edit: Chỉnh sửa
+      delete: Xoá
+      update_comment: Cập nhật bình luận
   notify:
     up_vote: "%{post} vừa nhận đánh giá hữu ích"
     down_vote: "%{post} vừa nhận đánh giá không hữu ích"

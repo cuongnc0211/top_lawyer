@@ -46,7 +46,7 @@
 
   <div class="row padding-arround temple_hide" id="comments-<%= answer_id %>">
     <div class="col-md-12">
-      <%= comments_tree_for @comments %>
+      <%= comments_tree_for @comments.reverse_each %>
     </div>
   </div>
 </div>
