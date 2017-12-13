@@ -6,6 +6,10 @@ vi:
         top_lawyer: TopLawyer
         articles: Bài viết
         questions: Hỏi đáp
+  comments:
+    comment:
+      Started_by: Tạo bởi
+      reply: Trả lời
   notify:
     up_vote: "%{post} vừa nhận đánh giá hữu ích"
     down_vote: "%{post} vừa nhận đánh giá không hữu ích"

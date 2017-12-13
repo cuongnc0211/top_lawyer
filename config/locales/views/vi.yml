@@ -39,6 +39,8 @@ vi:
         law_firm: Văn phòng luật
         user: Người dùng
         article: Bài viết
+        question: Câu hỏi
+        answer: Câu trả lời
     lawyers:
       lawyer_navigator:
         article: Bài viết
@@ -268,6 +270,13 @@ vi:
           create_new_article: Tạo bài viết mới
           new_article: Tạo mới
   admin:
+    answers:
+      index:
+        delete: *delete
+        user_name: Tên người dùng
+        content: Nội dung
+        action: *action
+        confirm: *confirm_delete
     lawyer_profiles:
       index:
         name: *name

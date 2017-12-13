@@ -34,7 +34,7 @@
         <span class="badge"><%= answer.comments.count %></span>
       <% end %>
     <p>
-    <div class="item-hide" id="answer-<%= answer_id %>">
+    <div class="temple_hide" id="answer-<%= answer_id %>">
       <% if current_account != nil %>
         <% @commentable = answer%>
         <!-- render comment form -->
@@ -44,9 +44,8 @@
     <% @comments = answer.comments.hash_tree(limit_depth: 5) %>
   </div>
 
-  <div class="row padding-arround item-hide" id="comments-<%= answer_id %>">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
+  <div class="row padding-arround temple_hide" id="comments-<%= answer_id %>">
+    <div class="col-md-12">
       <%= comments_tree_for @comments %>
     </div>
   </div>

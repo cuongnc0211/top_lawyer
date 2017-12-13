@@ -85,7 +85,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to lawyer_articles_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -104,7 +104,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
 
   def article
     return if params[:id].nil?
-    article = current_account.articles.find params[:id]
+    article = Article.find params[:id]
     unless (current_account.Admin? || current_account == article.account)
       flash[:error] = t ".access_denies"
       redirect_to root_path
