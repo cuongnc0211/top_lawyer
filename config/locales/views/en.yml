@@ -57,6 +57,8 @@ en:
         first_follow: Follow the category, which you are interested to recieve newset ảticles and questions
         next: Tiếp theo
   questions:
+    answer:
+      update_answer: Cập nhật câu trả lời
     index:
       popular_tag: *popular_tags
       top_month: *top_month
@@ -72,6 +74,7 @@ en:
       create_answer_box: Input your answer
       submit: Create Answer
     answer:
+      update_answer: Update
       create_comment: Create Comment
       hide_show_comment: Hide/Show comments
   articles:
@@ -302,6 +305,11 @@ en:
         fax_number: Fax number
         introduction: Introduction
   shared:
+    answers:
+      action_buttons:
+        edit: Edit answer
+        delete: Delete answer
+        confirm_delete: Delete? Are you sure
     categories:
       follow:
         follow: Theo dõi

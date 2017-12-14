@@ -2,15 +2,17 @@
   <p class="text-muted"><%= comment.root? ? t(".Started_by") : t(".Replied_by") %> <strong><%= comment.account.email %></strong>
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %>
     <span class="pull-right">
-      <% if current_account.own? comment %>
-        <a href="" class="edit_cm_icon" data="<%= comment.id %>">
-          <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip"
-            title="<%= t '.edit' %>"></i>
-        </a>
-      <% end %>
-      <% if current_account.own?(comment) || current_account.Admin? %>
-        <%= link_to user_comment_path(comment), method: :delete, data: {confirm: t(".confirm_delete")} do %>
-          <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+      <% if current_account %>
+        <% if current_account.own?(comment) %>
+          <a href="" class="edit_cm_icon" data="<%= comment.id %>">
+            <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip"
+              title="<%= t '.edit' %>"></i>
+          </a>
+        <% end %>
+        <% if current_account.own?(comment) || current_account.Admin? %>
+          <%= link_to user_comment_path(comment), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+            <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+          <% end %>
         <% end %>
       <% end %>
     </span>

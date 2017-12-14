@@ -42,6 +42,16 @@ en:
   request_law_firms:
     new: New
   lawyer:
+    answers:
+      create:
+        created: *created
+        create_fail: *create_fail
+      update:
+        updated: *updated
+        update_fail: *update_fail
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail
     question:
       create: *created
       create_fail: *create_fail

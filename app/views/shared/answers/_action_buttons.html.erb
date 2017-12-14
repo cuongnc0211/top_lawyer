@@ -1,0 +1,15 @@
+<span class="pull-right">
+  <% if current_account %>
+    <% if current_account.own?(answer) %>
+      <a href="" class="edit_answer_icon" data="<%= answer.id %>">
+        <i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip"
+          title="<%= t '.edit' %>"></i>
+      </a>
+    <% end %>
+    <% if current_account.own?(answer) || current_account.Admin? %>
+      <%= link_to lawyer_answer_path(answer), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+        <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="<%= t '.delete' %>"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</span>

@@ -11,7 +11,16 @@
       <% end %>
     </div>
     <div class="col-md-8">
-      <p><%= answer.content %></p>
+      <p><%= render "shared/answers/action_buttons", answer: answer %></p>
+      <div class="" id="answer-content-<%= answer.id %>">
+        <p><%= answer.content %></p>
+      </div>
+      <div class="temple_hide" id="answer-form-<%= answer.id %>">
+        <%= form_for [:lawyer, answer] do |f| %>
+          <%= f.text_area :content, row: 3, class: "form__input" %>
+          <%= f.submit t(".update_answer"), class: "form__btn" %>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-2">
       <%= link_to lawyer_profile_path(answer.account.lawyer_profile) do %>
@@ -26,11 +35,11 @@
     <p>
       <% if current_account %>
         <!-- Link to show comment form -->
-        <span><%= link_to t(".create_comment"), "", class: "create_comment", data: "#{answer_id}" %></span>
+        <span><%= link_to t(".create_comment"), "", class: "create_comment", data: "#{answer_id}" %> | </span>
       <% end %>
       <% if answer.comments.count > 0 %>
         <!-- Link to show comment -->
-        <span> | <%= link_to t(".hide_show_comment"), "", class: "toggle_comments", data: "#{answer_id}" %></span>
+        <span><%= link_to t(".hide_show_comment"), "", class: "toggle_comments", data: "#{answer_id}" %></span>
         <span class="badge"><%= answer.comments.count %></span>
       <% end %>
     <p>
