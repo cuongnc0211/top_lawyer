@@ -46,8 +46,14 @@ class CommentsController < ApplicationController
   end
 
   def create_notify comment
-    model = comment.parent_id.nil? ? comment : comment.parent
+    if comment.parent_id.nil?
+      model = comment.commentable
+      action = ("comment_" + comment.commentable_type.downcase).to_sym
+    else
+      model = comment.parent
+      action = :reply_comment
+    end
     ::Notifies::CreateNotificationService.new(current_account: current_account,
-      target_account: model.commentable.account, model: model, action: :up_vote).perform
+      target_account: model.account, model: model, action: action).perform
   end
 end
