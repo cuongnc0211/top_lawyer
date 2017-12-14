@@ -15,8 +15,13 @@ vi:
       delete: Xoá
       update_comment: Cập nhật bình luận
   notify:
-    up_vote: "%{post} vừa nhận đánh giá hữu ích"
-    down_vote: "%{post} vừa nhận đánh giá không hữu ích"
+    vote_up:
+      article: Bài viết của bạn vừa nhận đánh giá hữu ích
+      answer: Câu trả lời của bạn vừa nhận đánh giá hữu ích
+    vote_down:
+      article: Bài viết của bạn vừa nhận đánh giá không hữu ích
+      answer: Câu trả lời của bạn vừa nhận đánh giá không hữu ích
     comment_article: "%{from_name} đã bình luần về bài viết của bạn"
-    answer_question: "%{from_name} đã trả lời bài viết của bạn"
+    answer_question: "%{from_name} đã trả lời câu hỏi của bạn"
     comment_answer: "%{from_name} đã bình luận về câu trả lời của bạn"
+    reply_comment: "%{from_name} đã trả lời bình luận của bạn"

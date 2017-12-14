@@ -15,8 +15,9 @@ en:
       delete: Delete
       update_comment: Update Comment
   notify:
-    up_vote: "%{post} have had an up vote"
-    down_vote: "%{post} have had an down vote"
+    vote_up: "%{post} have had an up vote"
+    vote_down: "%{post} have had an down vote"
     comment_article: "%{from_name} have commented on your article"
     answer_question: "%{from_name} have answered your question"
     comment_answer: "%{from_name} have commented on your answer"
+    reply_comment: "%{from_name} have replied your comment"
