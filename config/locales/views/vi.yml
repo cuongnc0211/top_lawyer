@@ -86,6 +86,7 @@ vi:
       create_answer_box: Nhập câu trả lời của bạn
       submit: Tạo câu trả lời
     answer:
+      update_answer: Cập nhật câu trả lời
       create_comment: Tạo bình luận
       hide_show_comment: Ẩn/Hiện bình luận
   articles:
@@ -340,6 +341,11 @@ vi:
         fax_number: Số fax
         introduction: Giới thiệu
   shared:
+    answers:
+      action_buttons:
+        edit: Chỉnh sửa
+        delete: Xoá
+        confirm_delete: Bạn chắc chắn muốn xoá?
     categories:
       follow:
         follow: Theo dõi

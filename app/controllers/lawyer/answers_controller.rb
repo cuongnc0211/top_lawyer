@@ -18,8 +18,37 @@ class Lawyer::AnswersController < Lawyer::BaseController
     end
   end
 
+  def update
+    @answer = Answer.find(params[:id])
+    if @answer.update_attributes lawyer_answer_params
+      flash[:success] = t ".updated"
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:errors] = t ".update_fail"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    if @answer.destroy
+      flash[:success] = t ".deleted"
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:errors] = t ".delete_fail"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
   def lawyer_answer_params
     params.require(:answer).permit Answer::ANSWER_ATTRIBUTES
+  end
+
+  def author_lawyer
+    unless current_account.id == answer.account_id
+      flash[:errors] = t ".access_denies"
+      redirect_back(fallback_location: root_path)
+    end
   end
 end

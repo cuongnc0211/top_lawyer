@@ -42,6 +42,16 @@ vi:
   request_law_firms:
     new: Tạo mới
   lawyer:
+    answers:
+      create:
+        created: *created
+        create_fail: *create_fail
+      update:
+        updated: *updated
+        update_fail: *update_fail
+      destroy:
+        deleted: *deleted
+        delete_fail: *delete_fail
     question:
       create: *created
       create_fail: *create_fail
@@ -122,6 +132,6 @@ vi:
       location: Vị trí văn phòng
       phone_number: Số điện thoại
       fax : FAX
-      reception_hours: Giờ làm việc 
+      reception_hours: Giờ làm việc
     answers:
       view_question: Xem câu hỏi
