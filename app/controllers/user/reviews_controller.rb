@@ -2,7 +2,6 @@ class User::ReviewsController < User::BaseController
   def create
     @review = Review.new review_params
     @review.account_id = current_account.id
-    binding.pry
     if @review.save
       flash[:success] = t ".created"
     else

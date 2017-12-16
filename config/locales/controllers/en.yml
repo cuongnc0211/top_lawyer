@@ -7,6 +7,10 @@ en:
     deleted: &deleted Delete Successfully.
     delete_fail: &delete_fail Delete failed!
   user:
+    reviews:
+      create:
+        created: *created
+        create_fail: *create_fail
     register_lawyer:
       lawyer_profiles:
         update:

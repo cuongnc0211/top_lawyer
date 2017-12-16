@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a data-toggle="tab" href="#info"><%= t ".infomation" %></a>
+  </li>
+  <li>
+    <a data-toggle="tab" href="#articles"><%= t ".article" %></a>
+  </li>
+  <li>
+    <a data-toggle="tab" href="#reviews"><%= t ".reviews" %></a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="info" class="tab-pane fade in active">
+    <%= render "law_firm_info", law_firm: law_firm %>
+  </div>
+  <div id="articles" class="tab-pane fade">
+    <%= render partial: "shared/articles/article", collection: Article.where(account_id: law_firm.accounts.pluck(:id)), as: :article %>
+  </div>
+  <div id="reviews" class="tab-pane fade">
+    <%= render "reviews", reviews: reviews, law_firm: law_firm %>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 $main-green: #52bab3;
 
+.nav-tabs {
+  margin-bottom: 10px !important;
+}
+
 body {
   font-size: 12px;
   font-family: sans-serif;
@@ -135,6 +139,12 @@ div {
   color: black;
   margin: 0 0 20px;
   border: 2px solid $main-green;
+}
+
+.small_table {
+  td {
+    padding: 0px !important;
+  }
 }
 
 .row .section-item {

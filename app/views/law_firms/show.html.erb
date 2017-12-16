@@ -1,13 +1,48 @@
-.<h3>Law Firm Show</h3>
-<p><%= @law_firm.name %></p>
-<% if current_account.present? && current_account.can_join(@law_firm, @request_lf) %>
-  <%= form_tag request_law_firms_path(), method: :post do %>
-    <%= hidden_field_tag law_firm_id: @law_firm.id %>
-    <div class="actions">
-      <%= submit_tag :Join %>
+<div class="col-md-9">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="avata-image">
+        <%= image_tag @law_firm.lf_avatar_url, size: "120x120", class: "" %>
+      </div>
+      <div class="col-md-9" style="padding-bottom: 50px">
+        <div>
+          <h3><%= @law_firm.name %></h3>
+        </div>
+        <div class="glyphicon glyphicon-envelope">
+          <%= @law_firm.email %>
+        </div>
+        </br>
+        <div class="glyphicon glyphicon-flag">
+          <%= @law_firm.created_at %>
+        </div>
+        </br>
+        <div class="glyphicon glyphicon-map-marker">
+          <%= @law_firm.address %>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
+
+  <div class="padding-arround">
+    <%= render "tabs", law_firm: @law_firm, reviews: @reviews %>
+  </div>
+</div>
+
+<div class="col-md-3">
+<% if current_account.present? && current_account.can_join(@law_firm, @request_lf) %>
+  <div class="section-body padding-arround">
+    <%= render "shared/ranking/monthly_top_lawyer", accounts: @top_page.top_lawyers_ranking %>
+    <%= form_tag request_law_firms_path(), method: :post do %>
+      <%= hidden_field_tag law_firm_id: @law_firm.id %>
+      <div class="actions">
+        <%= submit_tag :Join %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 <% if @law_profile.present? &&  @law_profile.can_out(@law_firm.id) %>
-  <%= link_to t(".out_law_firm"), lawyer_out_law_firm_path() , method: :delete, data: { confirm: t(".confirm") } %>
+  <div class="section-body padding-arround">
+    <%= link_to t(".out_law_firm"), lawyer_out_law_firm_path() , method: :delete, data: { confirm: t(".confirm") } %>
+  </div>
 <% end %>
+</div>

@@ -164,6 +164,13 @@ en:
   law_firms:
     show:
       out_law_firm: Out law firm
+      lawyers: Lawyers in LawFirm
+    lawyer:
+      reputation: Reputation Point
+    reviews:
+      submit: Create Review
+    law_firm_info:
+      lawyers: Lawyer in LawFirm
   lawyer:
     accounts:
       edit:

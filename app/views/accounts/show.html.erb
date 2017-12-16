@@ -20,24 +20,10 @@
       <%= render partial: "question", collection: @questions, as: :question %>
   </div>
   <div class="col-md-3 clearfix">
-    <div class="user-profile .profile-stats">
-      <div class="user-profile">
-        <div class="profile-col half">
-          <div class="sidebar-box">
-            <div class="profile-stats">
-              <a>
-                <p>Posts</p>
-                <p>8</p>
-              </a>
-              <a>
-                <p>Clips</p>
-                <p>20</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="section-body pd-10">
+      <p><%= t ".questions" %> : <%= @account.questions.count %></p>
+      <p><%= t ".clips" %> : <%= @account.clips.count %></p>
+      <p><%= t ".votes" %> : <%= @account.votes.count %></p>
     </div>
   </div>
 </div>
-

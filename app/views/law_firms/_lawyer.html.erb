@@ -1,0 +1,20 @@
+<% if lawyer_profile.present? %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to lawyer_profile_path(lawyer_profile) do %>
+        <%= image_tag lawyer_profile.account_avatar_url, size: "80x80", class: "pull-left" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <p><%= link_to lawyer_profile.account_name, lawyer_profile_path(lawyer_profile) %></p>
+      <p>
+        <span class="stat_item" data-toggle="tooltip" title="<%= t '.reputation' %>">
+          <i aria-hidden="true" class="fa fa-star" ></i> <%= lawyer_profile.reputation.to_i %>
+        </span>
+      </p>
+      <p>
+        <%= lawyer_profile.introduction.truncate(120) %>
+      </p>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,71 @@
+<div id="home" class="tab-pane fade in active">
+  <div class="content-trouble clearfix">
+    <div class="row">
+      <div class="col-md-12 mb-pd0">
+        <div class="title-content">
+          <h3>
+            <font style="vertical-align: inherit;"><%= t ".word_law_firm"%></font>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="description">
+      <font style="vertical-align: inherit;">
+        <%= law_firm.introduction %>
+      </font>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-pd0">
+        <div class="title-content">
+          <h3>
+            <font style="vertical-align: inherit;"><%= t ".profile"%></font>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <font style="vertical-align: inherit;">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= t ".name" %></td>
+            <td><%= law_firm.name %></td>
+          </tr>
+          <tr>
+            <td><%= t ".email" %></td>
+            <td><%= law_firm.email %></td>
+          </tr>
+          <tr>
+            <td><%= t ".address" %></td>
+            <td><%= law_firm.address %></td>
+          </tr>
+          <tr>
+            <td><%= t ".phone_number" %></td>
+            <td><%= law_firm.phone_number %></td>
+          </tr>
+          <tr>
+            <td><%= t ".fax_number" %></td>
+            <td><%= law_firm.fax %></td>
+          </tr>
+          <tr>
+            <td><%= t ".working_start_time" %></td>
+            <td><%= law_firm.working_start_time.strftime("%I:%M") %></td>
+          </tr>
+          <tr>
+            <td><%= t ".working_end_time" %></td>
+            <td><%= law_firm.working_end_time.strftime("%I:%M") %></td>
+          </tr>
+        </tbody>
+      </table>
+    </font>
+  </div>
+</div>
+
+<div class="section-title al-center">
+  <h4><%= t ".lawyers" %></h4>
+</div>
+<div class="section-body padding-arround">
+  <% if @lawyer_profiles.count > 0 %>
+    <%= render("lawyers", lawyer_profiles: @lawyer_profiles) %>
+  <% end %>
+</div>
