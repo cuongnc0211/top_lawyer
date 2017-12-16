@@ -289,12 +289,14 @@ vi:
         content: Nội dung
         action: *action
         confirm: *confirm_delete
+        answer: Câu trả lời
     lawyer_profiles:
       index:
         name: *name
         email: *email
         status: Trạng thái
         action: *action
+        lawyer_profile: Luật sư
       lawyer_profile:
         active: *active
         block: *block
@@ -320,8 +322,10 @@ vi:
         address: *address
         is_active: *is_active
         action: *action
+        lawyer_firm: Văn phòng luật
     accounts:
       index:
+        user: Người dùng
         active: *active
         block: *block
     articles:
@@ -330,6 +334,7 @@ vi:
         content: *content
         action: *action
         delete: *delete
+        article: Bài viết
         confirm: Bạn chắc chắn muốn xóa bài viết này?
   search:
     top_pages:

@@ -2,7 +2,9 @@ class Admin::LawFirmsController < Admin::BaseController
   before_action :law_firm, only: :update
 
   def index
-    @law_firms = Kaminari.paginate_array(LawFirm.all.reverse).page(params[:page]).per Settings.paginate.default
+    search_content = params[:q]
+    @law_firms = LawFirm.search(name_or_phone_number_or_fax_or_email_or_address_or_introduction_cont: search_content)
+      .result(distinct: true).page(params[:page]).per Settings.search.per_page.default
   end
 
   def update
