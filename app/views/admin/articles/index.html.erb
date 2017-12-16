@@ -1,9 +1,15 @@
 <div>
-  <h1>Article</h1>
+  <h1><%= t ".article" %></h1>
   <div>
-    <h3>Users</h3>
     <table class="table">
       <thead>
+        <tr>
+          <form action= <%= admin_articles_path %> >
+            <div class="input-group" >
+              <input type="text" class="form-control" placeholder=" <%= I18n.t "top_pages.search" %> " name="q" size="50">
+            </div>
+          </form>
+        </tr>
         <tr>
           <th><%= t ".title" %></th>
           <th><%= t ".content" %></th>
