@@ -51,6 +51,17 @@ en:
     shared:
       login_buttons:
         sign_in: Sign in
+  lawyer_profiles:
+    reviews:
+      input_review: Input your review
+      submit: Save review
+    lawyer_info:
+      name: Name
+      lawyer_id: Lawyer's ID
+      address: Adress
+      phone_number: Phone number
+      fax_number: Fax number
+      law_firm_name: LawFirm
   follows:
     follow_categories:
       index:

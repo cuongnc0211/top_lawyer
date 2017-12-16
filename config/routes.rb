@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :clips, only: :index
     resources :notifies, only: :update
     resources :comments, only: [:update, :destroy]
+    resources :reviews, except: [:index, :new, :edit]
   end
 
   resources :articles do

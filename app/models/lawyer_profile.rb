@@ -12,6 +12,7 @@ class LawyerProfile < ApplicationRecord
   delegate :name, :email, :avatar, to: :account, prefix: true, allow_nil: true
   delegate :account_avatar_url, to: :account, prefix: false, allow_nil: true
   delegate :total_point, to: :account, prefix: false, allow_nil: true
+  delegate :name, to: :law_firm, prefix: true, allow_nil: true
 
   scope :not_approve, -> {where(approved: false)}
   scope :active, -> {where(is_active?: true)}

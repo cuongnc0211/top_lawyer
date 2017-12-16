@@ -20,7 +20,9 @@ environment rails_env
 
 
 # Set up socket location
-bind "unix://#{shared_dir}/sockets/puma.sock"
+if rails_env == "production"
+  bind "unix://#{shared_dir}/sockets/puma.sock"
+end
 # bind "unix:/home/deploy/apps/top_lawyer/shared/tmp/sockets/puma.sock"
 
 # Specifies the number of `workers` to boot in clustered mode.
