@@ -1,26 +1,36 @@
 <div class="col-md-9">
-  <h3><%= t ".buy_advertise" %></h3>
-  <%= form_for [:lawyer, :advertise, @history_advertise] do |f| %>
-  <div class="form-group">
-    <%= f.label t ".category" %>
-    <%= f.select :province_id, options_for_select(@categories), {}, {class: "form-control"} %>
+  <div class="section-title al-center">
+    <h4><%= t ".buy_advertise" %></h4>
   </div>
 
-  <div class="form-group">
-    <%= f.label t ".start_time" %>
-    <%= f.text_field :start_time, class: "form-control datetime-picker" %>
-  </div>
+  <div class="section-body padding-arround">
+    <%= form_for [:lawyer, :advertise, @history_advertise] do |f| %>
+      <div class="form-group">
+        <%= f.label t ".category" %>
+        <%= f.select :province_id, options_for_select(@categories), {}, {class: "form__input"} %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label t ".end_time" %>
-    <%= f.text_field :end_time, class: "form-control datetime-picker" %>
-  </div>
+      <div class="form-group">
+        <p><%= f.label t ".price" %>: <b><%= Point.advertise.first.point_per_time %> (<%= t ".point" %>)</b></p>
+      </div>
 
-  <div class="form-group">
-    <%= f.submit t(".submit"), class: "btn btn-primary form-control" %>
+      <div class="form-group">
+        <%= f.label t ".start_time" %>
+        <%= f.text_field :start_time, class: "form__input datetime-picker" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label t ".end_time" %>
+        <%= f.text_field :end_time, class: "form__input datetime-picker" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit t(".submit"), class: "form__btn" %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
+
 <script type="text/javascript">
   <%= render "shared/datetime-picker.js" %>
 </script>

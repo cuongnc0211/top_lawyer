@@ -53,6 +53,7 @@ vi:
         law_fim_invitation: Lời mời của văn phòng luật
         draft: Bản nháp
         clips: Bài viết đã ghim
+        lawyer_profile: Thông tin luật sư
     shared:
       login_buttons:
         sign_in: Đăng nhập
@@ -191,6 +192,10 @@ vi:
     law_firm_info:
       lawyers: Luật sư trực thuộc
   lawyer:
+    lawyer_profiles:
+      edit:
+        edit_law_profile: Sửa hồ sơ luật sư
+        submit: *submit
     accounts:
       edit:
         submit: *submit
@@ -216,6 +221,8 @@ vi:
       history_advertises:
         new:
           submit: *submit
+          price: Giá mua quảng cáo mỗi ngày
+          point: Điểm
     articles:
       form:
         title: Tiêu đề
@@ -268,10 +275,6 @@ vi:
     law_firms:
       new:
         create_law_firm: Văn phòng luật của tôi
-        submit: *submit
-    lawyer_profiles:
-      edit:
-        edit_lawyer_profile: Sửa hồ sơ luật sư
         submit: *submit
     request_law_firms:
       approve: Chấp nhận

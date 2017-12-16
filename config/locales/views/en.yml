@@ -48,6 +48,7 @@ en:
         request_law_firm: Request law firm
         law_firm_member: Law firm member
         add_law_firm: Add law firm
+        lawyer_profile: lawyer_profile
     shared:
       login_buttons:
         sign_in: Sign in
@@ -172,6 +173,10 @@ en:
     law_firm_info:
       lawyers: Lawyer in LawFirm
   lawyer:
+    lawyer_profiles:
+      edit:
+        edit_lawyer_profile: Edit Lawyer Profile
+        submit: *submit
     accounts:
       edit:
         submit: *submit
@@ -196,6 +201,8 @@ en:
       history_advertises:
         new:
           submit: *submit
+          price: Price for each day advertise
+          point: Point
     articles:
       form:
         title: Title
@@ -243,10 +250,6 @@ en:
     law_firms:
       new:
         create_law_firm: My LawFirm
-        submit: *submit
-    lawyer_profiles:
-      edit:
-        edit_lawyer_profile: Edit Lawyer Profile
         submit: *submit
     request_law_firms:
       approve: Approve
