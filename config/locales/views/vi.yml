@@ -65,6 +65,17 @@ vi:
         clips: Các bài đã ghim
         account: Thông tin tài khoản
         register_lawyer: Đăng kí thành luật sư
+  lawyer_profiles:
+    reviews:
+      input_review: Nhập đánh giá của bạn
+      submit: Lưu nhận xét
+    lawyer_info:
+      name: Tên luật sư
+      lawyer_id: Số thẻ
+      address: Địa chỉ
+      phone_number: Số điện thoại
+      fax_number: Số fax
+      law_firm_name: Văn phòng luật
   follows:
     follow_categories:
       index:

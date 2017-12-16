@@ -1,4 +1,4 @@
-<% (@answers).each do |answer| %>
+<% answers.each do |answer| %>
 <div class="card no-border no-border-radius mb-0">
   <div class="card-block post-feed-item d-flex">
     <figure class="post-author-avatar padding-left">
@@ -9,26 +9,17 @@
         <div class="post-meta d-flex align-items-center flex-wrap">
           <a class="mr-05 nuxt-link-exact-active active "><%=  @lawyer_profile.account_name %></a>
           <div class="text-muted padding-left">
-            <span><%= answer.created_at %></span>
+            <span><%= answer.created_at.to_formatted_s(:short) %></span>
           </div>
         </div>
         <div class="post-title-box d-flex align-items-center">
           <div>
-            <%= answer.content %>
+            <%= answer.content.truncate(500) %>
           </div>
         </div>
         <div class="d-flex justify-content-between">
           <div class="d-flex">
             <div class="post-stats">
-              <span class="stats-item mr-05" aria-describedby="tippy-tooltip-115" data-original-title="Views">
-                <i aria-hidden="true" class="fa fa-eye"></i>
-                7</span>
-              <span class="stats-item mx-05" aria-describedby="tippy-tooltip-116" data-original-title="Clips">
-                <i aria-hidden="true" class="fa fa-paperclip"></i>
-                0</span>
-              <span class="stats-item mx-05" aria-describedby="tippy-tooltip-117" data-original-title="Comments">
-                <i aria-hidden="true" class="fa fa-comments"></i>
-                0</span>
             </div>
           </div>
           <div style="margin-left: 70%"><%= link_to t(".view_question"), question_path(answer.question_id) %></div>

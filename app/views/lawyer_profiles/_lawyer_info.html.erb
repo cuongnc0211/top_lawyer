@@ -1,0 +1,30 @@
+<font style="vertical-align: inherit;">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><%= t ".name" %></td>
+        <td><%= lawyer_profile.account_name %></td>
+      </tr>
+      <tr>
+        <td><%= t ".lawyer_id" %></td>
+        <td><%= lawyer_profile.lawyer_id %></td>
+      </tr>
+      <tr>
+        <td><%= t ".address" %></td>
+        <td><%= lawyer_profile.address %></td>
+      </tr>
+      <tr>
+        <td><%= t ".phone_number" %></td>
+        <td><%= lawyer_profile.phone_number %></td>
+      </tr>
+      <tr>
+        <td><%= t ".fax_number" %></td>
+        <td><%= lawyer_profile.fax_number %></td>
+      </tr>
+      <tr>
+        <td><%= t ".law_firm_name" %></td>
+        <td><%= link_to lawyer_profile.law_firm_name, law_firm_path(lawyer_profile.law_firm) %></td>
+      </tr>
+    </tbody>
+  </table>
+</font>
