@@ -46,6 +46,10 @@ vi:
   request_law_firms:
     new: Tạo mới
   lawyer:
+    lawyer_profiles:
+      update:
+        updated: *updated
+        update_fail: *update_fail
     answers:
       create:
         created: *created

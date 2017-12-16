@@ -1,13 +1,16 @@
 <div class="col-md-9">
-  <h3><%= t ".edit_profile" %></h3>
-
-  <%= form_for [:lawyer, @account] do |f| %>
+  <div class="section-title al-center">
+    <h4><%= t ".edit_profile" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= form_for [:lawyer, @account] do |f| %>
     <%= render "shared/accounts/form", f: f, account: @account %>
 
     <div class="form-group">
       <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <div class="col-md-3">
 </div>

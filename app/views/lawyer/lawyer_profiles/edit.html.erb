@@ -1,10 +1,14 @@
-<div class="col-md-6 col-md-offset-3">
-  <h3><%= t ".edit_law_profile" %></h3>
-  <%= form_for [:lawyer, @lawyer_profile] do |f| %>
+<div class="col-md-9">
+  <div class="section-title al-center">
+    <h4><%= t ".edit_law_profile" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= form_for [:lawyer, @lawyer_profile] do |f| %>
     <%= render "shared/lawyer_profiles/form", f: f %>
 
-    <div class="form-group"> 
-      <%= f.submit t(".submit"), class: "form-control btn btn-primary" %>
+    <div class="form-group">
+      <%= f.submit t(".submit"), class: "form__btn" %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
