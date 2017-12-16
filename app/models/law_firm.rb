@@ -7,6 +7,7 @@ class LawFirm < ApplicationRecord
   has_many :request_law_firms
   has_many :add_law_firms
   has_many :reviews, as: :reviewable
+  has_many :accounts, through: :lawyer_profiles
 
   validates :name, presence: true, uniqueness: true
 

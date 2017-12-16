@@ -1,0 +1,16 @@
+<div class="">
+  <% if current_account.present? && current_account.User? %>
+    <% new_review = Review.new %>
+    <%= form_for [:user, new_review] do |f| %>
+      <%= f.text_area :content, row: 3, place_holder: t(".input_review"), class: "form__input" %>
+      <%= f.hidden_field :reviewable_type, value: law_firm.class %>
+      <%= f.hidden_field :reviewable_id, value: law_firm.id %>
+
+      <%= f.submit t(".submit"), class: "form__btn" %><br>
+    <% end %>
+  <% end %>
+
+  <% if reviews.count > 0 %>
+    <%= render partial: "review", collection: reviews, as: :review %>
+  <% end %>
+</div>

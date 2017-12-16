@@ -183,6 +183,13 @@ vi:
   law_firms:
     show:
       out_law_firm: Ra ngoài văn phòng luật
+      lawyers: Luật sư trực thuộc
+    lawyer:
+      reputation: Điểm hữu ích
+    reviews:
+      submit: Tạo đánh giá
+    law_firm_info:
+      lawyers: Luật sư trực thuộc
   lawyer:
     accounts:
       edit:
