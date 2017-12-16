@@ -62,9 +62,14 @@ group :development do
 end
 
 group :staging, :production do
+  gem "capistrano"
+  gem "capistrano-bundler"
+  gem "capistrano-rails"
+  gem "capistrano-rvm"
   gem "capistrano-faster-assets", "~> 1.0"
   gem "capistrano-sidekiq"
   gem "capistrano-passenger"
+  gem "capistrano3-puma"
   gem "capistrano-maintenance", "~> 1.0", require: false
   gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 end
@@ -96,3 +101,4 @@ gem "acts-as-taggable-on"
 gem "gon"
 gem "impressionist"
 gem "wicked"
+gem "unicorn"
