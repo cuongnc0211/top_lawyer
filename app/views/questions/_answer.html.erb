@@ -1,7 +1,7 @@
 <div class="section-item">
   <div class="row">
     <div class="col-md-1 al-center">
-      <% if current_account.present? %>
+      <% if current_account.present? && current_account.id != answer.id %>
         <% answer_vote = answer.init_vote current_account.id %>
         <% if answer_vote.persisted? %>
           <p><%= render "shared/users/votes/delete_vote_form", vote: answer_vote, model: answer %></p>

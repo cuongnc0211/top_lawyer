@@ -4,9 +4,11 @@
   </div>
   <div class="section-body padding-arround">
     <div class="row">
-      <div class="col-md-1 al-center">
-        <%= render("vote_form", vote: @vote, model: @question) if current_account.present? %>
-      </div>
+      <% if current_account.present? && current_account.id != @question.account_id %>
+        <div class="col-md-1 al-center">
+          <%= render("vote_form", vote: @vote, model: @question) %>
+        </div>
+      <% end %>
       <div class="col-md-11">
         <p class="bold">
           <span><%= @question.title %></span>
