@@ -3,4 +3,22 @@
   </div>
   <p><%= t ".first_follow" %></p>
   <%= render partial: "shared/categories/follow", collection: @categories, as: :category %>
+  <div class="row">
+    <div class="col-md-9">
+      <p style="margin-top: 10px;" class="al-center">
+        <% if current_account.sign_in_count.to_i == 1 %>
+          <%= link_to t("finish"), root_path, class: "form__btn" %>
+        <% else %>
+          <% if current_account.Lawyer? %>
+            <%= link_to t("finish"), lawyer_root_path, class: "form__btn" %>
+          <% elsif current_account.User? %>
+            <%= link_to t("finish"), user_root_path, class: "form__btn" %>
+          <% else %>
+            <%= link_to t("finish"), admin_root_path, class: "form__btn" %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  </p>
 </div>

@@ -2,6 +2,10 @@ class HistoryPoint < ApplicationRecord
   belongs_to :point
   belongs_to :account
 
+  validates_numericality_of :amount, greater_than_or_equal_to: 0
+  validates_numericality_of :total, greater_than_or_equal_to: 0
+  validates :point_id, presence: true
+
   HISTORY_POINT_ATTRIBUTES = [:category_id, :province_id, :start_time, :end_time]
 
   scope :bonus_point, ->{where "total >= 0"}

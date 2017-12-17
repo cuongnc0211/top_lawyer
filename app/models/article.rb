@@ -10,6 +10,10 @@ class Article < ApplicationRecord
   has_many :clips
   has_many :taggings, as: :taggable
 
+  validates :title, presence: true, length: {maximum: 1000}
+  validates :content, presence: true
+  validates :category_id, presence: true
+
   acts_as_taggable
 
   enum status: [:draft, :publish]

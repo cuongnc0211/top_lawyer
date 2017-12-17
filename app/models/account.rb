@@ -22,6 +22,9 @@ class Account < ApplicationRecord
   has_many :follow_categories
   has_many :categories, through: :follow_categories
 
+  validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,

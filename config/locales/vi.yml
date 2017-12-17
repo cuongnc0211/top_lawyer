@@ -1,4 +1,5 @@
 vi:
+  finish: Hoàn Thành
   hello: "Hello world"
   layouts:
     shared:
