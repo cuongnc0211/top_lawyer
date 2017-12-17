@@ -2,6 +2,10 @@ class HistoryAdvertise < ApplicationRecord
   has_one :history_point
   belongs_to :account
 
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :category_id, presence: true
+
   HISTORY_ADVERTISE_ATTRIBUTES = [:category_id, :start_time, :end_time]
 
   scope :unexpired, -> {where("DATE(start_time) <= ? AND DATE(end_time) >= ?", Time.zone.now.to_date, Time.zone.now.to_date)}

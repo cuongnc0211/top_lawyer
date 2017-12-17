@@ -54,6 +54,7 @@ vi:
         draft: Bản nháp
         clips: Bài viết đã ghim
         lawyer_profile: Thông tin luật sư
+        follow_categories: Lĩnh vực theo dõi
     shared:
       login_buttons:
         sign_in: Đăng nhập
@@ -66,6 +67,7 @@ vi:
         clips: Các bài đã ghim
         account: Thông tin tài khoản
         register_lawyer: Đăng kí thành luật sư
+        follow_categories: Lĩnh vực theo dõi
   lawyer_profiles:
     reviews:
       input_review: Nhập đánh giá của bạn

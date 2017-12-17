@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   is_impressionable
+  acts_as_taggable
 
   has_many :answers
   belongs_to :category
@@ -7,7 +8,9 @@ class Question < ApplicationRecord
   has_many :votes, as: :voteable
   has_many :notifies, as: :notifyable
 
-  acts_as_taggable
+  validates :title, presence: true, length: {maximum: 1000}
+  validates :content, presence: true
+  validates :category_id, presence: true
 
   QUESTION_ATTRIBUTES = [:title, :content, :category_id, :tag_list]
 

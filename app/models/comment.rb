@@ -5,5 +5,7 @@ class Comment < ApplicationRecord
 
   COMMENT_ATTRIBUTES = [:account_id, :content, :type]
 
+  validates :content, presence: true
+
   acts_as_tree order: 'created_at DESC'
 end

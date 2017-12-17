@@ -7,6 +7,12 @@ class LawyerProfile < ApplicationRecord
   has_many :add_law_firms
   has_many :reviews, as: :reviewable
 
+  validates :lawyer_id, presence: true, uniqueness: true
+  validates :address, presence: true
+  validates :phone_number, presence: true, uniqueness: true
+  validates :lawyer_card_image, presence: true
+  validates :id_card_image, presence: true
+
   LAWYER_PROFILE_ATTRIBUTES = [:full_name, :address, :phone_number, :fax_number, :lawyer_id, :introduction]
 
   delegate :name, :email, :avatar, to: :account, prefix: true, allow_nil: true

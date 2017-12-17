@@ -5,6 +5,8 @@ class Answer < ApplicationRecord
   has_many :notifies, as: :notifyable
   has_many :votes, as: :voteable
 
+  validates :content, presence: true
+
   ANSWER_ATTRIBUTES = [:content, :total_vote, :question_id]
 
   delegate :name, to: :account, prefix: true, allow_nil: true

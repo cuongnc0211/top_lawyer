@@ -10,6 +10,9 @@ class LawFirm < ApplicationRecord
   has_many :accounts, through: :lawyer_profiles
 
   validates :name, presence: true, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :address, presence: true
 
   accepts_nested_attributes_for :images, :reject_if => lambda { |a| a[:picture].blank? }, allow_destroy: true
 
