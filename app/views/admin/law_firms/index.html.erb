@@ -1,14 +1,12 @@
 <div>  
   <h3><%= t ".lawyer_firm" %></h3>
+  <form action= <%= admin_law_firms_path %> >
+    <div class="input-group" >
+      <input type="text" class="form-control" placeholder=" <%= I18n.t "top_pages.search" %> " name="q" size="50">
+    </div>
+  </form>
   <table class="table">
     <thead>
-      <tr>
-          <form action= <%= admin_law_firms_path %> >
-            <div class="input-group" >
-              <input type="text" class="form-control" placeholder=" <%= I18n.t "top_pages.search" %> " name="q" size="50">
-            </div>
-          </form>
-      </tr>
       <tr>
         <th><%= t ".name" %></th>
         <th><%= t ".adress" %></th>    
