@@ -2,7 +2,9 @@ class Admin::LawyerProfilesController < Admin::BaseController
   before_action :lawyer_profile, only: :update
 
   def index
-    @lawyer_profiles = LawyerProfile.approved.page(params[:page]).per Settings.paginate.default
+    search_content = params[:q]
+    @lawyer_profiles =LawyerProfile.search(account_name_or_account_email_or_lawyer_id_or_address_or_phone_number_or_fax_number_or_introduction_cont: search_content)
+        .result(distinct: true).page(params[:page]).per Settings.search.per_page.default
   end
 
   def update

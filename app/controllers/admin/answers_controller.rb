@@ -1,6 +1,8 @@
 class Admin::AnswersController < Admin::BaseController
   def index
-    @answers = Answer.all.page(params[:page]).per Settings.paginate.default
+  	search_content = params[:q]
+    @answers = Answer.search(content_cont: search_content).result(distinct: true)
+      .page(params[:page]).per Settings.search.per_page.default
   end
 
   def destroy

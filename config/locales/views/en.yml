@@ -263,12 +263,14 @@ en:
         content: Content
         action: *action
         confirm: *confirm_delete
+        answer: Answers
     lawyer_profiles:
       index:
         name: *name
         email: *email
         status: Status
         action: *action
+        lawyer_profile: Lawyer profile
       lawyer_profile:
         active: *active
         block: *block
@@ -294,8 +296,10 @@ en:
         address: *address
         is_active: *is_active
         action: *action
+        lawyer_firm: Law firm
     accounts:
       index:
+        user: User
         active: *active
         block: *block
     articles:
@@ -304,6 +308,7 @@ en:
         content: *content
         action: *action
         delete: *delete
+        article: Article
         confirm: Are you sure to delete this article?
   search:
     top_pages:

@@ -1,6 +1,8 @@
 class Admin::AccountsController < Admin::BaseController
   def index
-    @accounts = Account.User.page(params[:page]).per Settings.paginate.default
+    search_content = params[:q]
+    @accounts = Account.search(email_or_name_cont: search_content).result(distinct: true)
+      .page(params[:page]).per Settings.search.per_page.default
   end
 
   def update
