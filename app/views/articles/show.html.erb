@@ -4,11 +4,13 @@
   </div>
   <div class="section-body padding-arround">
     <div class="row">
-      <div class="col-md-1 al-center">
-        <div id="form-vote">
-          <%= render("vote_form", vote: @vote, model: @article) if current_account.present? %>
+      <% if current_account.present? && current_account.id != @article.account_id %>
+        <div class="col-md-1 al-center">
+          <div id="form-vote">
+            <%= render("vote_form", vote: @vote, model: @article) %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <div class="col-md-11">
         <p class="bold">
           <span><%= @article.title %></span>
@@ -53,7 +55,9 @@
       <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
     <% end %>
     <p>
-      <%= render("shared/clip", clip: @clip) if current_account %>
+      <% if current_account.present? && current_account.id != @article.account_id %>
+        <%= render("shared/clip", clip: @clip) %>
+      <% end %>
     </p>
   </div>
 
