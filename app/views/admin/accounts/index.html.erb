@@ -10,7 +10,7 @@
       <tr>
         <th><%= t ".name" %></th>
         <th><%= t ".email" %></th>
-        <th><%= t ".is_active" %></th>
+        <th><%= t ".status" %></th>
         <th><%= t ".action" %></th>
       </tr>
     </thead>
@@ -19,7 +19,13 @@
         <tr>
           <td> <%= account.name %> </td>
           <td> <%= account.email %> </td>
-          <td> <%= account.is_active %> </td>
+          <td>
+            <% if account.is_active? %>
+              <span class="label label-success"><%= t ".active" %></span>
+            <% else %>
+              <span class="label label-danger"><%= t ".block" %></span>
+            <% end %>
+          </td>
           <td>
             <% if account.is_active %>
               <%= form_for [:admin, account] do |f| %>

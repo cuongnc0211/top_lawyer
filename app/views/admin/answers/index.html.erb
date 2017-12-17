@@ -19,7 +19,8 @@
           <tr>
             <td> <%= answer.account_name %> </td>
             <td> <%= answer.content.truncate 50 %> </td>
-            <td> <%= link_to t(".delete"), admin_answer_path(answer), method: :delete, data: {confirm: t(".confirm")} %> </td>
+            <td> <%= link_to t(".delete"), admin_answer_path(answer), method: :delete
+              class: "btn-danger", data: {confirm: t(".confirm")} %> </td>
           </tr>
         <% end %>
       </tbody>

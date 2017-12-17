@@ -1,7 +1,13 @@
 <tr id="<%= "lawyer-#{law_firm.id}" %>">
   <td><%= law_firm.name %></td>
   <td><%= law_firm.address %></td>
-  <td><%= law_firm.is_active %></td>
+  <td>
+    <% if law_firm.is_active? %>
+      <span class="label label-success"><%= t ".active" %></span>
+    <% else %>
+      <span class="label label-danger"><%= t ".block" %></span>
+    <% end %>
+  </td>
   <td>
     <% if law_firm.is_active %>
       <%= form_for [:admin, law_firm] do |f| %>

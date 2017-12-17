@@ -15,14 +15,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "home_page#index"
-    resources :lawyer_profiles, only: [:index, :update]
+    resources :lawyer_profiles, only: [:index, :update, :show]
     resources :law_firms, only: [:index, :update]
     resources :accounts, only: [:index, :update]
     resources :articles, only: [:index, :destroy]
     resources :questions, only: [:index, :destroy]
     resources :answers, only: [:index, :destroy]
     namespace :approve do
-      resources :lawyer_profiles, only: [:index, :update]
+      resources :lawyer_profiles, only: [:index, :update, :show]
     end
   end
 

@@ -279,6 +279,20 @@ en:
         status: Status
         action: *action
         lawyer_profile: Lawyer profile
+      show:
+        name: *name
+        email: *email
+        status: Status
+        active: *active
+        block: *block
+        block_btn: Block lawyer
+        active_btn: Active lawyer
+        address: Địa chỉ
+        phone_number: Số điên thoại
+        introduction: Giới thiệu
+        lawyer_id: Số thẻ luật sư
+        lawyer_card_image: Ảnh thẻ luật sư
+        id_card_image: Ảnh thẻ chứng minh thư
       lawyer_profile:
         active: *active
         block: *block
@@ -295,6 +309,20 @@ en:
           active: *active
           block: *block
           active_btn: Active lawyer
+        show:
+          name: *name
+          email: *email
+          status: Status
+          active: *active
+          block: *block
+          block_btn: Block lawyer
+          active_btn: Active lawyer
+          address: Địa chỉ
+          phone_number: Số điên thoại
+          introduction: Giới thiệu
+          lawyer_id: Số thẻ luật sư
+          lawyer_card_image: Ảnh thẻ luật sư
+          id_card_image: Ảnh thẻ chứng minh thư
     law_firms:
       law_firm:
         active: *active
@@ -305,11 +333,14 @@ en:
         is_active: *is_active
         action: *action
         lawyer_firm: Law firm
+        status: Status
     accounts:
       index:
         user: User
         active: *active
         block: *block
+        action: *action
+        status: Status
     articles:
       index:
         title: *title

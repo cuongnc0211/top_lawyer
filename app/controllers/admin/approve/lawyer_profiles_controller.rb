@@ -1,6 +1,10 @@
 class Admin::Approve::LawyerProfilesController < Admin::BaseController
   before_action :lawyer_profile, only: :update
 
+  def show
+    @lawyer_profile = LawyerProfile.find(params[:id])
+  end
+
   def index
     @lawyer_profiles = LawyerProfile.not_approve.page(params[:page]).per Settings.paginate.default
   end
