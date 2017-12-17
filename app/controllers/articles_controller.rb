@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @article = CreateToolTipService.new(@article, @article.all_tags).perform
     impressionist @article
     @author_articles = @article.account.articles.where.not(id: @article.id)
       .order(total_vote: :desc).limit(Settings.article.related)
