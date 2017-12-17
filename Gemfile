@@ -81,7 +81,7 @@ gem "config"
 gem "kaminari"
 gem "devise"
 gem "ransack"
-gem "ckeditor"
+gem "ckeditor", github: 'galetahub/ckeditor', ref: '11d3a5b'
 gem "fog-aws"
 gem "figaro"
 gem "mysql2"
