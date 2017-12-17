@@ -53,7 +53,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
         Tag.find(n).tag_descriptions.create account_id: current_account.id,
           content: params[:tags][n.to_s][:content]
       end
-      CreateToolTipService.new(article, article.all_tags).perform
+      # CreateToolTipService.new(article, article.all_tags).perform
       redirect_to article_path(article)
     end
   end
@@ -77,7 +77,7 @@ class Lawyer::ArticlesController < Lawyer::BaseController
       article.all_tags.each do |tag|
         create_or_update_tag_des tag, current_account.id, params
       end
-      CreateToolTipService.new(article, article.all_tags).perform
+      # CreateToolTipService.new(article, article.all_tags).perform
       redirect_to lawyer_articles_path
     end
   end
