@@ -1,6 +1,10 @@
 class Admin::LawyerProfilesController < Admin::BaseController
   before_action :lawyer_profile, only: :update
 
+  def show
+    @lawyer_profile = LawyerProfile.find(params[:id])
+  end
+
   def index
     search_content = params[:q]
     @lawyer_profiles =LawyerProfile.search(account_name_or_account_email_or_lawyer_id_or_address_or_phone_number_or_fax_number_or_introduction_cont: search_content)

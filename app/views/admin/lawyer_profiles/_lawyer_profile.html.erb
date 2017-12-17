@@ -1,6 +1,6 @@
 <tr id="<%= "lawyer-#{lawyer_profile.id}" %>">
-  <td><%= lawyer_profile.account_name %></td>
-  <td><%= lawyer_profile.account_email %></td>
+  <td><%= link_to lawyer_profile.account_name, admin_lawyer_profile_path(lawyer_profile) %></td>
+  <td><%= link_to lawyer_profile.account_email, admin_lawyer_profile_path(lawyer_profile) %></td>
   <td>
     <% if lawyer_profile.active? %>
       <span class="label label-success"><%= t ".active" %></span>

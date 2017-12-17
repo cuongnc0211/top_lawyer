@@ -309,6 +309,19 @@ vi:
         status: Trạng thái
         action: *action
         lawyer_profile: Luật sư
+      show:
+        name: *name
+        email: *email
+        active: *active
+        block: *block
+        block_btn: Khoá Luật sư
+        active_btn: Kích hoạt luật sư
+        address: Địa chỉ
+        phone_number: Số điên thoại
+        introduction: Giới thiệu
+        lawyer_id: Số thẻ luật sư
+        lawyer_card_image: Ảnh thẻ luật sư
+        id_card_image: Ảnh thẻ chứng minh thư
       lawyer_profile:
         active: *active
         block: *block
@@ -321,10 +334,24 @@ vi:
           email: *email
           status: Trạng thái
           action: *action
+          lawyer_profile: Luật sư đăng ký mới
         lawyer_profile:
           active: *active
           block: *block
           active_btn: Xác nhận luật sư
+        show:
+          name: *name
+          email: *email
+          active: *active
+          block: *block
+          block_btn: Khoá Luật sư
+          active_btn: Kích hoạt luật sư
+          address: Địa chỉ
+          phone_number: Số điên thoại
+          introduction: Giới thiệu
+          lawyer_id: Số thẻ luật sư
+          lawyer_card_image: Ảnh thẻ luật sư
+          id_card_image: Ảnh thẻ chứng minh thư
     law_firms:
       law_firm:
         active: *active
@@ -335,11 +362,14 @@ vi:
         is_active: *is_active
         action: *action
         lawyer_firm: Văn phòng luật
+        status: Trạng thái
     accounts:
       index:
         user: Người dùng
         active: *active
         block: *block
+        status: Trạng thái
+        action: Hành động
     articles:
       index:
         title: *title

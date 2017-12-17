@@ -10,8 +10,8 @@ class LawyerProfile < ApplicationRecord
   validates :lawyer_id, presence: true, uniqueness: true
   validates :address, presence: true
   validates :phone_number, presence: true, uniqueness: true
-  validates :lawyer_card_image, presence: true
-  validates :id_card_image, presence: true
+  # validates :lawyer_card_image, presence: true
+  # validates :id_card_image, presence: true
 
   LAWYER_PROFILE_ATTRIBUTES = [:full_name, :address, :phone_number, :fax_number, :lawyer_id, :introduction]
 
@@ -23,6 +23,8 @@ class LawyerProfile < ApplicationRecord
   scope :not_approve, -> {where(approved: false)}
   scope :active, -> {where(is_active?: true)}
   scope :approved, -> {where(approved: true).or(where(approved: nil))}
+  scope :no_law_firm, -> { where(law_firm_id: nil) }
+  scope :not_add_law_firm, -> (list_id) {where.not(id: list_id)}
 
 
   def manager_of id
@@ -36,7 +38,4 @@ class LawyerProfile < ApplicationRecord
   def can_out current_law_firm_id
     law_firm_id == current_law_firm_id && !is_manager
   end
-
-  scope :no_law_firm, -> { where(law_firm_id: nil) }
-  scope :not_add_law_firm, -> (list_id) {where.not(id: list_id)}
 end

@@ -1,0 +1,58 @@
+<h3><%= @lawyer_profile.account_name %></h3>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><th><%= t ".name" %></th></td>
+      <td><%= @lawyer_profile.account_name %></td>
+    </tr>
+    <tr>
+      <td><th><%= t ".email" %></th></td>
+      <td><%= @lawyer_profile.account_email %></td>
+    </tr>
+    <tr>
+      <td><th><%= t ".address" %></th></td>
+      <td><%= @lawyer_profile.address %></td>
+    </tr>
+    <tr>
+      <td><th><%= t ".phone_number" %></th></td>
+      <td><%= @lawyer_profile.phone_number %></td>
+    </tr>
+    <tr>
+      <td><th><%= t ".introduction" %></th></td>
+      <td><%= raw @lawyer_profile.introduction %></td>
+    </tr>
+    <tr>
+      <td><th><%= t ".lawyer_id" %></th></td>
+      <td><%= @lawyer_profile.lawyer_id %></td>
+    </tr>
+      <tr>
+        <td><th><%= t ".lawyer_card_image" %></th></td>
+        <td>
+          <% if @lawyer_profile.lawyer_card_image_url %>
+            <%= image_tag @lawyer_profile.lawyer_card_image_url, size: "300x300" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><th><%= t ".id_card_image" %></th></td>
+        <td>
+          <% if @lawyer_profile.id_card_image_url %>
+            <%= image_tag @lawyer_profile.id_card_image_url, size: "300x300" %>
+          <% end %>
+        </td>
+      </tr>
+    <tr>
+      <% if @lawyer_profile.is_active %>
+        <%= form_for [:admin, @lawyer_profile] do |f| %>
+          <%= f.hidden_field :is_active, value: false %>
+          <%= f.submit t(".block_btn"), class: "btn btn-danger" %>
+        <% end %>
+      <% else %>
+        <%= form_for [:admin, @lawyer_profile] do |f| %>
+          <%= f.hidden_field :is_active, value: true %>
+          <%= f.submit t(".active_btn"), class: "btn btn-success" %>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
