@@ -10,6 +10,7 @@ class Lawyer::AccountsController < Lawyer::BaseController
   end
 
   def update
+    @account = current_account
     if current_account.update_attributes account_params
       flash[:success] = t ".updated"
       redirect_to lawyer_root_path
