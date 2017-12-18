@@ -22,14 +22,16 @@
         <%= render "shared/statistics/question_statitic", question: @question, action: "show" %>
         <p><%= raw @question.content %></p>
         <hr>
-        <%= form_for [:lawyer, @question.answers.build] do |f| %>
-          <div class="field">
-            <%= f.hidden_field :from_page, value: :top_page %>
-            <%= f.hidden_field :question_id %>
-            <%= f.text_area :content, rows: 2, class: "form__input",
-              placeholder: t(".create_answer_box") %>
-            <%= f.submit t(".submit"), class: "btn--default" %>
-          </div>
+        <% if current_account.present? && current_account.Lawyer? %>
+          <%= form_for [:lawyer, @question.answers.build] do |f| %>
+            <div class="field">
+              <%= f.hidden_field :from_page, value: :top_page %>
+              <%= f.hidden_field :question_id %>
+              <%= f.text_area :content, rows: 2, class: "form__input",
+                placeholder: t(".create_answer_box") %>
+              <%= f.submit t(".submit"), class: "btn--default" %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
