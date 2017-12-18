@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <p><%= render "shared/answers/action_buttons", answer: answer %></p>
       <div class="" id="answer-content-<%= answer.id %>">
-        <p><%= answer.content %></p>
+        <p><%= simple_format answer.content %></p>
       </div>
       <div class="temple_hide" id="answer-form-<%= answer.id %>">
         <%= form_for [:lawyer, answer] do |f| %>

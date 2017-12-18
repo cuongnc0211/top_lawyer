@@ -474,3 +474,7 @@ vi:
         name: Họ và tên
         email: Địa chỉ email
         avatar: Avatar cá nhân
+  categories:
+    show:
+      articles: Bài viết
+      questions: Câu hỏi
