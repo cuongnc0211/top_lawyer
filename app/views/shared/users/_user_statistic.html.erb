@@ -1,0 +1,17 @@
+<div class="section-title al-center">
+  <h4><%= t ".user_stats" %></h4>
+</div>
+<div class="section-body padding-arround pd-10">
+  <div class="row lp_stat_pd">
+    <span class="pull-left"><b><%= t ".questions" %></b></span>
+    <span class="pull-right"><%= account.questions.count %></span>
+  </div>
+  <div class="row lp_stat_pd">
+    <span class="pull-left"><b><%= t ".clips" %></b></span>
+    <span class="pull-right"><%= account.clips.count %></span>
+  </div>
+  <div class="row lp_stat_pd">
+    <span class="pull-left"><b><%= t ".vote_up" %></b></span>
+    <span class="pull-right"><%= account.votes.vote_up.count %></span>
+  </div>
+</div>

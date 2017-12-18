@@ -4,11 +4,11 @@
 <div class="section-body padding-arround pd-10">
   <div class="row lp_stat_pd">
     <span class="pull-left"><b><%= t ".total_point" %></b></span>
-    <span class="pull-right"><%= account.total_point %></span>
+    <span class="pull-right"><%= account.total_point.to_i %></span>
   </div>
   <div class="row lp_stat_pd">
     <span class="pull-left"><b><%= t ".reputation" %></b></span>
-    <span class="pull-right"><%= account.reputation %></span>
+    <span class="pull-right"><%= account.reputation.to_i %></span>
   </div>
   <div class="row lp_stat_pd">
     <span class="pull-left"><b><%= t ".articles" %></b></span>

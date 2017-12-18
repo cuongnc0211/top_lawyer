@@ -143,20 +143,15 @@ vi:
       top_month: *top_month
       article: *article
   user:
-    register_lawyer:
-      lawyer_profiles:
-        new:
-          submit: *submit
-          lawyer_card_image: Ảnh chụp thẻ luật sư
-          id_card_image: Ảnh chụp chứng minh thư nhân dân
-          lawyer_card_id: Số thẻ Luật Sư
-    accounts:
-      edit:
-        edit_profile: Sửa hồ sơ
-        submit: *submit
     questions:
       new:
-        submit: *submit
+        new_question: Tạo câu hỏi
+      form:
+        title: Tiêu đề
+        content: Nội dung
+        category: Lĩnh vực
+        tag_list: Gắn thẻ
+        submit: Hoàn thành
       edit:
         edit_question: Sửa câu hỏi
         submit: *submit
@@ -175,6 +170,18 @@ vi:
         draft: Bản nháp
         publish: Công bố
         create: Tạo mới
+    register_lawyer:
+      lawyer_profiles:
+        new:
+          regis_lawyer: Đăng ký luật sư
+          submit: *submit
+          lawyer_card_image: Ảnh chụp thẻ luật sư
+          id_card_image: Ảnh chụp chứng minh thư nhân dân
+          lawyer_card_id: Số thẻ Luật Sư
+    accounts:
+      edit:
+        edit_profile: Sửa hồ sơ
+        submit: *submit
     clips:
       index:
         cliped_article: Các bài viết đã theo dõi
@@ -450,6 +457,11 @@ vi:
       clip_this_article: Ghim bài viết
       remove_this_clip: Xóa ghim bài viết
     users:
+      user_statistic:
+        user_stats: Thống kê người dùng
+        questions: Số câu hỏi
+        clips: Số bài ghim
+        vote_up: Số lần vote hữu ích
       votes:
         new_vote_form:
           vote_up: Hữu ích

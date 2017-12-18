@@ -1,32 +1,36 @@
 <div class="form-group">
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
+  <%= f.label t(".title") %>
+  <%= f.text_field :title, class: "form__input" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :content %>
-  <%= f.text_area :content, rows: 10, class: "form-control" %>
+  <%= f.label t(".content") %>
+  <%= f.text_area :content, rows: 10, class: "form__input" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.order(:name), :id, :name, {}, {class: "form-control"} %>
+  <%= f.label t(".category") %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name, {}, {class: "form__input"} %>
 </div>
 
 <div class="form-group">
-  <%= f.label :tag_list%>
-  <%= f.hidden_field :tag_list, class: "form-control", value: @question.tag_list.join(", "), readonly: true%>
+  <%= f.label t(".tag_list") %>
+  <%= f.hidden_field :tag_list, class: "form__input", value: @question.tag_list.join(", "), readonly: true%>
   <ul id="show-tag-list" class="list-inline list_tag_show"></ul>
 </div>
 
 <div class="form-group">
-  <input list="tag-data-list" id="input-tag" class="form-control" placeholder="input tags">
+  <input list="tag-data-list" id="input-tag" class="form__input" placeholder="input tags">
   <datalist id="tag-data-list">
     <% @tags.all.each do |tag| %>
       <option id="<%= tag.name %>" value="<%= tag.name %>"></option>
     <% end %>
   </datalist>
 </div>
+<div class="form-group">
+  <%= f.submit t(".submit"), class: "form__btn" %>
+</div>
+
 <script type="text/javascript">
   <%= render "shared/questions/tag_question.js"%>
 </script>

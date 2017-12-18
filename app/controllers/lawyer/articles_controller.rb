@@ -40,6 +40,10 @@ class Lawyer::ArticlesController < Lawyer::BaseController
     when :tag
       @article = current_account.articles.new(article_params)
       if @article.save
+        if @article.publish?
+          ::CreateHistoryPointService.new(point: Point.article.first, account: @article.account).perform
+          ::UpdatePointLawyerService.new(@article.account.lawyer_profile).perform
+        end
         render_wizard
         flash[:success] = t ".new"
       else
@@ -64,7 +68,12 @@ class Lawyer::ArticlesController < Lawyer::BaseController
     case step
     when :new
     when :tag
+      from_draft = true if @article.draft?
       if @article.update_attributes article_params
+        if from_draft
+          ::CreateHistoryPointService.new(point: Point.article.first, account: @article.account).perform
+          ::UpdatePointLawyerService.new(@article.account.lawyer_profile).perform
+        end
         render_wizard
         flash[:success] = t ".updated"
       else

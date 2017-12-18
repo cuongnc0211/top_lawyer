@@ -10,6 +10,11 @@ class User::VotesController < User::BaseController
     else
       flash.now[:error] = t ".failed"
     end
+    point = @vote.vote_up? ? Point.vote_up.first : Point.vote_down.first
+    unless params[:vote][:voteable_type] == "Question"
+      ::CreateHistoryPointService.new(point: point, account: @model.account).perform
+      ::UpdatePointLawyerService.new(@model.account.lawyer_profile).perform
+    end
   end
 
   def destroy
@@ -21,6 +26,11 @@ class User::VotesController < User::BaseController
       respond_to{|format| format.js}
     else
       flash.now[:error] = t ".failed"
+    end
+    point = Point.vote_down.first
+    unless params[:vote][:voteable_type] == "Question"
+      ::CreateHistoryPointService.new(point: point, account: @model.account).perform
+      ::UpdatePointLawyerService.new(@model.account.lawyer_profile).perform
     end
   end
 
@@ -47,14 +57,10 @@ class User::VotesController < User::BaseController
   def update_infomation model, voteable_type, action
     case voteable_type
     when "Article"
-      ::CreateHistoryPointService.new(point: Point.article, account: model.account)
-      ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
       ::Notifies::CreateNotificationService.new(current_account: current_account,
         target_account: @model.account, model: @model, action: action).perform
     when "Question"
     when "Answer"
-      ::CreateHistoryPointService.new(point: Point.answer, account: model.account)
-      ::UpdatePointLawyerService.new(model.account.lawyer_profile).perform
       ::Notifies::CreateNotificationService.new(current_account: current_account,
         target_account: @model.account, model: @model, action: action).perform
     end
