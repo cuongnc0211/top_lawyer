@@ -1,4 +1,6 @@
 vi:
+  new_question: Tạo câu hỏi
+  edit_question: Sửa câu hỏi
   finish: Hoàn Thành
   hello: "Hello world"
   layouts:

@@ -7,5 +7,6 @@
     <div class="row al-center"><%= paginate @articles %></div>
   </div>
 </div>
-<div class="col-md-3 pd-10">
+<div class="col-md-3">
+  <%= render "shared/users/user_statistic", account: current_account %>
 </div>

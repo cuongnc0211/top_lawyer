@@ -16,6 +16,8 @@ class Lawyer::AnswersController < Lawyer::BaseController
       flash.now[:error] = t ".create_fail"
       render :new
     end
+    ::CreateHistoryPointService.new(point: Point.answer.first, account: @answer.account).perform
+    ::UpdatePointLawyerService.new( @answer.account.lawyer_profile).perform
   end
 
   def update
