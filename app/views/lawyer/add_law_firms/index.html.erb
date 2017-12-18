@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-<h1><%= t ".add_law_firm" %></h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th><%=t ".name" %></th>
-      <th><%=t ".phone_number" %></th>
-      <th><%=t ".fax" %></th>
-      <th><%=t ".email" %></th>
-      <th><%=t ".address" %></th>
-      <th><%=t ".introduction" %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: "add_law_firm", collection: @add_lfs, as: :add_lf %>
-  </tbody>
-</table>
-<br>
-
+<div class="col-md-9">
+  <p id="notice"><%= notice %></p>
+  <h1><%= t ".add_law_firm" %></h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%=t ".name" %></th>
+        <th><%=t ".phone_number" %></th>
+        <th><%=t ".fax" %></th>
+        <th><%=t ".email" %></th>
+        <th><%=t ".address" %></th>
+        <th><%=t ".introduction" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "add_law_firm", collection: @add_lfs, as: :add_lf %>
+    </tbody>
+  </table>
+  <br>
+</div>
+<div class="col-md-3">
+  <%= render "shared/lawyer_profiles/lawyer_statistis", account: current_account %>
+</div>

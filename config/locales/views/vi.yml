@@ -399,6 +399,20 @@ vi:
         fax_number: Số fax
         introduction: Giới thiệu
   shared:
+    lawyer_profiles:
+      form:
+        lawyer_card_id: Mã số thẻ luật sư
+        introduction: Tự giới thiệu
+        fax_number: FAX
+        phone_number: Số điện thoại
+        address: Địa chỉ
+        full_name: Tên của luật sư
+      lawyer_statistis:
+        lawyer_stats: Thống kê của luật sư
+        total_point: Điểm thưởng
+        reputation: Điểm hữu ích
+        articles: Số bài viết
+        answers: Số câu trả lời
     answers:
       action_buttons:
         edit: Chỉnh sửa
@@ -448,11 +462,3 @@ vi:
         name: Họ và tên
         email: Địa chỉ email
         avatar: Avatar cá nhân
-    lawyer_profiles:
-      form:
-        lawyer_card_id: Mã số thẻ luật sư
-        introduction: Tự giới thiệu
-        fax_number: FAX
-        phone_number: Số điện thoại
-        address: Địa chỉ
-        full_name: Tên của luật sư
