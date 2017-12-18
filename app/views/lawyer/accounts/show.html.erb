@@ -1,1 +1,17 @@
-
+<div class="col-md-9">
+  <div class="section-title al-center">
+    <h4><%= t ".article" %></h4>
+  </div>
+  <div class="section-body padding-arround">
+    <%= render partial: "shared/articles/article", collection: @articles, as: :article,
+      local: {current_account: current_account} %>
+    <div class="row al-center"><%= paginate @articles %></div>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="section-body padding-arround al-center">
+    <p><%= t ".create_new_article" %></p>
+    <%= link_to t(".new_article"), new_lawyer_article_path, class: "btn--warning" %>
+  </div>
+  <%= render "shared/lawyer_profiles/lawyer_statistis", account: current_account %>
+</div>

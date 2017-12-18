@@ -8,10 +8,12 @@ class CreateToolTipService
   end
 
   def perform
-    content = article.content
+    content = sanitize(article.content)
     tags.each do |tag|
-      string = "<span class='tooltip_body' data-toggle='tooltip' title='#{tag.tag_descriptions.last.content}'>#{tag.name}</span>"
-      content = content.gsub(tag.name, string)
+      unless tag.tag_descriptions.nil?
+        string = "<span class='tooltip_body' data-toggle='tooltip' title='#{tag.tag_descriptions.last.content}'><i>#{tag.name}</i></span>"
+        content.gsub!(tag.name, string)
+      end
     end
     article.content = content
     article

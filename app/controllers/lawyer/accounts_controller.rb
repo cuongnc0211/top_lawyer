@@ -1,6 +1,8 @@
 class Lawyer::AccountsController < Lawyer::BaseController
   def show
     @account = current_account
+    @articles = current_account.articles.order(created_at: :desc).publish.page(params[:page])
+      .per Settings.per_page.default
   end
 
   def edit

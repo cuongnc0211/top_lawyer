@@ -370,6 +370,20 @@ en:
         fax_number: Fax number
         introduction: Introduction
   shared:
+    lawyer_profiles:
+      form:
+        lawyer_card_id: Lawyer's card ID
+        introduction: Introduction
+        fax_number: FAX
+        phone_number: Phone number
+        address: Address
+        full_name: Full name
+      lawyer_statistis:
+        lawyer_stats: Lawyer's Statistic
+        total_point: Total Point
+        reputation: Reputation
+        articles: Articles
+        answers: Answers
     answers:
       action_buttons:
         edit: Edit answer

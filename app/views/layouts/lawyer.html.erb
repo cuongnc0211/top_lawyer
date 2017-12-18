@@ -7,9 +7,9 @@
     <%= render "layouts/shared/cover" %>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
+        <%= render("layouts/lawyers/lawyer_navigator") if current_account.Lawyer? %>
         <%= render "layouts/shared/flash" %>
         <div class="row">
-          <%= render("layouts/lawyers/lawyer_navigator") if current_account.Lawyer? %>
         </div>
         <div class="row">
           <%= yield %>
