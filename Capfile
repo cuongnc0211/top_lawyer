@@ -5,6 +5,7 @@ require "capistrano/setup"
 require "capistrano/rvm"
 require "capistrano/deploy"
 require 'capistrano/bundler'
+require "capistrano-rails"
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
 require 'capistrano/puma/nginx'
