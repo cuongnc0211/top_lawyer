@@ -49,11 +49,11 @@
           </tr>
           <tr>
             <td><%= t ".working_start_time" %></td>
-            <td><%= law_firm.working_start_time.strftime("%I:%M") %></td>
+            <td><%= law_firm.working_start_time.strftime("%I:%M") if law_firm.working_start_time.present? %></td>
           </tr>
           <tr>
             <td><%= t ".working_end_time" %></td>
-            <td><%= law_firm.working_end_time.strftime("%I:%M") %></td>
+            <td><%= law_firm.working_end_time.strftime("%I:%M") if law_firm.working_end_time.present? %></td>
           </tr>
         </tbody>
       </table>

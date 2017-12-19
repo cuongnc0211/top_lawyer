@@ -11,8 +11,8 @@ class Articles::NewFeedService
       @articles = Article.all_feed
     else
       user_category_ids = current_account.categories.pluck(:id)
-      @articles = Article.new_feed(user_category_ids)
-      @articles += Article.new_feed(all_category_id - user_category_ids)
+      @articles = Article.publish.new_feed(user_category_ids)
+      @articles += Article.publish.new_feed(all_category_id - user_category_ids)
     end
   end
 end

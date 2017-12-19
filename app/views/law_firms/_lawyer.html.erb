@@ -13,7 +13,7 @@
         </span>
       </p>
       <p>
-        <%= lawyer_profile.introduction.truncate(120) %>
+        <%= lawyer_profile.introduction.truncate(120) if lawyer_profile.introduction.present? %>
       </p>
     </div>
   </div>
