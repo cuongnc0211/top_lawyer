@@ -8,6 +8,7 @@ Rails.application.configure do
     config.assets.prefix = "/assets"
     config.action_controller.asset_host = ENV["CDN_ASSET_HOST"]
   end
+  config.action_controller.asset_host = "/"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
