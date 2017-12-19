@@ -29,7 +29,7 @@ vi:
     answer: &answer Câu trả lời
     question: &question Câu hỏi
     popular_tags: &popular_tags Thẻ phổ biển
-    top_month: &top_month Luật sư nổi bật
+    top_month: &top_month Nổi bật trong tháng
     confirm_delete: &confirm_delete Bạn chắc chắn muốn xoá?
   layouts:
     admins:
@@ -206,6 +206,10 @@ vi:
         edit_law_profile: Sửa hồ sơ luật sư
         submit: *submit
     accounts:
+      show:
+        article: Bài viết
+        create_new_article: Tạo mới bài viết
+        new_article: Tạo mới
       edit:
         submit: *submit
         edit_profile: Chỉnh sửa thông tin cá nhân
@@ -233,6 +237,9 @@ vi:
           price: Giá mua quảng cáo mỗi ngày
           point: Điểm
     articles:
+      tag:
+        add_tag_description: Tạo giải thích tag
+        finish: Hoàn thành
       form:
         title: Tiêu đề
         status: Trạng thái
@@ -252,6 +259,7 @@ vi:
         publish: Công bố
         tag_list_message: Thẻ được phân cách bằng dấu phẩy
       edit:
+        next: Tiếp theo
         edit: Sửa
         edit_article: Sửa bài viết
       index:
@@ -269,6 +277,7 @@ vi:
         create_new_article: Tạo mới bài viết
         new_article: Tạo mới
       new:
+        next: Tiếp theo
         submit: Tạo bài viết
         create_article: Tạo Bài viết
     law_firm_members:
@@ -478,3 +487,4 @@ vi:
     show:
       articles: Bài viết
       questions: Câu hỏi
+      recommend_lawyers: *recommend_lawyers

@@ -54,6 +54,9 @@
     <%= link_to lawyer_profile_path(@article.account.lawyer_profile) do %>
       <%= image_tag @article.account_avatar_url, size: "50x50", class: "no_margin" %>
     <% end %>
+    <%= link_to lawyer_profile_path(@article.account.lawyer_profile) do %>
+      <p><%= @article.account.name %></p>
+    <% end %>
     <p>
       <% if current_account.present? && current_account.id != @article.account_id %>
         <%= render("shared/clip", clip: @clip) %>

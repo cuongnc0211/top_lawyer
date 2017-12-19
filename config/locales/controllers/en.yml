@@ -80,6 +80,15 @@ en:
         access_denies: Access Denies
         updated: *updated
         update_fail: *update_fail
+    advertise:
+      history_advertises:
+        created: *created
+        create_fail: *create_fail
+        new:
+          buy_advertise: Mua quảng cáo
+          category: Lĩnh vực
+          end_time: Ngày kết thúc
+          start_time: Ngày bắt đầu
   admin:
     lawyer_profiles:
       updated: *updated

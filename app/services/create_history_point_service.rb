@@ -9,6 +9,6 @@ class CreateHistoryPointService
 
   def perform
     total = point.point_per_time * amount
-    HistoryPoint.create account_id: account.id, point_id: point.id, amount: amount, total: total
+    hp = HistoryPoint.create account_id: account.id, point_id: point.id, amount: amount, total: total
   end
 end
