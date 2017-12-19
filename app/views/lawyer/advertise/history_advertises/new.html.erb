@@ -7,7 +7,7 @@
     <%= form_for [:lawyer, :advertise, @history_advertise] do |f| %>
       <div class="form-group">
         <%= f.label t ".category" %>
-        <%= f.select :province_id, options_for_select(@categories), {}, {class: "form__input"} %>
+        <%= f.select :category_id, options_for_select(@categories), {}, {class: "form__input"} %>
       </div>
 
       <div class="form-group">

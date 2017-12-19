@@ -6,9 +6,9 @@ class Lawyer::Advertise::HistoryAdvertisesController < Lawyer::BaseController
 
   def create
     @categories = Category.all.pluck(:name, :id)
-    @history_advertise = current_account.history_advertises.new history_point_params
+    @history_advertise = current_account.history_advertises.new history_advertise_params
     total_point = Point.advertise.first.point_per_time * @history_advertise.advertise_period
-    if current_account.point >= total_point && update_infomation(@history_advertise.advertise_period)
+    if current_account.lawyer_profile.point >= total_point && update_infomation(@history_advertise.advertise_period)
       flash[:success] = t ".created"
       redirect_to lawyer_root_path
     else
@@ -18,7 +18,7 @@ class Lawyer::Advertise::HistoryAdvertisesController < Lawyer::BaseController
   end
 
   private
-  def history_point_params
+  def history_advertise_params
     params.require(:history_advertise).permit HistoryAdvertise::HISTORY_ADVERTISE_ATTRIBUTES
   end
 

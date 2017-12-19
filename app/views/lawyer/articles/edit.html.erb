@@ -1,12 +1,16 @@
 <div class="col-md-12">
-  <h3><%= t ".edit_article" %></h3>
+  <div class="section-title al-center mgt-90">
+    <h4><%= t ".edit_article" %></h4>
+  </div>
 
-  <%= form_for [:lawyer, @article], class: "article-form" do |f| %>
-    <%= render "form", f: f , categories: @categories%>
-    <div class="form-group">
-      <%= f.button t(".next"), type: :submit, name: :step, value: :tag,
-        class: "form-control btn btn-primary" %>
-      <!-- <%= f.submit t(".edit") , class: "form-control btn btn-primary" %> -->
-    </div>
-  <% end %>
+  <div class="section-body padding-arround pd-10">
+    <%= form_for [:lawyer, @article], class: "article-form" do |f| %>
+      <%= render "form", f: f , categories: @categories%>
+      <div class="form-group">
+        <%= f.button t(".next"), type: :submit, name: :step, value: :tag,
+          class: "form-control btn btn-primary" %>
+        <!-- <%= f.submit t(".edit") , class: "form-control btn btn-primary" %> -->
+      </div>
+    <% end %>
+  </div>
 </div>

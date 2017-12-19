@@ -212,6 +212,9 @@ en:
           price: Price for each day advertise
           point: Point
     articles:
+      tag:
+        add_tag_description: Create Tag Description
+        finish: Finish
       form:
         title: Title
         status: Status
@@ -228,6 +231,7 @@ en:
         publish: Publish
         tag_list_message: Tags are separated by commas
       edit:
+        next: Next
         edit: Edit
         edit_article: Edit Article
       index:
@@ -243,6 +247,7 @@ en:
         edit: Edit
         destroy: destroy
       new:
+        new: Next
         submit: Create
         create_article: Create Article
     law_firm_members:
@@ -428,3 +433,8 @@ en:
         delete_vote_form:
           vote_up: Vote up
           vote_down: Vote down
+  categories:
+    show:
+      articles: Articles
+      questions: Questions
+      recommend_lawyers: *recommend_lawyers
