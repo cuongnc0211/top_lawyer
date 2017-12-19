@@ -5,7 +5,7 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = true
 
   if ENV["CDN_ASSET"] == "true"
-    config.assets.prefix = "assets"
+    config.assets.prefix = "/assets"
     config.action_controller.asset_host = ENV["CDN_ASSET_HOST"]
   end
   # Code is not reloaded between requests.
