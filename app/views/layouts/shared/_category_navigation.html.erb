@@ -1,5 +1,5 @@
 <div class="grid no-margin" style="max-width: 1550px !important;">
-  <div class="">
+  <div class="cate_navi">
     <ul class="nav sub_navi" role="navigation">
       <% Category.all.each do |category| %>
         <li class="nav__item"> <%= link_to category.name, category_path(category) %> </li>
