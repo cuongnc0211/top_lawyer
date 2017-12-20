@@ -356,6 +356,11 @@ en:
         confirm: Are you sure to delete this article?
   search:
     top_pages:
+      index:
+        article: Articles
+        question: Questions
+        lawyer_profile: Lawyers
+        law_firm: LawFirms
       _show_article_question:
         title: *title
         content: *content

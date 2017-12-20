@@ -396,6 +396,11 @@ vi:
         confirm: Bạn chắc chắn muốn xóa bài viết này?
   search:
     top_pages:
+      index:
+        article: Bài viết
+        question: Câu hỏi
+        lawyer_profile: Luật sư
+        law_firm: Văn phòng luật
       _show_article_question:
         title: *title
         content: *content

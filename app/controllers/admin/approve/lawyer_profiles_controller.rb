@@ -11,6 +11,7 @@ class Admin::Approve::LawyerProfilesController < Admin::BaseController
 
   def update
     if @lawyer_profile.update_attributes is_active: true, approved: true
+      @lawyer_profile.account.update_attributes role: :Lawyer
       redirect_to admin_approve_lawyer_profiles_path
       flash[:success] = t ".updated"
     else

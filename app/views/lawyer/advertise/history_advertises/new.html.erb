@@ -11,7 +11,8 @@
       </div>
 
       <div class="form-group">
-        <p><%= f.label t ".price" %>: <b><%= Point.advertise.first.point_per_time %> (<%= t ".point" %>)</b></p>
+        <% point = Point.advertise.first.point_per_time.to_i %>
+        <p><%= f.label t ".price" %>: <b><%= -point %> (<%= t ".point" %>)</b></p>
       </div>
 
       <div class="form-group">
