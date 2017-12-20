@@ -1,5 +1,9 @@
 $main-green: #52bab3;
 
+.cate_navi .nav li a {
+  padding: 10px 8px !important;
+}
+
 #search_form {
   max-width: 250px !important;
 }
@@ -24,7 +28,13 @@ div {
 }
 
 .cover_image {
-  height: 200px;
+  height: 150px;
+  margin-top: 50px;
+}
+
+.image_cover {
+  height: 150px;
+  min-width: 100%;
 }
 
 .link_none_decorate {
