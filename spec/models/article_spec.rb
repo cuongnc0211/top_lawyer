@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let!(:account) {FactoryGirl.create :account}
+  let!(:account) {FactoryBot.create :account}
   let!(:article) {Article.create account_id: account.id, category_id: 1, status: :publish, total_vote: 0}
 
   describe "init_vote" do

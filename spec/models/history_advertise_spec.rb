@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe HistoryAdvertise, type: :model do
-  let!(:account) {FactoryGirl.create :account}
+  let!(:account) {FactoryBot.create :account}
 
   describe "advertise_period" do
     let!(:history_advertise) {HistoryAdvertise.create account_id: account.id,

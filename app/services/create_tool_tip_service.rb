@@ -11,7 +11,7 @@ class CreateToolTipService
     content = sanitize(article.content)
     tags.each do |tag|
       unless tag.tag_descriptions.nil?
-        string = "<span class='tooltip_body' data-toggle='tooltip' title='#{tag.tag_descriptions.last.content}'><i>#{tag.name}</i></span>"
+        string = "<span class='tooltip_body' data-toggle='tooltip' title='#{tag&.tag_descriptions&.last&.content}'><i>#{tag&.name}</i></span>"
         content.gsub!(tag.name, string)
       end
     end

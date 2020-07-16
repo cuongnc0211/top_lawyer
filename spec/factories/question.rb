@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :question do
-    title "test"
+    title { "test" }
     account factory: :account
     category factory: :category
     content {Faker::Name.name}

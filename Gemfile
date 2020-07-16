@@ -42,7 +42,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec"
   gem "rspec-rails"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -84,7 +84,8 @@ gem "ransack"
 gem "ckeditor", github: 'galetahub/ckeditor', ref: '11d3a5b'
 gem "fog-aws"
 gem "figaro"
-gem "mysql2"
+# gem "mysql2"
+gem 'pg'
 gem "carrierwave"
 gem "mini_magick"
 gem "faker"
@@ -99,6 +100,6 @@ gem "fog"
 gem "asset_sync"
 gem "acts-as-taggable-on"
 gem "gon"
-gem "impressionist"
+gem 'impressionist', '~>1.6.1'
 gem "wicked"
 gem "unicorn"

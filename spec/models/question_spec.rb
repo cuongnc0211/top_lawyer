@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  let!(:account) {FactoryGirl.create :account}
-  let!(:question) {FactoryGirl.create :question}
+  let!(:account) {FactoryBot.create :account}
+  let!(:question) {FactoryBot.create :question}
 
   describe "init_vote" do
     it do

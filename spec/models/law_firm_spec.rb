@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe LawFirm, type: :model do
-  let!(:law_firm) {FactoryGirl.create :law_firm}
-  let!(:lawyer_profile) {FactoryGirl.create :lawyer_profile}
+  let!(:law_firm) {FactoryBot.create :law_firm}
+  let!(:lawyer_profile) {FactoryBot.create :lawyer_profile}
 
   describe "in_adding" do
     context "have lawyer in law_firm" do

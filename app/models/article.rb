@@ -31,14 +31,14 @@ class Article < ApplicationRecord
   scope :all_feed, -> do
     find_by_sql("
       select x.*, (x.view_count + x.comment_count*2 + x.clip_count*3 + x.total_vote*3 - x.hours) AS rank
-      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
-      COUNT(DISTINCT `comments`.`id`) AS comment_count,
-      COUNT(DISTINCT `clips`.`id`) AS clip_count,
-      TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours
-       FROM `articles`
-       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `articles`.`id` AND `impressions`.`impressionable_type` = 'Article'
-       LEFT OUTER JOIN `comments` ON `comments`.`commentable_id` = `articles`.`id` AND `comments`.`commentable_type` = 'Article'
-       LEFT OUTER JOIN `clips` ON `clips`.`article_id` = `articles`.`id` GROUP BY articles.id) x
+      FROM (SELECT  articles.* , COUNT(DISTINCT impressions.session_hash) AS view_count ,
+      COUNT(DISTINCT comments.id) AS comment_count,
+      COUNT(DISTINCT clips.id) AS clip_count,
+      extract(hour from age(now(), articles.created_at)) AS hours
+        FROM articles
+        LEFT OUTER JOIN impressions ON impressions.impressionable_id = articles.id AND impressions.impressionable_type = 'Article'
+        LEFT OUTER JOIN comments ON comments.commentable_id = articles.id AND comments.commentable_type = 'Article'
+        LEFT OUTER JOIN clips ON clips.article_id = articles.id GROUP BY articles.id) x
       ORDER BY rank DESC
     ")
   end
@@ -46,14 +46,14 @@ class Article < ApplicationRecord
   scope :new_feed, -> category_ids do
     find_by_sql(["
       select x.*, (x.view_count + x.comment_count*2 + x.clip_count*3 + x.total_vote*3 - x.hours) AS rank
-      FROM (SELECT  `articles` .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count ,
-      COUNT(DISTINCT `comments`.`id`) AS comment_count,
-      COUNT(DISTINCT `clips`.`id`) AS clip_count,
-      TIMESTAMPDIFF(HOUR,  articles.`created_at`, NOW()) AS hours
-       FROM `articles`
-       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `articles`.`id` AND `impressions`.`impressionable_type` = 'Article'
-       LEFT OUTER JOIN `comments` ON `comments`.`commentable_id` = `articles`.`id` AND `comments`.`commentable_type` = 'Article'
-       LEFT OUTER JOIN `clips` ON `clips`.`article_id` = `articles`.`id` GROUP BY articles.id) x
+      FROM (SELECT  articles.* , COUNT(DISTINCT impressions.session_hash) AS view_count ,
+      COUNT(DISTINCT comments.id) AS comment_count,
+      COUNT(DISTINCT clips.id) AS clip_count,
+      extract(hour from age(now(), articles.created_at)) AS hours
+        FROM articles
+        LEFT OUTER JOIN impressions ON impressions.impressionable_id = articles.id AND impressions.impressionable_type = 'Article'
+        LEFT OUTER JOIN comments ON comments.commentable_id = articles.id AND comments.commentable_type = 'Article'
+        LEFT OUTER JOIN clips ON clips.article_id = articles.id GROUP BY articles.id) x
       WHERE x.category_id IN (?)
       ORDER BY rank DESC
     ", category_ids])

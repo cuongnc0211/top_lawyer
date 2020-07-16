@@ -20,28 +20,28 @@ class Question < ApplicationRecord
 
   scope :all_feed, -> do
     find_by_sql("
-      select x.*, (x.view_count + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
-      COUNT(DISTINCT `answers`.`id`) AS answer_count,
-      TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
-       FROM `questions`
-       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `questions`.`id` AND `impressions`.`impressionable_type` = 'Question'
-       LEFT OUTER JOIN `answers` ON `answers`.`question_id` = `questions`.`id`
-	   GROUP BY questions.id) x
-     ORDER BY rank DESC
+      select x.*, (x.view_count - x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  questions.* , COUNT(DISTINCT impressions.session_hash) AS view_count,
+      COUNT(DISTINCT answers.id) AS answer_count,
+      extract(hour from age(now(), questions.created_at)) AS hours
+        FROM questions
+        LEFT OUTER JOIN impressions ON impressions.impressionable_id = questions.id AND impressions.impressionable_type = 'Question'
+        LEFT OUTER JOIN answers ON answers.question_id = questions.id
+      GROUP BY questions.id) x
+      ORDER BY rank DESC
     ")
   end
 
   scope :new_feed, -> category_ids do
     find_by_sql(["
-      select x.*, (x.view_count + x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
-      FROM (SELECT  questions .* , COUNT(DISTINCT `impressions`.`session_hash`) AS view_count,
-      COUNT(DISTINCT `answers`.`id`) AS answer_count,
-      TIMESTAMPDIFF(HOUR,  questions.`created_at`, NOW()) AS hours
-       FROM `questions`
-       LEFT OUTER JOIN `impressions` ON `impressions`.`impressionable_id` = `questions`.`id` AND `impressions`.`impressionable_type` = 'Question'
-       LEFT OUTER JOIN `answers` ON `answers`.`question_id` = `questions`.`id`
-	    GROUP BY questions.id) x
+      select x.*, (x.view_count - x.answer_count*2 + x.total_vote*4 - x.hours) AS rank
+      FROM (SELECT  questions.* , COUNT(DISTINCT impressions.session_hash) AS view_count,
+      COUNT(DISTINCT answers.id) AS answer_count,
+      extract(hour from age(now(), questions.created_at)) AS hours
+        FROM questions
+        LEFT OUTER JOIN impressions ON impressions.impressionable_id = questions.id AND impressions.impressionable_type = 'Question'
+        LEFT OUTER JOIN answers ON answers.question_id = questions.id
+      GROUP BY questions.id) x
       WHERE x.category_id IN (?)
       ORDER BY rank DESC
     ", category_ids])

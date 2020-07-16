@@ -5,7 +5,8 @@ puts "create_admin"
   Account.create email: "admin#{n + 1}@example.com",
     name: "admin#{n+1}",
     password: "12345678",
-    role: 0
+    role: 0,
+    confirmed_at: Time.zone.now
 end
 
 puts "create_user"
@@ -14,7 +15,8 @@ puts "create_user"
     name: Faker::Name.name,
     password: "12345678",
     role: 1,
-    is_active: true
+    is_active: true,
+    confirmed_at: Time.zone.now
 end
 
 puts "create_province"
@@ -55,7 +57,8 @@ law_firm_ids = LawFirm.all.pluck :id
     law_firm_id: law_firm_ids.sample,
     fax_number: Faker::PhoneNumber.phone_number,
     introduction: Faker::Lorem.paragraph,
-    reputation: Array(1..100).sample)
+    reputation: Array(1..100).sample),
+    confirmed_at: Time.zone.now
 end
 
 puts "create_universities"
