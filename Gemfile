@@ -103,3 +103,9 @@ gem "gon"
 gem 'impressionist', '~>1.6.1'
 gem "wicked"
 gem "unicorn"
+
+#captcha
+
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
+gem "recaptcha", require: "recaptcha/rails"

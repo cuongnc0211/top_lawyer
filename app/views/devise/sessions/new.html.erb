@@ -1,4 +1,4 @@
-<div class="login_box">
+<div class="login_box form">
   <h2 class="al-center">
     <%= link_to "TopLawyer", root_path, class: "link_none_decorate" %>
   </h2>
@@ -14,6 +14,10 @@
       <%= f.password_field :password, autocomplete: "off", class: "form__input" %>
     </div>
 
+    <div class="field">
+      <%= recaptcha_tags %>
+    </div>
+
     <% if devise_mapping.rememberable? -%>
       <div class="field">
         <%= f.check_box :remember_me %>
@@ -22,7 +26,7 @@
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "form__btn" %>
+      <%= f.submit "Log in", class: "form__btn login-btn" %>
     </div>
   <% end %>
   <br />
