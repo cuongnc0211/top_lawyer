@@ -4,6 +4,7 @@
   </div>
   <div class="section-body padding-arround">
     <%= form_for [:lawyer, @lawyer_profile] do |f| %>
+    <%= render "shared/errors_list", object: @lawyer_profile %>
     <%= render "shared/lawyer_profiles/form", f: f %>
 
     <div class="form-group">

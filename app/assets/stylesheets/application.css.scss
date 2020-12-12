@@ -196,6 +196,16 @@ div.tab button.active {
     }
 }
 
+.danger {
+    color: red !important;
+}
+
+.error_list {
+    border: 2px solid red;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
 .selection_active {
     font-weight: bold !important;
     text-decoration: none !important;

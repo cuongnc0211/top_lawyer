@@ -17,6 +17,8 @@
       </div>
       <div class="temple_hide" id="answer-form-<%= answer.id %>">
         <%= form_for [:lawyer, answer] do |f| %>
+          <%= render "shared/errors_list", object: answer %>
+
           <%= f.text_area :content, row: 3, class: "form__input" %>
           <%= f.submit t(".update_answer"), class: "form__btn" %>
         <% end %>

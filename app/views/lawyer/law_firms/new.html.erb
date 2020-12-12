@@ -1,6 +1,7 @@
 <div class="col-md-9">
   <h3><%= t ".my_law_firm" %></h3>
   <%= nested_form_for [:lawyer, @law_firm] do |f| %>
+    <%= render "shared/errors_list", object: @law_firm %>
     <%= render "form", f: f, provinces: @provinces, image: @image %>
     <div class="form-group">
       <%= f.submit t(".submit"), class: "btn btn-primary form-control" %>

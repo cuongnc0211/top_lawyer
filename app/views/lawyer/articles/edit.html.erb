@@ -5,6 +5,8 @@
 
   <div class="section-body padding-arround pd-10">
     <%= form_for [:lawyer, @article], class: "article-form" do |f| %>
+      <%= render "shared/errors_list", object: @article %>
+
       <%= render "form", f: f , categories: @categories%>
       <div class="form-group">
         <%= f.button t(".next"), type: :submit, name: :step, value: :tag,
