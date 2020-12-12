@@ -189,3 +189,15 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.field_with_errors {
+    input, select {
+        border: 1px solid red;
+    }
+}
+
+.selection_active {
+    font-weight: bold !important;
+    text-decoration: none !important;
+    color: red !important;
+  }
