@@ -11,12 +11,11 @@ class Accounts::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     if !verify_recaptcha
-      flash.delete :recaptcha_error
       build_resource(sign_in_params)
       resource.valid?
       resource.errors.add(:base, "There was an error with the recaptcha code below. Please re-enter the code.")
       clean_up_passwords(resource)
-      # respond_with_navigational(resource) { render_with_scope :new }
+      flash.now[:error] = resource.errors[:base]&.first
       render :new
     else
       flash.delete :recaptcha_error
